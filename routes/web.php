@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view("/", "cuenta.ajustes")->name("home");
+Route::view("/", "login.login")->name("home");
 //Login
 Route::post("/register","ControladorLogin@registro")->name("registrarse");
 Route::post("/iniciosesion","ControladorLogin@inicioSesion")->name("iniciarSesion");
