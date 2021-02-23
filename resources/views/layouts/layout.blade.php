@@ -75,8 +75,6 @@
                         <h3>Ajustes de usuario</h3>
                         <ul class="us-links">
                             <li><a href="profile-account-setting.html" title="">Ajustes de cuenta</a></li>
-                            <li><a href="#" title="">Privacidad</a></li>
-
                         </ul>
                         <h3 class="tc"><a href="login.html" title="">Cerrar sesión</a></h3>
                     </div><!--user-account-settingss end-->
