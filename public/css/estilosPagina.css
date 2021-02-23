@@ -59,7 +59,10 @@ header nav{
 
 /*Ajustes*/
 .nav-link.active{
-    background-color: #FCA311 !important ;
+    color: #FCA311 !important ;
+}
+.save-stngs ul li button:hover{
+    background-color: #FCA311 !important;
 }
 
 @media (max-width: 576px) {
