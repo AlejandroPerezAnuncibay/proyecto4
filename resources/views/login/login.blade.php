@@ -53,8 +53,8 @@
                                     <div class="row">
                                         <div class="col-lg-12 no-pdd">
                                             <div class="sn-field">
-                                                <input type="text" name="username" placeholder="Usuario">
-                                                <i class="la la-user"></i>
+                                                <input type="text" name="email" placeholder="Email">
+                                                <i class="la la-envelope-o"></i>
                                             </div><!--sn-field end-->
                                         </div>
                                         <div class="col-lg-12 no-pdd">
@@ -96,14 +96,14 @@
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
                                                     <input type="text" name="email" placeholder="Email">
-                                                    <i class="la la-globe"></i>
+                                                    <i class="la la-envelope-o"></i>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
 
                                                     <input type="date" name="fecha" placeholder="Fecha de nacimiento">
-                                                    <i class="la la-globe"></i>
+                                                    <i class="la la-calendar-o"></i>
                                                 </div>
                                             </div>
 

@@ -57,6 +57,11 @@ header nav{
     border: 0;
 }
 
+/*Ajustes*/
+.nav-link.active{
+    background-color: #FCA311 !important ;
+}
+
 @media (max-width: 576px) {
     header nav.active{
         width: 100%;

@@ -13,4 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view("/", "principales.index");
+Route::view("/", "cuenta.ajustes")->name("home");
+//Login
+Route::post("/register","ControladorLogin@registro")->name("registrarse");
+Route::post("/iniciosesion","ControladorLogin@inicioSesion")->name("iniciarSesion");
+
+//Index
+Route::get("/proyecto/{id}","ControladorIndex@mostrarProyecto")->name("mostrarProyecto");
+Route::get("/ajustes","ControladorIndex@mostrarAjustes")->name("mostrarAjustes");
+Route::get("/estadisticas","ControladorIndex@mostrarEstadisticas")->name("MostrarEstadisticas");
+Route::get("/crearproyecto","ControladorIndex@crearProyecto")->name("crearProyecto");
+Route::get("/cerrarSesion","ControladorIndex@cerrarSesion")->name("cerrarSesion");
