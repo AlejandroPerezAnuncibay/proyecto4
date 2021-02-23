@@ -12,8 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 Route::view("/","login.login");
 Route::get("/", "controladorIndex@home")->name("home");
+
 //Login
 Route::post("/register","ControladorLogin@registro")->name("registrarse");
 Route::post("/iniciosesion","ControladorLogin@inicioSesion")->name("iniciarSesion");
