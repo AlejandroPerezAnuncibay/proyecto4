@@ -36,25 +36,21 @@
                 <nav class="">
                     <ul>
                         <li>
-                            <a href="index.html" title="">
-                                <span><img src="images/icon1.png" alt=""></span>
-                                Home
+                            <a href="{{route("home")}}" title="">
+                                <span><i class="la la-home"></i></span>
+                                Inicio
                             </a>
                         </li>
                         <li>
-                            <a href="companies.html" title="">
-                                <span><img src="images/icon2.png" alt=""></span>
-                                Companies
+                            <a href="{{route("mostrarEstadisticas")}}" title="">
+                                <span><i class="la la-bar-chart-o"></i></span>
+                                Estadisticas
                             </a>
-                            <ul>
-                                <li><a href="companies.html" title="">Companies</a></li>
-                                <li><a href="company-profile.html" title="">Company Profile</a></li>
-                            </ul>
                         </li>
                         <li>
                             <a href="projects.html" title="">
-                                <span><img src="images/icon3.png" alt=""></span>
-                                Projects
+                                <span><i class="la la-plus"></i></span>
+                                Crear Projecto
                             </a>
                         </li>
 
@@ -74,9 +70,9 @@
 
                         <h3>Ajustes de usuario</h3>
                         <ul class="us-links">
-                            <li><a href="profile-account-setting.html" title="">Ajustes de cuenta</a></li>
+                            <li><a href="{{route("mostrarAjustes")}}" title="">Ajustes de cuenta</a></li>
                         </ul>
-                        <h3 class="tc"><a href="login.html" title="">Cerrar sesión</a></h3>
+                        <h3 class="tc"><a href="{{route("cerrarSesion")}}" title="">Cerrar sesión</a></h3>
                     </div><!--user-account-settingss end-->
                 </div>
             </div><!--header-data end-->
