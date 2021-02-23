@@ -4737,9 +4737,11 @@
       <change beforePath="$PROJECT_DIR$/../../../PHP ejercicios/proyectosLaravel/repasoExamen/tests/Unit/ExampleTest.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../PHP ejercicios/proyectosLaravel/repasoExamen/webpack.mix.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../PHP ejercicios/ubuntu-bionic-18.04-cloudimg-console.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ControladorIndex.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ControladorIndex.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ControladorLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ControladorLogin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ControladorPerfil.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ControladorPerfil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ControladorProyectos.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ControladorProyectos.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
