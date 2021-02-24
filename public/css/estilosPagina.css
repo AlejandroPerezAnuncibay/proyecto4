@@ -20,11 +20,13 @@ body{
     border-color: #FCA311;
     color: white;
 }
+.tc a{
+    color: white;
+}
 
 header{
     background-color: #14213d;
 }
-
 
 header nav{
     background-color: #14213d;
@@ -60,6 +62,27 @@ header nav{
 
 .user-account{
     border: 0;
+}
+
+.row .col-5 h2{
+    padding: 5% 0%;
+    text-transform: uppercase;
+}
+
+/*Menu*/
+.nav{
+    justify-content: flex-end !important;
+}
+@media (max-width: 768px) and (min-width: 410px){
+    .tituloMenu{
+        display: none !important;
+    }
+    .menu{
+        display: flex;
+        flex: auto;
+        justify-content: center;
+        padding: 3%;
+    }
 }
 
 /*Ajustes*/

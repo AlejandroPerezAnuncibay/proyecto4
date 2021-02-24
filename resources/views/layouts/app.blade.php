@@ -38,24 +38,24 @@
                 <div class="logo">
                     <a href="{{route('dashboard')}}" title=""><img src="img/logo.png" alt=""></a>
                 </div><!--logo end-->
-                <nav class="">
-                    <ul>
+                <nav class="nav">
+                    <ul class="menu">
                         <li>
                             <a href="{{route("home")}}" title="">
                                 <span><i class="la la-home"></i></span>
-                                Inicio
+                                <span class="tituloMenu">Inicio</span>
                             </a>
                         </li>
                         <li>
                             <a href="{{route("mostrarEstadisticas")}}" title="">
                                 <span><i class="la la-bar-chart-o"></i></span>
-                                Estadisticas
+                                <span class="tituloMenu">Estadísticas</span>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route("mostrarFormularioCrearProyectos") }}">
                                 <span><i class="la la-plus"></i></span>
-                                Crear Projecto
+                                <span class="tituloMenu">Crear proyecto</span>
                             </a>
                         </li>
 
@@ -129,5 +129,6 @@
 <script type="text/javascript" src="js/flatpickr.min.js"></script>
 <script type="text/javascript" src="lib/slick/slick.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
+<!--<script type="text/javascript" src="js/layouts.js"></script>-->
 </body>
 </html>

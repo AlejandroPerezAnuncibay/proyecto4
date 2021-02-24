@@ -32,7 +32,7 @@ class ControladorIndex extends Controller
             "creador" => \request("creador")
         ]);
 
-        return view("dashboard");
+        return redirect("/dashboard");
     }
 
 }
