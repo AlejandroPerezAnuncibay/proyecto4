@@ -17,6 +17,7 @@ class CreateTablaUsuarios extends Migration
             $table->bigIncrements('id');
             $table->string('nombre');
             $table->string('apellido');
+            $table->string('contra');
             $table->string('email')->unique();
             $table->date('fecha_nac');
             $table->timestamps();

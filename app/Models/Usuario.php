@@ -11,11 +11,6 @@ class Usuario extends Model
     protected $table='Usuarios';
 
     protected $guarded=[
-        'id',
-        'nombre',
-        'apellido',
-        'contrasena',
-        'email',
-        'fecha_nac'
+
     ];
 }

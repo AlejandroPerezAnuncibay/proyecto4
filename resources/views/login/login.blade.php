@@ -35,7 +35,9 @@
                         <div class="cmp-info">
                             <div class="cm-logo">
                                 <img src="images/cm-logo.png" alt="">
-                                <p>Workwise,  is a global freelancing platform and social networking where businesses and independent professionals connect and collaborate remotely</p>
+                                @if(isset($mensaje))
+                                    <p>{{ $mensaje }}</p>
+                                    @endif
                             </div><!--cm-logo end-->
                             <img src="images/cm-main-img.png" alt="">
                         </div><!--cmp-info end-->
@@ -49,7 +51,8 @@
                             <div class="sign_in_sec current" id="tab-1">
 
                                 <h3>Iniciar sesión</h3>
-                                <form>
+                                <form action="{{route('iniciarSesion')}}" method="POST">
+                                    @csrf
                                     <div class="row">
                                         <div class="col-lg-12 no-pdd">
                                             <div class="sn-field">
@@ -79,13 +82,15 @@
                             <div class="sign_in_sec" id="tab-2">
                                 <h3>Registrarse</h3>
                                 <div class="dff-tab current" id="tab-3">
-                                    <form>
+                                    <form action="{{route('registrarse')}}" method="POST">
+                                        @csrf
                                         <div class="row">
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
                                                     <input type="text" name="nombre" placeholder="Nombre">
                                                     <i class="la la-user"></i>
                                                 </div>
+                                                {!! $errors->first('nombre','<p style="color:red;">:message</p>') !!}
                                             </div>
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
@@ -102,7 +107,7 @@
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
 
-                                                    <input type="date" name="fecha" placeholder="Fecha de nacimiento">
+                                                    <input type="date" name="fecha_nac" placeholder="Fecha de nacimiento">
                                                     <i class="la la-calendar-o"></i>
                                                 </div>
                                             </div>
@@ -114,6 +119,8 @@
                                                     <input type="password" name="contra" placeholder="Contraseña">
                                                     <i class="la la-lock"></i>
                                                 </div>
+                                                {!! $errors->first('contra','<p style="color:red;">:message</p>') !!}
+
                                             </div>
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::view("/","login.login");
-Route::get("/", "controladorIndex@home")->name("home");
+Route::get("/home", "controladorIndex@home")->name("home");
 
 //Login
 Route::post("/register","ControladorLogin@registro")->name("registrarse");
