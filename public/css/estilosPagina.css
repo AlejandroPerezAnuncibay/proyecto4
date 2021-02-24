@@ -14,8 +14,13 @@ body{
 }
 .sign_in_sec h3:before{
     background-color: #FCA311 !important;
-
 }
+.btnEnviar{
+    background-color: #FCA311 !important;
+    border-color: #FCA311;
+    color: white;
+}
+
 header{
     background-color: #14213d;
 }

@@ -10,15 +10,14 @@
                     <div class="bg-light">
                         @if(count($miProyectos) > 0)
                             @foreach($miProyectos as $proyecto)
-                                <div class="card border rounded">
-                                    <div class="card-header bg-primary">
-                                        <h5>{{$proyecto->nombre}}</h5>
-                                    </div>
+                                <div class="card">
+                                    <img src="" class="card-img-top">
                                     <div class="card-body">
-                                        <p>{{$proyecto->descripcion}}</p>
-                                        <!-- imagen
-                                        <img src"">-->
+                                        <h5 class="card-title" >{{$proyecto->nombre}}</h5>
+                                        <p class="card-text">{{$proyecto->descripcion}}</p>
+                                        <a href="/proyecto/{{ $proyecto->id }}" class="btn btn-primary btnEnviar">Ver proyecto</a>
                                     </div>
+
                                 </div>
                             @endforeach
                         @else
@@ -33,7 +32,7 @@
                             @foreach($proyectosCompartidos as $proyecCompartido)
                                 <div class="card border rounded">
                                     <div class="card-header bg-primary">
-                                        <h5>{{$proyecCompartido->nombre}}</h5>
+                                        <a href="/proyecto/{{ $proyecCompartido->id }}">{{$proyecCompartido->nombre}}</a>
                                     </div>
                                     <div class="card-body">
                                         <p>{{$proyecCompartido->descripcion}}</p>

@@ -17,7 +17,7 @@ use App\Models\Proyecto;
 
 
 Route::get('/dashboard', function () {
-    $proyectos = Proyecto::get();
+    $proyectos = Proyecto::get()->where('id',Auth::user()->id);
     $proyectosCompartidos = Proyecto::get()->where('id',Auth::user()->id);
     return view('home')->with('miProyectos', $proyectos)->with('proyectosCompartidos',$proyectosCompartidos);
 })->middleware(['auth'])->name('dashboard');
