@@ -21,7 +21,7 @@ class CreateTablaTareas extends Migration
             $table->date('fecha_vencimiento');
             $table->unsignedBigInteger('usuario_asignado');
 
-            $table->foreign('usuario_asignado')->references('id')->on('Usuarios')->onDelete('cascade');
+            $table->foreign('usuario_asignado')->references('id')->on('users')->onDelete('cascade');
             $table->string('descripcion');
             $table->boolean('realizado')->default(false);
             $table->timestamps();

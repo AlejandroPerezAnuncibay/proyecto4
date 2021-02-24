@@ -11,9 +11,6 @@ class Proyecto extends Model
     protected $table='Proyectos';
 
     protected $guarded = [
-        "id",
-        "nombre",
-        "descripcion",
-        "creador"
+
     ];
 }

@@ -21,7 +21,7 @@ class CreateTablaMensajes extends Migration
             $table->string('descripcion');
             $table->unsignedBigInteger('creador');
 
-            $table->foreign('creador')->references('id')->on('Usuarios')->onDelete('cascade');
+            $table->foreign('creador')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

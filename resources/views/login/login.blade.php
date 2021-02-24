@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +36,7 @@
                                 <img src="images/cm-logo.png" alt="">
                                 @if(isset($mensaje))
                                     <p>{{ $mensaje }}</p>
-                                    @endif
+                                @endif
                             </div><!--cm-logo end-->
                             <img src="images/cm-main-img.png" alt="">
                         </div><!--cmp-info end-->
@@ -51,29 +50,56 @@
                             <div class="sign_in_sec current" id="tab-1">
 
                                 <h3>Iniciar sesión</h3>
-                                <form action="{{route('iniciarSesion')}}" method="POST">
+                                <form method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="row">
                                         <div class="col-lg-12 no-pdd">
                                             <div class="sn-field">
-                                                <input type="text" name="email" placeholder="Email">
+                                                <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                                 <i class="la la-envelope-o"></i>
                                             </div><!--sn-field end-->
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                         <div class="col-lg-12 no-pdd">
                                             <div class="sn-field">
-                                                <input type="password" name="password" placeholder="Contraseña">
+                                                <input id="password" placeholder="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                                 <i class="la la-lock"></i>
+                                            </div>
+                                            @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-md-6 offset-md-4">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                                    <label class="form-check-label" for="remember">
+                                                        {{ __('Recuérdame') }}
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 no-pdd">
                                             <div class="checky-sec">
 
-                                                <a href="#" title="">¿Has olvidado la contraseña?</a>
+                                                @if (Route::has('password.request'))
+                                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                                        {{ __('¿Has olvidado la contraseña?') }}
+                                                    </a>
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="col-lg-12 no-pdd">
-                                            <button type="submit" value="submit">Iniciar sesión</button>
+                                            <button type="submit" class="btn btn-primary">
+                                                {{ __('Iniciar sesión') }}
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -82,49 +108,57 @@
                             <div class="sign_in_sec" id="tab-2">
                                 <h3>Registrarse</h3>
                                 <div class="dff-tab current" id="tab-3">
-                                    <form action="{{route('registrarse')}}" method="POST">
+                                    <form method="POST" action="{{ route('register') }}">
                                         @csrf
                                         <div class="row">
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
-                                                    <input type="text" name="nombre" placeholder="Nombre">
+                                                    <input id="name" type="text" placeholder="Nombre" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                                     <i class="la la-user"></i>
                                                 </div>
-                                                {!! $errors->first('nombre','<p style="color:red;">:message</p>') !!}
+                                                @error('name')
+                                                <span class="invalid-feedback" role="alert">
+                                                  <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
                                             </div>
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
-                                                    <input type="text" name="apellido" placeholder="Apellido">
+                                                    <input id="surname" placeholder="Apellido" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
                                                     <i class="la la-user"></i>
                                                 </div>
+                                                @error('surname')
+                                                    <span class="invalid-feedback" role="alert">
+                                                     <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
                                             </div>
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
-                                                    <input type="text" name="email" placeholder="Email">
+                                                    <input id="email" type="email"placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                                     <i class="la la-envelope-o"></i>
                                                 </div>
+                                                @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
                                             </div>
-                                            <div class="col-lg-12 no-pdd">
-                                                <div class="sn-field">
-
-                                                    <input type="date" name="fecha_nac" placeholder="Fecha de nacimiento">
-                                                    <i class="la la-calendar-o"></i>
-                                                </div>
-                                            </div>
-
-
 
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
-                                                    <input type="password" name="contra" placeholder="Contraseña">
+                                                    <input id="password" type="password" placeholder="Contraseña" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                                     <i class="la la-lock"></i>
                                                 </div>
-                                                {!! $errors->first('contra','<p style="color:red;">:message</p>') !!}
-
+                                                @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
                                             </div>
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
-                                                    <input type="password" name="rep-contra" placeholder="Repite la contraseña">
+                                                    <input id="password-confirm" placeholder="Repetir contraseña" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                                     <i class="la la-lock"></i>
                                                 </div>
                                             </div>

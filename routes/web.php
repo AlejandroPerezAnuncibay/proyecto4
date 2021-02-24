@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
-
+use App\Models\Proyecto;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,16 +15,29 @@ use Illuminate\Support\Facades\Auth;
 */
 
 
-Route::view("/","login.login");
-Route::get("/home", "controladorIndex@home")->name("home");
+
+Route::get('/dashboard', function () {
+    $proyectos = Proyecto::get();
+    $proyectosCompartidos = Proyecto::get()->where('id',Auth::user()->id);
+    return view('home')->with('miProyectos', $proyectos)->with('proyectosCompartidos',$proyectosCompartidos);
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::view("/","auth.login");
 
 //Login
-Route::post("/register","ControladorLogin@registro")->name("registrarse");
+Route::post("/registrar","ControladorLogin@registro")->name("registrarse");
 Route::post("/iniciosesion","ControladorLogin@inicioSesion")->name("iniciarSesion");
 
 //Index
 Route::get("/proyecto/{id}","ControladorIndex@mostrarProyecto")->name("mostrarProyecto");
 Route::get("/ajustes","ControladorIndex@mostrarAjustes")->name("mostrarAjustes");
 Route::get("/estadisticas","ControladorIndex@mostrarEstadisticas")->name("mostrarEstadisticas");
-Route::get("/crearproyecto","ControladorIndex@crearProyecto")->name("crearProyecto");
+Route::post("/crearproyecto","ControladorIndex@crearProyecto")->name("crearProyecto");
+Route::get("/proyectos","ControladorIndex@mostrarFormulario")->name("mostrarFormularioCrearProyectos");
 Route::get("/cerrarSesion","ControladorIndex@cerrarSesion")->name("cerrarSesion");

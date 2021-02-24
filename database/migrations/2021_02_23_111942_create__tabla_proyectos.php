@@ -18,7 +18,7 @@ class CreateTablaProyectos extends Migration
             $table->string('nombre');
             $table->string('descripcion');
             $table->unsignedBigInteger('creador');
-            $table->foreign('creador')->references('id')->on('Usuarios')->onDelete('cascade');
+            $table->foreign('creador')->references('id')->on('users')->onDelete('cascade');
             $table->char("imagen")->nullable();
             $table->timestamps();
         });
