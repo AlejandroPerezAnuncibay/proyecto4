@@ -59,6 +59,20 @@ header nav{
 .active{
     top: 11.5%;
 }
+/*checkbox de login */
+#remember{
+    width: 20px !important;
+    height: 20px !important;
+}
+label[for=remember]{
+    margin-top: .5rem !important;
+}
+.elogin ,.error{
+    margin-bottom: .5rem !important;
+}
+.sn-field{
+    margin-bottom: 12px !important;
+}
 
 .user-account{
     border: 0;

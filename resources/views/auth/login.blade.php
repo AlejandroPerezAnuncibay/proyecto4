@@ -55,7 +55,7 @@
                                     <div class="row">
                                         <div class="col-lg-12 no-pdd">
                                             <div class="sn-field">
-                                                <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                                <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
                                                 <i class="la la-envelope-o"></i>
                                             </div><!--sn-field end-->
                                             @error('email')
@@ -67,9 +67,10 @@
 
                                         <div class="col-lg-12 no-pdd">
                                             <div class="sn-field">
-                                                <input id="password" placeholder="Contraseña" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                                <input id="password" placeholder="Contraseña" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password">
                                                 <i class="la la-lock"></i>
                                             </div>
+                                            <small class="error elogin" style="color: red; display: none;"></small>
                                             @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -117,6 +118,7 @@
                                                     <input id="name" type="text" placeholder="Nombre" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                                     <i class="la la-user"></i>
                                                 </div>
+                                                <small class="error name" style="color: red; display: none;"></small>
                                                 @error('name')
                                                 <span class="invalid-feedback" role="alert">
                                                   <strong>{{ $message }}</strong>
@@ -128,6 +130,8 @@
                                                     <input id="surname" placeholder="Apellido" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
                                                     <i class="la la-user"></i>
                                                 </div>
+                                                <small class="error surname" style="color: red; display: none;"></small>
+
                                                 @error('surname')
                                                 <span class="invalid-feedback" role="alert">
                                                      <strong>{{ $message }}</strong>
@@ -136,9 +140,11 @@
                                             </div>
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
-                                                    <input id="email" type="email"placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                                    <input id="e-mail" type="email"placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="e-mail" value="{{ old('email') }}" required autocomplete="email">
                                                     <i class="la la-envelope-o"></i>
                                                 </div>
+                                                <small class="error e-mail" style="color: red; display: none;"></small>
+
                                                 @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -148,9 +154,11 @@
 
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
-                                                    <input id="password" type="password" placeholder="Contraseña" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                                    <input id="pass" type="password" placeholder="Contraseña" class="form-control @error('password') is-invalid @enderror" name="pass" required autocomplete="new-password">
                                                     <i class="la la-lock"></i>
                                                 </div>
+                                                <small class="error pass" style="color: red; display: none;"></small>
+
                                                 @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -162,6 +170,8 @@
                                                     <input id="password-confirm" placeholder="Repetir contraseña" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                                     <i class="la la-lock"></i>
                                                 </div>
+                                                <small class="error password_confirmation" style="color: red; display: none;"></small>
+
                                             </div>
 
                                             <div class="col-lg-12 no-pdd">
@@ -195,5 +205,7 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="lib/slick/slick.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
+<script src="{{ asset('typescript/login.js') }}" defer></script>
+
 </body>
 </html>
