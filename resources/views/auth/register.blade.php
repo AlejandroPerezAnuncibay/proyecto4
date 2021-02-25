@@ -33,7 +33,7 @@
                     <div class="col-lg-6">
                         <div class="cmp-info">
                             <div class="cm-logo">
-                                <img src="images/cm-logo.png" alt="">
+                                <h2>MAN</h2>
                                 @if(isset($mensaje))
                                     <p>{{ $mensaje }}</p>
                                 @endif

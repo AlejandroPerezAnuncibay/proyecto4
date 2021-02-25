@@ -1,6 +1,7 @@
 body{
     font-family: 'Montserrat', sans-serif;
     background-color: white;
+    overflow-x: hidden;
 }
 /*Login*/
 .sign-in{
@@ -20,10 +21,29 @@ body{
     border-color: #FCA311;
     color: white;
 }
+
 .tc a{
     color: white;
 }
-
+.cm-logo h1{
+    font-size: 3em;
+    text-align: center;
+}
+.cm-logo h1:before{
+    background-color: #FCA311 !important;
+}
+.letraNaranja{
+    color: #FCA311;
+    padding: 0 15px;
+}
+.letraAzul{
+    color: #14213d;
+    padding: 0 15px;
+}
+.letraGris{
+    color: #919091;
+    padding: 0 15px;
+}
 header{
     background-color: #14213d;
 }
@@ -51,7 +71,9 @@ header nav{
     float: right;
     width: 85%;
 }
-
+.user-info a{
+    font-size: 16px;
+}
 .user-account-settingss.active{
     top: 60px;
 }
@@ -82,8 +104,21 @@ label[for=remember]{
     padding: 5% 0%;
     text-transform: uppercase;
 }
-
+@media (min-width: 992px){
+    .cm-logo h1{
+        display: none;
+    }
+}
 /*Menu*/
+.tituloMenu{
+    padding-top: 14px;
+}
+.nav ul li span i{
+    font-size: 2em;
+}
+.nav ul li{
+    padding: 10px 13px;
+}
 .nav{
     justify-content: flex-end !important;
 }
@@ -93,9 +128,21 @@ label[for=remember]{
     }
     .menu{
         display: flex;
-        flex: auto;
         justify-content: center;
         padding: 3%;
+    }
+    .nav ul li span i{
+        font-size: 1.5em;
+    }
+    .user-info a{
+        font-size: 12px;
+    }
+}
+/*Proyectos*/
+@media (min-width: 360px) {
+    .tituloProyecto{
+        text-transform: uppercase;
+        padding: 20px 0px;
     }
 }
 

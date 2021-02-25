@@ -4,9 +4,9 @@
 
     <main>
         <div class="main-section">
-            <div class="row">
-                <div class="col-5">
-                    <h2>Mis proyectos</h2>
+            <div class="row d-flex justify-content-center">
+                <div class="col-sm-5 col-xs-8">
+                    <h2 class="tituloProyecto">Mis proyectos</h2>
                     <div class="bg-light">
                         @if(count($miProyectos) > 0)
                             @foreach($miProyectos as $proyecto)
@@ -21,12 +21,16 @@
                                 </div>
                             @endforeach
                         @else
-                            <h4>No hay proyectos creados</h4>
+                            <div class="card">
+                                <div class="card-body">
+                                    No hay proyectos creados.
+                                </div>
+                            </div>
                         @endif
                     </div>
                 </div>
-                <div class="col-5">
-                    <h2>Proyectos compartidos</h2>
+                <div class="col-sm-5 col-xs-8">
+                    <h2 class="tituloProyecto">Proyectos compartidos</h2>
                     <div class="bg-light">
                         @if(count($proyectosCompartidos) > 0)
                             @foreach($proyectosCompartidos as $proyecCompartido)
@@ -40,7 +44,11 @@
                                 </div>
                             @endforeach
                         @else
-                            <h4>No hay proyectos compartidos</h4>
+                            <div class="card">
+                                <div class="card-body">
+                                    No hay proyectos compartidos.
+                                </div>
+                            </div>
                         @endif
                     </div>
                 </div>

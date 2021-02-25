@@ -33,12 +33,12 @@
                     <div class="col-lg-6">
                         <div class="cmp-info">
                             <div class="cm-logo">
-                                <img src="images/cm-logo.png" alt="">
+                                <h1><span class="letraAzul">M</span><span class="letraNaranja">A</span><span class="letraGris">N</span></h1>
                                 @if(isset($mensaje))
                                     <p>{{ $mensaje }}</p>
                                 @endif
                             </div><!--cm-logo end-->
-                            <img src="images/cm-main-img.png" alt="">
+                            <img src="img/logo.png">
                         </div><!--cmp-info end-->
                     </div>
                     <div class="col-lg-6">
@@ -79,7 +79,7 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-md-6 offset-md-4">
-                                                <div class="form-check">
+                                                <div class="form-check ml-2">
                                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                                     <label class="form-check-label" for="remember">
