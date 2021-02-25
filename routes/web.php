@@ -41,3 +41,7 @@ Route::get("/estadisticas","ControladorIndex@mostrarEstadisticas")->name("mostra
 Route::post("/crearproyecto","ControladorIndex@crearProyecto")->name("crearProyecto");
 Route::get("/proyectos","ControladorIndex@mostrarFormulario")->name("mostrarFormularioCrearProyectos");
 Route::get("/cerrarSesion","ControladorIndex@cerrarSesion")->name("cerrarSesion");
+
+
+//Proyectos
+Route::post("/anadirColaborador", "ControladorProyectos@anadirColaboradorProyecto")->name("anadirColaborador");

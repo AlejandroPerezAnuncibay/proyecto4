@@ -62,8 +62,8 @@ function validacionInicioSesion() {
         var email_1 = $("#email");
         var contra_1 = $("#password");
         $("#tab-1 form").on("submit", function (e) {
-            e.preventDefault();
             if (email_1.val() == "" || contra_1.val() == "") {
+                e.preventDefault();
                 $(".elogin").css("display", "block");
                 $(".elogin").text("No se pueden dejar campos vacios");
                 email_1.css("border", "1px solid red");

@@ -7,17 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/flatpickr.min.css">
-    <link rel="stylesheet" type="text/css" href="css/line-awesome.css">
-    <link rel="stylesheet" type="text/css" href="css/line-awesome-font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="lib/slick/slick.css">
-    <link rel="stylesheet" type="text/css" href="lib/slick/slick-theme.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/responsive.css">
-    <link rel="stylesheet" type="text/css" href="css/estilosPagina.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/animate.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/flatpickr.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/line-awesome.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/line-awesome-font-awesome.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/font-awesome.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('lib/slick/slick.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('lib/slick/slick-theme.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/responsive.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/estilosPagina.css')}}">
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -36,7 +36,7 @@
         <div class="container-fluid d-flex justify-content-around">
             <div class="header-data w-75 ">
                 <div class="logo">
-                    <a href="{{route('dashboard')}}" title=""><img src="img/logo.png" alt=""></a>
+                    <a href="{{route('dashboard')}}" title=""><img src="{{ URL::asset('img/logo.png') }}" alt=""></a>
                 </div><!--logo end-->
                 <nav class="nav">
                     <ul class="menu">
@@ -114,8 +114,7 @@
     <footer>
         <div class="footy-sec mn no-margin">
             <div class="container">
-                <p><img src="images/copy-icon2.png" alt="">Copyright 2021</p>
-                <img class="fl-rgt" src="images/logo2.png" alt="">
+                <p><img src="{{ URL::asset('images/copy-icon2.png') }}" alt="">Copyright 2021</p>
             </div>
         </div>
     </footer>
@@ -123,12 +122,12 @@
 </div><!--theme-layout end-->
 
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/popper.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/flatpickr.min.js"></script>
-<script type="text/javascript" src="lib/slick/slick.min.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
-<!--<script type="text/javascript" src="js/layouts.js"></script>-->
+<script type="text/javascript" src="{{ asset ('js/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset ('js/popper.js')}}"></script>
+<script type="text/javascript" src="{{ asset ('js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset ('js/flatpickr.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset ('lib/slick/slick.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset ('js/script.js')}}"></script>
+<!--<script type="text/javascript" src="js/layouts.js')}}"></script>-->
 </body>
 </html>

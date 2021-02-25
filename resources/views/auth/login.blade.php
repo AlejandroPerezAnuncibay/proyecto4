@@ -140,10 +140,10 @@
                                             </div>
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
-                                                    <input id="e-mail" type="email"placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="e-mail" value="{{ old('email') }}" required autocomplete="email">
+                                                    <input id="e-mail" type="email"placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                                     <i class="la la-envelope-o"></i>
                                                 </div>
-                                                <small class="error e-mail" style="color: red; display: none;"></small>
+                                                <small class="error email" style="color: red; display: none;"></small>
 
                                                 @error('email')
                                                 <span class="invalid-feedback" role="alert">
@@ -154,10 +154,10 @@
 
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
-                                                    <input id="pass" type="password" placeholder="Contraseña" class="form-control @error('password') is-invalid @enderror" name="pass" required autocomplete="new-password">
+                                                    <input id="pass" type="password" placeholder="Contraseña" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                                     <i class="la la-lock"></i>
                                                 </div>
-                                                <small class="error pass" style="color: red; display: none;"></small>
+                                                <small class="error password" style="color: red; display: none;"></small>
 
                                                 @error('password')
                                                 <span class="invalid-feedback" role="alert">

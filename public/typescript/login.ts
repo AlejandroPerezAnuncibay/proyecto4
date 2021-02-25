@@ -91,8 +91,9 @@ function validacionInicioSesion():void{
 
 
         $("#tab-1 form").on("submit",function (e){
-            e.preventDefault();
             if (email.val()== "" || contra.val() == ""){
+                e.preventDefault();
+
                 $(".elogin").css("display","block");
                 $(".elogin").text("No se pueden dejar campos vacios");
                 email.css("border","1px solid red");
