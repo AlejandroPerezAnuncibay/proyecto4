@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mensaje;
 use App\Models\Proyecto;
 use App\Models\ProyectosUsuarios;
 use App\Models\User;
@@ -41,11 +42,12 @@ class ControladorIndex extends Controller
 
     public function mostrarProyecto($id){
         $arrayIds = DB::table('proyectosusuarios')->select('*')->where('id_proyecto','=',$id)->get();
-        $comentarios=DB::table("mensajes")->select("*")->where("id_proyecto","=", \request("idProyecto"))->get();
+        $comentarios=DB::table("mensajes")->select("*")->where("id_proyecto","=", $id)->orderBy('created_at','desc')->get();
+        $proyecto = Proyecto::find($id);
+        $creador = User::find($id);
 
         if (count($arrayIds)>0 && count($comentarios)>0) {
             $arrayUsuarios = [];
-
             for ($x = 0; $x < count($arrayIds); $x++) {
                 $usuario = DB::table('users')->select('*')->where('id', '=', $arrayIds[$x]->id_usuario)->get();
 
@@ -55,15 +57,13 @@ class ControladorIndex extends Controller
 
 
 
-            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios);
+            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios)->with('creador',$creador);
         }elseif (count($arrayIds)==0 && count($comentarios)>0){
-
             $arrayUsuarios=[];
-            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios);
+            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios)->with('creador',$creador);
 
         }elseif(count($arrayIds)>0 && count($comentarios)==0){
             $arrayUsuarios = [];
-
             for ($x = 0; $x < count($arrayIds); $x++) {
                 $usuario = DB::table('users')->select('*')->where('id', '=', $arrayIds[$x]->id_usuario)->get();
 
@@ -71,15 +71,29 @@ class ControladorIndex extends Controller
             }
 
             $comentarios=[];
-            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios);
+            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios)->with('creador',$creador);
 
         }else{
             $arrayUsuarios = [];
             $comentarios=[];
-            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios);
+            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios)->with('creador',$creador);
 
 
         }
+    }
+
+    public function eliminarProyecto($id){
+        $usuarioLogueado = Auth::user()->id;
+        $proyecto = Proyecto::find($id);
+      
+        if ($usuarioLogueado == $proyecto->creador){
+            Proyecto::destroy($id);
+            return back();
+        }else{
+            return back('error', "No puedes eliminar el proyecto si no eres el creador");
+        }
+
+
     }
 
     public function mostrarHome(){
@@ -93,6 +107,10 @@ class ControladorIndex extends Controller
             }
             return view('home')->with('miProyectos', $proyectos)->with('proyectosCompartidos',$proyectosCompartidos);
 
+    }
+    public function eliminarComentario($id){
+        Mensaje::destroy($id);
+        return back();
     }
 
 }

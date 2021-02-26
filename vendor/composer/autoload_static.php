@@ -557,6 +557,7 @@ class ComposerStaticInitf4739c4941d56e4a7ddd0fd61368c8d3
         'App\\Models\\Archivo' => __DIR__ . '/../..' . '/app/Models/Archivo.php',
         'App\\Models\\Mensaje' => __DIR__ . '/../..' . '/app/Models/Mensaje.php',
         'App\\Models\\Proyecto' => __DIR__ . '/../..' . '/app/Models/Proyecto.php',
+        'App\\Models\\ProyectosUsuarios' => __DIR__ . '/../..' . '/app/Models/ProyectosUsuarios.php',
         'App\\Models\\Tarea' => __DIR__ . '/../..' . '/app/Models/Tarea.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',

@@ -14,6 +14,7 @@
                                     <img src="" class="card-img-top">
                                     <div class="card-body">
                                         <h5 class="card-title" >{{$proyecto->nombre}}</h5>
+                                        <a  href="/eliminarProyecto/{{$proyecto->id}}"><i class="la la-close"></i></a>
                                         <p class="card-text">{{$proyecto->descripcion}}</p>
                                         <a href="/proyecto/{{ $proyecto->id }}" class="btn btn-primary btnEnviar">Ver proyecto</a>
                                     </div>

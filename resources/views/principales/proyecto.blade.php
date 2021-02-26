@@ -82,10 +82,20 @@
                                     </div><!--user_profile end-->
                                     <div class="suggestions full-width">
                                         <div class="sd-title">
-                                            <h3 style="text-align: center">Usuarios en este proyecto</h3>
+                                            <h3 style="text-align: center">Creador</h3>
 
                                         </div><!--sd-title end-->
                                         <div class="suggestions-list">
+                                            <div class="suggestion-usd">
+                                                <div class="sgt-text">
+                                                    <h4>{{$creador->name}} {{$creador->surname}}</h4><small>(Creador)</small>
+                                                    <span>{{$creador->email}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="sd-title" style="border-top: 1px solid #e5e5e5;">
+                                                <h3 style="text-align: center;">Colaboradores</h3>
+
+                                            </div>
                                             @if(count($colaboradores)>0)
 
                                                 @foreach($colaboradores as $colaborador)
@@ -149,16 +159,18 @@
                                                 <div class="post_topbar">
                                                     <div class="usy-dt">
                                                         <div class="usy-name">
-                                                            <h3>John Doe</h3>
-                                                            <span><img src="{{ URL::asset('images/clock.png') }}" alt="">3 min ago</span>
+                                                            <h3>{{$comentario->nombreCreador}}</h3>
+                                                            <span><img src="{{ URL::asset('images/clock.png') }}" alt="">  {{ \Carbon\Carbon::parse($comentario->created_at)->diffForHumans() }}</span>
                                                         </div>
                                                     </div>
+                                                    @if($comentario->creador == Auth::user()->id)
                                                     <div class="ed-opts">
                                                         <a href="#" title="" class="ed-opts-open"><i class="la la-ellipsis-v"></i></a>
                                                         <ul class="ed-options">
-                                                            <li><a href="#" title="">Eliminar comentario</a></li>
+                                                            <li><a href="/eliminarComentario/{{$comentario->id}}" title="">Eliminar comentario</a></li>
                                                         </ul>
                                                     </div>
+                                                    @endif
                                                 </div>
                                                 <div class="epi-sec">
                                                     <ul class="descp">
@@ -166,8 +178,8 @@
                                                     </ul>
                                                 </div>
                                                 <div class="job_descp">
-                                                    <h3>Senior Wordpress Developer</h3>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam luctus hendrerit metus, ut ullamcorper quam finibus at. Etiam id magna sit amet... </p>
+                                                    <h3>{{$comentario->titulo}}</h3>
+                                                    <p>{{ $comentario->descripcion }}</p>
                                                 </div>
 
                                             </div>

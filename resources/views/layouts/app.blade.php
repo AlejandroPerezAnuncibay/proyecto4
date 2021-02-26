@@ -43,7 +43,7 @@
                 <nav class="nav">
                     <ul class="menu">
                         <li>
-                            <a href="{{route("home")}}" title="">
+                            <a href="{{route("dashboard")}}" title="">
                                 <span><i class="la la-home"></i></span>
                                 <span class="tituloMenu">Inicio</span>
                             </a>

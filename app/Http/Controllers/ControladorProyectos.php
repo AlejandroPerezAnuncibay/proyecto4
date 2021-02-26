@@ -47,11 +47,14 @@ class ControladorProyectos extends Controller
     }
 
     public function anadirComentarioProyecto(){
+        $queryCreador = DB::table('users')->select('name')->where('id','=',\request('authUserId'))->get();
+      $nombreCreador = $queryCreador[0]->name;
        Mensaje::create([
            "titulo"=> \request("titulo"),
            "descripcion"=> \request("descripcion"),
            "id_proyecto"=> \request("idProyecto"),
-           "creador"=> \request("authUserId")
+           "creador"=> \request("authUserId"),
+           "nombreCreador"=>$nombreCreador
        ]);
 
        return back()->with("comentarios",DB::table("mensajes")->select("*")->where("id_proyecto","=", \request("idProyecto"))->get());

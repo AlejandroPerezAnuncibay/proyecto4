@@ -15,14 +15,14 @@ class CreateTablaMensajes extends Migration
     {
         Schema::create('Mensajes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('id_proyecto');
             $table->string("titulo");
+            $table->unsignedBigInteger('id_proyecto');
 
             $table->foreign('id_proyecto')->references('id')->on('Proyectos')->onDelete('cascade');
             $table->string('descripcion');
             $table->unsignedBigInteger('creador');
-
             $table->foreign('creador')->references('id')->on('users')->onDelete('cascade');
+            $table->string('nombreCreador');
             $table->timestamps();
         });
     }

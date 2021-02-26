@@ -11,10 +11,6 @@ class Mensaje extends Model
     protected $table='Mensajes';
 
     protected $guarded=[
-        "id_mensaje",
-        "id_proyecto",
-        "descripcion"
-        ,"creador",
-        "fecha"
+
     ];
 }
