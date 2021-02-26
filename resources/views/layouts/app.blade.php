@@ -17,7 +17,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset ('lib/slick/slick-theme.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset ('css/responsive.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset ('css/estilosPagina.css')}}">
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -26,6 +25,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/estilosPagina.css')}}">
+
 </head>
 
 

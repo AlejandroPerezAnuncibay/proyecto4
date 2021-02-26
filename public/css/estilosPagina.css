@@ -24,6 +24,9 @@ body{
 footer{
     background-color: whitesmoke !important;
 }
+.paginacion{
+    height: 35px!important;
+}
 
 .tc a{
     color: white;
@@ -160,11 +163,15 @@ label[for=remember]{
     padding: 5% 0%;
     text-transform: uppercase;
 }
+
+/*Paginacion*/
+
 @media (min-width: 992px){
     .cm-logo h1{
         display: none;
     }
 }
+
 /*Menu*/
 .tituloMenu{
     padding-top: 14px;

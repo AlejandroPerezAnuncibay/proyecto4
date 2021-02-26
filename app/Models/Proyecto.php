@@ -9,7 +9,7 @@ class Proyecto extends Model
 {
     use HasFactory;
     protected $table='Proyectos';
-
+    protected $perPage = 5;
     protected $guarded = [
 
     ];

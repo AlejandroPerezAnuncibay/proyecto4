@@ -44,7 +44,7 @@ class ControladorIndex extends Controller
         $arrayIds = DB::table('proyectosusuarios')->select('*')->where('id_proyecto','=',$id)->get();
         $comentarios=DB::table("mensajes")->select("*")->where("id_proyecto","=", $id)->orderBy('created_at','desc')->get();
         $proyecto = Proyecto::find($id);
-        $creador = User::find($id);
+        $creador = User::find($proyecto->creador);
 
         if (count($arrayIds)>0 && count($comentarios)>0) {
             $arrayUsuarios = [];
@@ -85,7 +85,7 @@ class ControladorIndex extends Controller
     public function eliminarProyecto($id){
         $usuarioLogueado = Auth::user()->id;
         $proyecto = Proyecto::find($id);
-      
+
         if ($usuarioLogueado == $proyecto->creador){
             Proyecto::destroy($id);
             return back();
@@ -98,12 +98,12 @@ class ControladorIndex extends Controller
 
     public function mostrarHome(){
 
-            $proyectos = DB::table('Proyectos')->select('*')->where('creador','=',Auth::user()->id)->get();
+            $proyectos = DB::table('Proyectos')->select('*')->where('creador','=',Auth::user()->id)->paginate(5);
             $idsProyectos = DB::table('proyectosusuarios')->select('id_proyecto')->where('id_usuario','=',Auth::user()->id)->get();
             $proyectosCompartidos = [];
 
         for ($x=0;$x<count($idsProyectos);$x++){
-                array_push($proyectosCompartidos,DB::table('proyectos')->select('*')->where('id','=',$idsProyectos[$x]->id_proyecto)->get());
+                array_push($proyectosCompartidos,DB::table('proyectos')->select('*')->where('id','=',$idsProyectos[$x]->id_proyecto)->paginate());
             }
             return view('home')->with('miProyectos', $proyectos)->with('proyectosCompartidos',$proyectosCompartidos);
 

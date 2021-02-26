@@ -1,5 +1,14 @@
 @extends('layouts.app')
-
+@push('style')
+    <style type="text/css">
+        .my-active span{
+            background-color: #5cb85c !important;
+            color: white !important;
+            border-color: #5cb85c !important;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+@endpush
 @section('content')
 
     <main>
@@ -28,6 +37,7 @@
                                 </div>
                             </div>
                         @endif
+                            {{ $miProyectos->links('vendor.pagination.bootstrap-4') }}
                     </div>
                 </div>
                 <div class="col-sm-5 col-xs-8">
@@ -52,6 +62,7 @@
                                 </div>
                             </div>
                         @endif
+
                     </div>
                 </div>
             </div>

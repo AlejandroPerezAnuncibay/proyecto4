@@ -45,3 +45,4 @@ Route::post("/anadirComentario", "ControladorProyectos@anadirComentarioProyecto"
 Route::get("/eliminarComentario/{id}","ControladorIndex@eliminarComentario")->name("eliminarComentario");
 Route::get("/eliminarProyecto/{id}","ControladorIndex@eliminarProyecto")->name("eliminarProyecto");
 
+

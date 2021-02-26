@@ -59,6 +59,7 @@
                                                 <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
                                                 <i class="la la-envelope-o"></i>
                                             </div><!--sn-field end-->
+
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -105,9 +106,19 @@
                                             </button>
                                         </div>
                                     </div>
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger" style="margin-top: 10px;">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
                                 </form>
 
                             </div><!--sign_in_sec end-->
+
                             <div class="sign_in_sec" id="tab-2">
                                 <h3>Registrarse</h3>
                                 <div class="dff-tab current" id="tab-3">
