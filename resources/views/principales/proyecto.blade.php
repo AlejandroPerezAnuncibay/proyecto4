@@ -188,7 +188,59 @@
 
                                         </div><!--posts-section end-->
                                     </div><!--product-feed-tab end-->
+                                    <div class="modal fade" id="tareaModal" tabindex="-1" role="dialog" aria-labelledby="tareaModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="tareaModalLabel">Añadir tarea a {{ $proyecto->nombre }}</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="{{route('anadirTarea')}}" method="post">
+                                                        @csrf
+                                                        <div class="sn-field">
+                                                            <input id="tituloTarea" style="padding: 10px 15px 10px 40px;" type="text" placeholder="Titulo" class="form-control" required name="titulo" >
+                                                            <i class="la la-envelope-o"></i>
+
+                                                            <input type="text" name="idProyecto" hidden value="{{$proyecto->id}}">
+                                                            <input type="text" name="authUserId" hidden value="{{Auth::user()->id}}">
+                                                        </div>
+                                                        <label for="descripcionTarea" style="padding: 10px 0; color: grey">Descripción: </label>
+                                                        <div class="sn-field border-0">
+                                                            <textarea id="descripcionTarea" style="padding: 10px 15px  40px; min-height: 250px; height: 100%;" type="text"  class="form-control" required name="descripcion" ></textarea>
+
+
+
+                                                        </div>
+                                                        <div class="modal-footer border-0">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                            <button type="submit" class="btn btnEnviar btn-primary">Añadir</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="product-feed-tab" id="info-dd">
+
+                                        <div class="tarea-btn">
+
+                                            <ul class="flw-hr">
+                                                <li><!-- Button trigger modal -->
+                                                    <button type="button" class="btn btnEnviar btn-primary" data-toggle="modal" data-target="#tareaModal">
+                                                        <i class="la la-file-text"></i> Añadir tarea
+                                                    </button>
+                                                    @if(isset($error))
+                                                        <small style="color: red">{{ $error }}</small>
+                                                @endif
+                                                <!-- Modal -->
+
+                                                </li>
+                                            </ul>
+                                        </div>
                                         <div class="user-profile-ov">
                                             <h3><a href="#" title="" class="overview-open">Overview</a> <a href="#" title="" class="overview-open"><i class="fa fa-pencil"></i></a></h3>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor aliquam felis, nec condimentum ipsum commodo id. Vivamus sit amet augue nec urna efficitur tincidunt. Vivamus consectetur aliquam lectus commodo viverra. Nunc eu augue nec arcu efficitur faucibus. Aliquam accumsan ac magna convallis bibendum. Quisque laoreet augue eget augue fermentum scelerisque. Vivamus dignissim mollis est dictum blandit. Nam porta auctor neque sed congue. Nullam rutrum eget ex at maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget vestibulum lorem.</p>

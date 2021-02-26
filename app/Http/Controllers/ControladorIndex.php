@@ -118,5 +118,12 @@ class ControladorIndex extends Controller
         return back();
     }
 
+    public function anadirTareaProyecto(){
+        Mensaje::create([
+            
+        ]);
+
+    }
+
 
 }
