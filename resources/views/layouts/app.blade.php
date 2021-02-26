@@ -22,6 +22,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <link rel="icon" href="img/logo1/logo_small_icon_only_inverted.png">
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -36,7 +38,7 @@
         <div class="container-fluid d-flex justify-content-around">
             <div class="header-data w-75 ">
                 <div class="logo">
-                    <a href="{{route('dashboard')}}" title=""><img src="{{ URL::asset('img/logo.png') }}" alt=""></a>
+                    <a href="{{route('dashboard')}}" title=""><img src="{{ URL::asset('img/logo1/logo_white_large.png') }}" alt=""></a>
                 </div><!--logo end-->
                 <nav class="nav">
                     <ul class="menu">
@@ -75,7 +77,10 @@
 
                         <h3>Ajustes de usuario</h3>
                         <ul class="us-links">
-                            <li><a href="{{route("mostrarAjustes")}}" title="">Ajustes de cuenta</a></li>
+                            <li class="d-inline-flex">
+                                <i class="la la-cogs pr-1"></i>
+                                <a href="{{route("mostrarAjustes")}}" title="">Ajustes de cuenta</a>
+                            </li>
                         </ul>
                         @guest
                             @if (Route::has('login'))

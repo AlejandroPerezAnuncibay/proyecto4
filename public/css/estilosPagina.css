@@ -28,6 +28,10 @@ footer{
 .tc a{
     color: white;
 }
+.cm-logo{
+    margin: 0;
+    display: flex;
+}
 .cm-logo h1{
     font-size: 3em;
     text-align: center;
@@ -196,6 +200,9 @@ label[for=remember]{
         text-transform: uppercase;
         padding: 20px 0px;
     }
+}
+.card{
+    margin: 20px 0;
 }
 
 /*Ajustes*/

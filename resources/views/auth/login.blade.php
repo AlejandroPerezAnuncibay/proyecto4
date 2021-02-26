@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/responsive.css">
     <link rel="stylesheet" type="text/css" href="css/estilosPagina.css">
+    <link rel="icon" href="img/logo1/logo_small_icon_only_inverted.png">
 </head>
 
 
@@ -32,13 +33,13 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="cmp-info">
-                            <div class="cm-logo">
-                                <h1><span class="letraAzul">M</span><span class="letraNaranja">A</span><span class="letraGris">N</span></h1>
+                            <div class="cm-logo d-lg-none d-xs-flex justify-content-center">
+                                <img src="img/logo2/logo_1.svg">
                                 @if(isset($mensaje))
                                     <p>{{ $mensaje }}</p>
                                 @endif
                             </div><!--cm-logo end-->
-                            <img src="img/logo.png">
+                            <img src="img/logo1/logo.svg">
                         </div><!--cmp-info end-->
                     </div>
                     <div class="col-lg-6">
