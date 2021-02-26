@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Mensaje;
 use App\Models\Proyecto;
 use App\Models\ProyectosUsuarios;
+use App\Models\Tarea;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -118,12 +119,7 @@ class ControladorIndex extends Controller
         return back();
     }
 
-    public function anadirTareaProyecto(){
-        Mensaje::create([
-            
-        ]);
 
-    }
 
 
 }

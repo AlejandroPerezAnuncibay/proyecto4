@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mensaje;
 use App\Models\ProyectosUsuarios;
+use App\Models\Tarea;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -47,6 +48,7 @@ class ControladorProyectos extends Controller
     }
 
     public function anadirComentarioProyecto(){
+        //Comprobar mañana para arreglar, mandar id Creador mediante el form-> $creador->id
         $queryCreador = DB::table('users')->select('name')->where('id','=',\request('authUserId'))->get();
       $nombreCreador = $queryCreador[0]->name;
        Mensaje::create([
@@ -58,6 +60,20 @@ class ControladorProyectos extends Controller
        ]);
 
        return back()->with("comentarios",DB::table("mensajes")->select("*")->where("id_proyecto","=", \request("idProyecto"))->get());
+    }
+
+    public function anadirTareaProyecto(){
+        Tarea::create([
+            "descripcion"=>\request("descripcionTarea"),
+            "usuario_asignado"=>\request("usuariosAsignado"),
+            "realizado"=>"0",
+            "id_proyecto"=>\request("idProyecto"),
+            "fecha_vencimiento"=>\request("fechaVencimiento")
+
+        ]);
+
+        return back()->with("comentarios",DB::table("mensajes")->select("*")->where("id_proyecto","=", \request("idProyecto"))->with("tareas",DB::table("Tareas")->select("*")->where("id_proyecto","=",\request("idProyecto")))->get());
+
     }
 
 }

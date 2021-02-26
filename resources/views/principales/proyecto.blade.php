@@ -205,13 +205,28 @@
                                                             <i class="la la-envelope-o"></i>
 
                                                             <input type="text" name="idProyecto" hidden value="{{$proyecto->id}}">
-                                                            <input type="text" name="authUserId" hidden value="{{Auth::user()->id}}">
                                                         </div>
-                                                        <label for="descripcionTarea" style="padding: 10px 0; color: grey">Descripción: </label>
+                                                        <label for="descripcionTarea" style="padding: 10px 0; color: grey">Descripción: </label><br>
                                                         <div class="sn-field border-0">
-                                                            <textarea id="descripcionTarea" style="padding: 10px 15px  40px; min-height: 250px; height: 100%;" type="text"  class="form-control" required name="descripcion" ></textarea>
+                                                            <textarea id="descripcionTarea" style="padding: 10px 15px  40px; min-height: 100px;max-height: 100px;" type="text"  class="form-control" required name="descripcion" ></textarea>
 
+                                                        </div>
+                                                        <label for="usuarioAsignado" style="margin: 10px 0; color: grey">Usuario Asignado:</label><br>
 
+                                                        <div class="sn-field">
+
+                                                            <select name="usuarioAsignado" style="padding: 6px 15px 10px 40px;" class="form-control" id="usuarioAsignado">
+                                                                <option value="{{$creador->id}}">{{$creador->email}}</option>
+                                                                @foreach($colaboradores as $colaborador)
+                                                                    <option value="{{$colaborador->id}}">{{$colaborador->email}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                            <i class="la la-caret-down"></i>
+                                                        </div>
+                                                        <label for="fechaVencimiento" style="margin: 10px 0; color: grey">Fecha de vencimiento:</label><br>
+
+                                                        <div class="sn-field">
+                                                            <input type="date" name="fechaVencimiento" class="form-control" id="fechaVencimiento">
 
                                                         </div>
                                                         <div class="modal-footer border-0">
@@ -241,10 +256,16 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="user-profile-ov">
-                                            <h3><a href="#" title="" class="overview-open">Overview</a> <a href="#" title="" class="overview-open"><i class="fa fa-pencil"></i></a></h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor aliquam felis, nec condimentum ipsum commodo id. Vivamus sit amet augue nec urna efficitur tincidunt. Vivamus consectetur aliquam lectus commodo viverra. Nunc eu augue nec arcu efficitur faucibus. Aliquam accumsan ac magna convallis bibendum. Quisque laoreet augue eget augue fermentum scelerisque. Vivamus dignissim mollis est dictum blandit. Nam porta auctor neque sed congue. Nullam rutrum eget ex at maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget vestibulum lorem.</p>
-                                        </div><!--user-profile-ov end-->
+                                        @if(count($tareas)>0)
+                                            @foreach($tareas as $tarea)
+                                                <div class="user-profile-ov">
+                                                    <h3><a href="#" title="" class="overview-open">{{$tarea->titulo}}</a> <a href="#" title="" class="overview-open"><i class="fa fa-pencil"></i></a></h3>
+                                                    <small><!--UsuarioAsignado--></small>
+                                                    <p>{{$tarea->descripcion}}</p>
+
+                                                </div><!--user-profile-ov end-->
+                                            @endforeach
+
                                         <div class="user-profile-ov st2">
                                             <h3><a href="#" title="" class="exp-bx-open">Experience </a><a href="#" title="" class="exp-bx-open"><i class="fa fa-pencil"></i></a> <a href="#" title="" class="exp-bx-open"><i class="fa fa-plus-square"></i></a></h3>
                                             <h4>Web designer <a href="#" title=""><i class="fa fa-pencil"></i></a></h4>

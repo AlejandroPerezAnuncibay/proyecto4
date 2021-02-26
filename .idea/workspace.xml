@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c48db693-a58d-4e39-bede-f0c648e21015" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/../../../JS ejercicios/Repaso examen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../JS ejercicios/Repaso examen/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../JS ejercicios/Repaso examen/login.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../PHP ejercicios/.idea/.gitignore" beforeDir="false" />
@@ -4741,6 +4742,12 @@
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ControladorIndex.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ControladorIndex.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/principales/proyecto.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/principales/proyecto.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/public/js/darkmode.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/estilosPagina.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/estilosPagina.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+>>>>>>> c4dd7aa277e9e2761a8568751985f9c4e8faba02
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -4938,9 +4945,13 @@
       <workItem from="1614324776996" duration="8296000" />
       <workItem from="1614337995402" duration="6220000" />
       <workItem from="1614357685449" duration="11482000" />
+<<<<<<< HEAD
       <workItem from="1614376168655" duration="1901000" />
       <workItem from="1614378453712" duration="195000" />
       <workItem from="1614378650079" duration="582000" />
+=======
+      <workItem from="1614376168655" duration="2842000" />
+>>>>>>> c4dd7aa277e9e2761a8568751985f9c4e8faba02
     </task>
     <servers />
   </component>
