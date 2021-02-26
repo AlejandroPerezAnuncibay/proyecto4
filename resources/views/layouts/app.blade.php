@@ -18,6 +18,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset ('css/responsive.css')}}">
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.23/datatables.min.css"/>
+
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
@@ -131,6 +133,8 @@
 <script type="text/javascript" src="{{ asset ('js/jquery.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset ('js/popper.js')}}"></script>
 <script type="text/javascript" src="{{ asset ('js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/tabla.js')}}"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.23/datatables.min.js"></script>
 <script type="text/javascript" src="{{ asset ('js/flatpickr.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset ('lib/slick/slick.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset ('js/script.js')}}"></script>

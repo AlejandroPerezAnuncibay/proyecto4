@@ -16,45 +16,78 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-sm-5 col-xs-8">
                     <h2 class="tituloProyecto">Mis proyectos</h2>
-                    <div class="bg-light">
                         @if(count($miProyectos) > 0)
-                            @foreach($miProyectos as $proyecto)
-                                <div class="card">
-                                    <img src="" class="card-img-top">
-                                    <div class="card-body">
-                                        <h5 class="card-title" >{{$proyecto->nombre}}</h5>
-                                        <a  href="/eliminarProyecto/{{$proyecto->id}}"><i class="la la-close"></i></a>
-                                        <p class="card-text">{{$proyecto->descripcion}}</p>
-                                        <a href="/proyecto/{{ $proyecto->id }}" class="btn btn-primary btnEnviar">Ver proyecto</a>
-                                    </div>
+                        <table id="dtBasicExample" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <th class="th-sm">Nombre
 
-                                </div>
+                                </th>
+                                <th class="th-sm">Descripcion
+
+                                </th>
+                                <th class="th-sm">Ver
+
+                                </th>
+                                <th class="th-sm">Eliminar
+
+                                </th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($miProyectos as $proyecto)
+                              <tr>
+                                  <td> <h5 class="card-title" >{{$proyecto->nombre}}</h5></td>
+                                  <td><p class="card-text">{{$proyecto->descripcion}}</p></td>
+                                  <td><a href="/proyecto/{{ $proyecto->id }}" class="btn btn-primary btnEnviar">Ver proyecto</a></td>
+                                  <td><a  href="/eliminarProyecto/{{$proyecto->id}}"><i class="la la-close"></i></a></td>
+                              </tr>
                             @endforeach
-                        @else
+                            </tbody>
+                        </table>
+
+                    @else
                             <div class="card">
                                 <div class="card-body">
                                     No hay proyectos creados.
                                 </div>
                             </div>
                         @endif
-                            {{ $miProyectos->links('vendor.pagination.bootstrap-4') }}
-                    </div>
+
                 </div>
+
                 <div class="col-sm-5 col-xs-8">
                     <h2 class="tituloProyecto">Proyectos compartidos</h2>
                     <div class="bg-light">
                         @if(count($proyectosCompartidos) > 0)
+                            <table id="tabla2" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
+                                <thead>
+                                <tr>
+                                    <th class="th-sm">Nombre
 
+                                    </th>
+                                    <th class="th-sm">Descripcion
+
+                                    </th>
+                                    <th class="th-sm">Ver
+
+                                    </th>
+
+
+                                </tr>
+                                </thead>
+                                <tbody>
                         @foreach($proyectosCompartidos as $proyecCompartido)
-                                <div class="card">
-                                    <img src="" class="card-img-top">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{$proyecCompartido[0]->nombre}}</h5>
-                                        <p>{{$proyecCompartido[0]->descripcion}}</p>
-                                        <a href="/proyecto/{{ $proyecCompartido[0]->id }}" class="btn btn-primary btnEnviar">Ver proyecto</a>
-                                    </div>
-                                </div>
+
+                                <tr>
+                                    <td> <h5 class="card-title" >{{$proyecCompartido[0]->nombre}}</h5></td>
+                                    <td><p class="card-text">{{$proyecCompartido[0]->descripcion}}</p></td>
+                                    <td><a href="/proyecto/{{ $proyecCompartido[0]->id }}" class="btn btn-primary btnEnviar">Ver proyecto</a></td>
+                                </tr>
                             @endforeach
+                                </tbody>
+                            </table>
                         @else
                             <div class="card">
                                 <div class="card-body">

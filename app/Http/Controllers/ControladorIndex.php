@@ -102,7 +102,7 @@ class ControladorIndex extends Controller
 
     public function mostrarHome(){
 
-            $proyectos = DB::table('Proyectos')->select('*')->where('creador','=',Auth::user()->id)->paginate(5);
+            $proyectos = DB::table('Proyectos')->select('*')->where('creador','=',Auth::user()->id)->get();
             $idsProyectos = DB::table('proyectosusuarios')->select('id_proyecto')->where('id_usuario','=',Auth::user()->id)->get();
             $proyectosCompartidos = [];
 
