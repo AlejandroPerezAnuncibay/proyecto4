@@ -41,8 +41,9 @@ class ControladorIndex extends Controller
 
     public function mostrarProyecto($id){
         $arrayIds = DB::table('proyectosusuarios')->select('*')->where('id_proyecto','=',$id)->get();
+        $comentarios=DB::table("mensajes")->select("*")->where("id_proyecto","=", \request("idProyecto"))->get();
 
-        if (count($arrayIds)>0) {
+        if (count($arrayIds)>0 && count($comentarios)>0) {
             $arrayUsuarios = [];
 
             for ($x = 0; $x < count($arrayIds); $x++) {
@@ -50,10 +51,33 @@ class ControladorIndex extends Controller
 
                 array_push($arrayUsuarios, $usuario[0]);
             }
-            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios);
-        }else{
+
+
+
+
+            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios);
+        }elseif (count($arrayIds)==0 && count($comentarios)>0){
+
             $arrayUsuarios=[];
-            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios);
+            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios);
+
+        }elseif(count($arrayIds)>0 && count($comentarios)==0){
+            $arrayUsuarios = [];
+
+            for ($x = 0; $x < count($arrayIds); $x++) {
+                $usuario = DB::table('users')->select('*')->where('id', '=', $arrayIds[$x]->id_usuario)->get();
+
+                array_push($arrayUsuarios, $usuario[0]);
+            }
+
+            $comentarios=[];
+            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios);
+
+        }else{
+            $arrayUsuarios = [];
+            $comentarios=[];
+            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios);
+
 
         }
     }

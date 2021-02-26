@@ -16,6 +16,7 @@ class CreateTablaMensajes extends Migration
         Schema::create('Mensajes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_proyecto');
+            $table->string("titulo");
 
             $table->foreign('id_proyecto')->references('id')->on('Proyectos')->onDelete('cascade');
             $table->string('descripcion');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mensaje;
 use App\Models\ProyectosUsuarios;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -44,4 +45,16 @@ class ControladorProyectos extends Controller
 
 
     }
+
+    public function anadirComentarioProyecto(){
+       Mensaje::create([
+           "titulo"=> \request("titulo"),
+           "descripcion"=> \request("descripcion"),
+           "id_proyecto"=> \request("idProyecto"),
+           "creador"=> \request("authUserId")
+       ]);
+
+       return back()->with("comentarios",DB::table("mensajes")->select("*")->where("id_proyecto","=", \request("idProyecto"))->get());
+    }
+
 }

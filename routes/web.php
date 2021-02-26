@@ -41,3 +41,4 @@ Route::get("/cerrarSesion","ControladorIndex@cerrarSesion")->name("cerrarSesion"
 
 //Proyectos
 Route::post("/anadirColaborador", "ControladorProyectos@anadirColaboradorProyecto")->name("anadirColaborador");
+Route::post("/anadirComentario", "ControladorProyectos@anadirComentarioProyecto")->name("anadirComentario");

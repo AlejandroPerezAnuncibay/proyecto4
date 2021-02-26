@@ -140,6 +140,11 @@
                                     </div><!--user-tab-sec end-->
                                     <div class="product-feed-tab current" id="feed-dd">
                                         <div class="posts-section">
+
+                                            @if(count($comentarios)==0)
+                                                <small>No existen comentarios para este proyecto</small>
+                                            @else
+                                                @foreach($comentarios as $comentario)
                                             <div class="post-bar">
                                                 <div class="post_topbar">
                                                     <div class="usy-dt">
@@ -166,6 +171,9 @@
                                                 </div>
 
                                             </div>
+                                                @endforeach
+                                            @endif
+
                                         </div><!--posts-section end-->
                                     </div><!--product-feed-tab end-->
                                     <div class="product-feed-tab" id="info-dd">
@@ -862,7 +870,7 @@
 
                                         <ul class="flw-hr">
                                             <li><!-- Button trigger modal -->
-                                                <button type="button" class="btn btnEnviar btn-primary" data-toggle="modal-comentario" data-target="#comentarioModal">
+                                                <button type="button" class="btn btnEnviar btn-primary" data-toggle="modal" data-target="#comentarioModal">
                                                     <i class="la la-file-text"></i> Añadir comentario
                                                 </button>
                                                 @if(isset($error))
@@ -873,22 +881,29 @@
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Añadir colaborador al proyecto {{ $proyecto->nombre }}</h5>
+                                                                <h5 class="modal-title" id="comentarioModalLabel">Añadir comentario a {{ $proyecto->nombre }}</h5>
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form action="{{route('anadirColaborador')}}" method="post">
+                                                                <form action="{{route('anadirComentario')}}" method="post">
                                                                     @csrf
                                                                     <div class="sn-field">
-                                                                        <input id="e-mail" style="padding: 10px 15px 10px 40px;" type="email" placeholder="Email" class="form-control" required name="email" >
+                                                                        <input id="titulo" style="padding: 10px 15px 10px 40px;" type="text" placeholder="Titulo" class="form-control" required name="titulo" >
                                                                         <i class="la la-envelope-o"></i>
+
                                                                         <input type="text" name="idProyecto" hidden value="{{$proyecto->id}}">
-                                                                        <input type="text" name="authUserEmail" hidden value="{{Auth::user()->email}}">
+                                                                        <input type="text" name="authUserId" hidden value="{{Auth::user()->id}}">
                                                                     </div>
-                                                                    {!! $errors->first('email','<p style="color:red;">:message</p>') !!}
-                                                                    <div class="modal-footer">
+                                                                    <label for="descripcion" style="padding: 10px 0; color: grey">Descripción: </label>
+                                                                    <div class="sn-field border-0">
+                                                                        <textarea id="descripcion" style="padding: 10px 15px  40px; min-height: 250px; height: 100%;" type="text"  class="form-control" required name="descripcion" ></textarea>
+
+
+
+                                                                    </div>
+                                                                    <div class="modal-footer border-0">
                                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                                                         <button type="submit" class="btn btnEnviar btn-primary">Añadir</button>
                                                                     </div>
