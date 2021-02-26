@@ -9,6 +9,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\Environment;
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use const http\Client\Curl\PROXY_HTTP;
 
 class ControladorIndex extends Controller
@@ -103,14 +107,16 @@ class ControladorIndex extends Controller
             $proyectosCompartidos = [];
 
         for ($x=0;$x<count($idsProyectos);$x++){
-                array_push($proyectosCompartidos,DB::table('proyectos')->select('*')->where('id','=',$idsProyectos[$x]->id_proyecto)->paginate());
+                array_push($proyectosCompartidos,DB::table('proyectos')->select('*')->where('id','=',$idsProyectos[$x]->id_proyecto)->get());
             }
-            return view('home')->with('miProyectos', $proyectos)->with('proyectosCompartidos',$proyectosCompartidos);
+
+        return view('home')->with('miProyectos', $proyectos)->with('proyectosCompartidos',$proyectosCompartidos);
 
     }
     public function eliminarComentario($id){
         Mensaje::destroy($id);
         return back();
     }
+
 
 }

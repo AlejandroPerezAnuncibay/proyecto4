@@ -20,7 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c48db693-a58d-4e39-bede-f0c648e21015" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/principales/proyecto.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/principales/proyecto.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/pagination/bootstrap-42.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ControladorIndex.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ControladorIndex.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,6 +164,7 @@
       <path value="$PROJECT_DIR$/vendor/laravel/breeze" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/vendor/laraveles/spanish" />
+      <path value="$PROJECT_DIR$/vendor/laravel/helpers" />
     </include_path>
   </component>
   <component name="ProjectId" id="1otKC1WPxOXamOSSl8SlGi7CGrX" />
@@ -165,7 +177,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/vendor/pagination" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -179,6 +191,9 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Alejandro\Desktop\proyectosLaravel\caca\proyecto4\resources\views\vendor\pagination" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Alejandro\Desktop\proyectosLaravel\caca\proyecto4\resources\views\vendor\pagination" />
       <recent name="C:\Users\2gdaw05\Desktop\proyectosLarabel\proyecto4\public" />
@@ -212,7 +227,7 @@
       <workItem from="1614277502614" duration="5531000" />
       <workItem from="1614324776996" duration="8296000" />
       <workItem from="1614337995402" duration="6220000" />
-      <workItem from="1614357685449" duration="5423000" />
+      <workItem from="1614357685449" duration="8702000" />
     </task>
     <servers />
   </component>
@@ -241,6 +256,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1685" y="498" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614363428857">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state x="1685" y="498" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1410/-1080.-482.1080.1890@0.0.2560.1410" timestamp="1614363428857" />
     <state x="420" y="463" key="FileChooserDialogImpl" timestamp="1614332180843">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
