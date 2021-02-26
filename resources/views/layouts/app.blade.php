@@ -36,7 +36,7 @@
 
 <div class="custom-control custom-switch">
     <input type="checkbox" class="custom-control-input" id="darkSwitch" />
-    <label class="custom-control-label" for="darkSwitch" style="color: white">Dark Mode</label>
+    <label class="custom-control-label" for="darkSwitch" style="color: white;padding-top: 5%">Dark Mode</label>
 </div>
 <div class="wrapper">
 
@@ -132,7 +132,7 @@
     </footer>
 
 </div><!--theme-layout end-->
-
+<script type="text/javascript" src="{{asset('js/dark-mode-switch.min.js')}}"></script>
 
 <script type="text/javascript" src="{{ asset ('js/jquery.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset ('js/popper.js')}}"></script>
