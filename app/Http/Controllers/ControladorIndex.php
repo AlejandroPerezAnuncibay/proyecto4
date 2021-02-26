@@ -40,15 +40,35 @@ class ControladorIndex extends Controller
     }
 
     public function mostrarProyecto($id){
-        $arrayIds = ProyectosUsuarios::get()->where('id_proyecto',$id);
-        $arrayUsuarios= [];
+        $arrayIds = DB::table('proyectosusuarios')->select('*')->where('id_proyecto','=',$id)->get();
 
-        for ($x=0;$x<count($arrayIds);$x++){
-            $usuario = DB::table('users')->select('*')->where('id','=',$arrayIds[$x]->id_usuario)->get();
+        if (count($arrayIds)>0) {
+            $arrayUsuarios = [];
 
-            array_push($arrayUsuarios,$usuario[0]);
+            for ($x = 0; $x < count($arrayIds); $x++) {
+                $usuario = DB::table('users')->select('*')->where('id', '=', $arrayIds[$x]->id_usuario)->get();
+
+                array_push($arrayUsuarios, $usuario[0]);
+            }
+            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios);
+        }else{
+            $arrayUsuarios=[];
+            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios);
+
         }
-        return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios);
+    }
+
+    public function mostrarHome(){
+
+            $proyectos = DB::table('Proyectos')->select('*')->where('creador','=',Auth::user()->id)->get();
+            $idsProyectos = DB::table('proyectosusuarios')->select('id_proyecto')->where('id_usuario','=',Auth::user()->id)->get();
+            $proyectosCompartidos = [];
+
+        for ($x=0;$x<count($idsProyectos);$x++){
+                array_push($proyectosCompartidos,DB::table('proyectos')->select('*')->where('id','=',$idsProyectos[$x]->id_proyecto)->get());
+            }
+            return view('home')->with('miProyectos', $proyectos)->with('proyectosCompartidos',$proyectosCompartidos);
+
     }
 
 }

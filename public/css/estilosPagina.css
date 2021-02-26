@@ -1,6 +1,6 @@
 body{
     font-family: 'Montserrat', sans-serif;
-    background-color: white;
+    background-color: whitesmoke;
     overflow-x: hidden;
 }
 /*Login*/
@@ -20,6 +20,9 @@ body{
     background-color: #FCA311 !important;
     border-color: #FCA311;
     color: white;
+}
+footer{
+    background-color: whitesmoke !important;
 }
 
 .tc a{
@@ -94,6 +97,55 @@ label[for=remember]{
 }
 .sn-field{
     margin-bottom: 12px !important;
+}
+.cover-sec > a{
+    color: #FCA311 !important;
+    border-color: #FCA311 !important ;
+}
+.message-btn a{
+    background-color: #FCA311 !important ;
+}
+
+.user_pro_status{
+    padding-bottom: 0;
+}
+.flw-hr{
+    background-color: whitesmoke;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    margin-bottom: 0;
+}
+.flw-status{
+    padding: 20px 0;
+}
+
+.tab-feed ul li.active span{
+    color: #FCA311 !important;
+}
+
+.cover-sec > a{
+    color: #FCA311 !important;
+    border-color: #FCA311 !important ;
+}
+.message-btn a{
+    background-color: #FCA311 !important ;
+}
+
+.user_pro_status{
+    padding-bottom: 0;
+}
+.flw-hr{
+    background-color: whitesmoke;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    margin-bottom: 0;
+}
+.flw-status{
+    padding: 20px 0;
+}
+
+.tab-feed ul li.active span{
+    color: #FCA311 !important;
 }
 
 .user-account{
