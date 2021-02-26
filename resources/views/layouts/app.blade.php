@@ -34,7 +34,10 @@
 
 <body>
 
-
+<div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" id="darkSwitch" />
+    <label class="custom-control-label" for="darkSwitch" style="color: white">Dark Mode</label>
+</div>
 <div class="wrapper">
 
     <header>
@@ -66,7 +69,8 @@
 
 
                     </ul>
-                </nav><!--nav end-->
+                </nav>
+               <!--nav end-->
                 <div class="menu-btn">
                     <a href="#" title=""><i class="fa fa-bars"></i></a>
                 </div><!--menu-btn end-->

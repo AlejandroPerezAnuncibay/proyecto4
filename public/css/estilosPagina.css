@@ -3,6 +3,11 @@ body{
     background-color: whitesmoke;
     overflow-x: hidden;
 }
+.custom-switch{
+    position: absolute;
+    top: 15px;
+    right: 50px;
+}
 /*Login*/
 .sign-in{
     background-color: #14213d !important;

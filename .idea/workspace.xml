@@ -20,6 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c48db693-a58d-4e39-bede-f0c648e21015" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/html-loader/node_modules/schema-utils/dist/util/Range.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/estilosPagina.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/estilosPagina.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -218,6 +222,7 @@
       <workItem from="1614324776996" duration="8296000" />
       <workItem from="1614337995402" duration="6220000" />
       <workItem from="1614357685449" duration="11482000" />
+      <workItem from="1614376168655" duration="1901000" />
     </task>
     <servers />
   </component>
