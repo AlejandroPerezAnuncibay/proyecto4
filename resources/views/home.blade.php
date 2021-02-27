@@ -59,7 +59,6 @@
 
                 <div class="col-sm-5 col-xs-8">
                     <h2 class="tituloProyecto">Proyectos compartidos</h2>
-                    <div class="bg-light">
                         @if(count($proyectosCompartidos) > 0)
                             <table id="tabla2" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
                                 <thead>
@@ -96,7 +95,6 @@
                             </div>
                         @endif
 
-                    </div>
                 </div>
             </div>
         </div>

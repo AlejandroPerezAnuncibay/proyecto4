@@ -265,6 +265,7 @@
 
                                                 </div><!--user-profile-ov end-->
                                             @endforeach
+                                        @endif
 
                                         <div class="user-profile-ov st2">
                                             <h3><a href="#" title="" class="exp-bx-open">Experience </a><a href="#" title="" class="exp-bx-open"><i class="fa fa-pencil"></i></a> <a href="#" title="" class="exp-bx-open"><i class="fa fa-plus-square"></i></a></h3>
