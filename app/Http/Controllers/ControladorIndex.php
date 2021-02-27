@@ -119,6 +119,11 @@ class ControladorIndex extends Controller
         return back();
     }
 
+    public function mostrarEstadisticas(){
+        $usuarios = User::get();
+        return view('principales.estadisticas')->with('usuarios',$usuarios);
+    }
+
 
 
 

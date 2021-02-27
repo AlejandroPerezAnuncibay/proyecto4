@@ -38,6 +38,8 @@ Route::post("/crearproyecto","ControladorIndex@crearProyecto")->name("crearProye
 Route::get("/proyectos","ControladorIndex@mostrarFormulario")->name("mostrarFormularioCrearProyectos");
 Route::get("/cerrarSesion","ControladorIndex@cerrarSesion")->name("cerrarSesion");
 
+//Estadisticas
+Route::post("/estadisticas","ControladorIndex@cogerEstadisticas")->name("cogerEstadisticas");
 
 //Proyectos
 Route::post("/anadirColaborador", "ControladorProyectos@anadirColaboradorProyecto")->name("anadirColaborador");
