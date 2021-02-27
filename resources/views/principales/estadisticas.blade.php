@@ -16,7 +16,7 @@
                 <option value="{{$usuario->id}}">{{ucfirst($usuario->name)}} {{ucfirst($usuario->surname)}}</option>
             @endforeach
 </select>
-<button type="button" id="sacarEstadisticas" class="btn btnEnviar btn-primary" style="margin-top: 10px;">Mostrar estadisticas</button>
+<button type="button" id="sacarEstadisticas" onclick="mostrarDatos()" class="btn btnEnviar btn-primary" style="margin-top: 10px;">Mostrar estadisticas</button>
 
 
 
@@ -24,6 +24,7 @@
 
                     </div>
                 </form>
+                <div class="posts-section" id="graficos" style="display: none">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Proyectos</a>
@@ -44,11 +45,10 @@
                 </div>
 
                 <script>
-                    $(function () {
-                        $('#myTab li:last-child a').tab('show')
-                    })
+
                 </script>
              </div>
+                </div>
          </div>
      </div>
     <script type="text/javascript" src="{{ asset('js/graficos.js') }}"

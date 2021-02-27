@@ -50,7 +50,7 @@ Route::get("/eliminarProyecto/{id}","ControladorIndex@eliminarProyecto")->name("
 
 
 Route::get("/actualizarTarea/{id}", "ControladorProyectos@actualizarTarea")->name("actualizarTarea");
-
+Route::get("/datosEstadisticas/{id}", "ControladorIndex@cogerDatosEstadisticas")->name('datosEstadisticas');
 
 
 //Ajustes
