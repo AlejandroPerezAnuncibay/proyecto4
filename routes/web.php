@@ -50,7 +50,11 @@ Route::get("/eliminarProyecto/{id}","ControladorIndex@eliminarProyecto")->name("
 
 
 Route::get("/actualizarTarea/{id}", "ControladorProyectos@actualizarTarea")->name("actualizarTarea");
+
 Route::get("/borrarTarea/{id}", "ControladorProyectos@borrarTarea")->name("borrarTarea");
+
+
+Route::get("/datosEstadisticas/{id}", "ControladorIndex@cogerDatosEstadisticas")->name('datosEstadisticas');
 
 
 

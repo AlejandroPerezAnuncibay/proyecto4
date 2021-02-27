@@ -16,6 +16,8 @@ class CreateTablaTareas extends Migration
         Schema::create('Tareas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_proyecto');
+            $table->unsignedBigInteger('creador');
+            $table->foreign('creador')->references('id')->on('Users')->onDelete('cascade');
 
             $table->foreign('id_proyecto')->references('id')->on('Proyectos')->onDelete('cascade');
             $table->date('fecha_vencimiento');

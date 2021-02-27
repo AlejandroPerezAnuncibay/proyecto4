@@ -213,4 +213,26 @@ class ControladorIndex extends Controller
             return view("cuenta.ajustes")->with('misDatos', $usuario)->with('error', 'La contraseña introducida no exite');
         }
     }
+
+     public function cogerDatosEstadisticas($id)
+    {
+        $datos = [];
+        $mensajes=[];
+        $proyectos=[];
+        $tareas=[];
+        for ($x = 1; $x<=12; $x++){
+            $contador = Mensaje::whereYear('created_at','=','2021')->whereMonth('created_at','=',$x)->where('creador','=',$id)->get();
+            array_push($mensajes,count($contador));
+        }
+        for ($x = 1; $x<=12; $x++){
+            $contador = Proyecto::whereYear('created_at','=','2021')->whereMonth('created_at','=',$x)->where('creador','=',$id)->get();
+            array_push($proyectos,count($contador));
+        }
+        for ($x = 1; $x<=12; $x++){
+            $contador = Tarea::whereYear('created_at','=','2021')->whereMonth('created_at','=',$x)->where('usuario_asignado','=',$id)->get();
+            array_push($tareas,count($contador));
+        }
+        array_push($datos,$mensajes,$proyectos,$tareas);
+       return $datos;
+    }
 }
