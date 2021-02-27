@@ -48,7 +48,6 @@ class ControladorProyectos extends Controller
     }
 
     public function anadirComentarioProyecto(){
-        //Comprobar mañana para arreglar, mandar id Creador mediante el form-> $creador->id
         $queryCreador = DB::table('users')->select('name')->where('id','=',\request('authUserId'))->get();
       $nombreCreador = $queryCreador[0]->name;
        Mensaje::create([
@@ -64,15 +63,31 @@ class ControladorProyectos extends Controller
 
     public function anadirTareaProyecto(){
         Tarea::create([
-            "descripcion"=>\request("descripcionTarea"),
-            "usuario_asignado"=>\request("usuariosAsignado"),
+            "titulo"=> \request("titulo"),
+            "descripcion"=>\request("descripcion"),
+            "usuario_asignado"=>\request("usuarioAsignado"),
             "realizado"=>"0",
             "id_proyecto"=>\request("idProyecto"),
             "fecha_vencimiento"=>\request("fechaVencimiento")
 
         ]);
 
-        return back()->with("comentarios",DB::table("mensajes")->select("*")->where("id_proyecto","=", \request("idProyecto"))->with("tareas",DB::table("Tareas")->select("*")->where("id_proyecto","=",\request("idProyecto")))->get());
+        return back()->with("comentarios",DB::table("mensajes")->select("*")->where("id_proyecto","=", \request("idProyecto"))->get())->with("tareas",DB::table("tareas")->select("*")->where("id_proyecto","=", \request("idProyecto"))->get());
+
+    }
+
+    public function actualizarTarea($id){
+
+        $tarea=Tarea::find($id); //where("id", $id)->update("realizado","1");
+        $tarea->realizado="1";
+        $tarea->save();
+
+
+          return $id;
+
+
+
+
 
     }
 

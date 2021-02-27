@@ -142,6 +142,7 @@
 <script type="text/javascript" src="{{ asset ('js/flatpickr.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset ('lib/slick/slick.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset ('js/script.js')}}"></script>
+<script type="text/javascript" src="{{ asset ('typescript/tareas.js')}}"></script>
 <!--<script type="text/javascript" src="js/layouts.js')}}"></script>-->
 </body>
 </html>

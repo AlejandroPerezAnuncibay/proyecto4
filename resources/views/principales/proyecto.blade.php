@@ -3,16 +3,6 @@
 @section("content")
 
 
-
-
-
-
-    <body>
-
-
-    <div class="wrapper">
-
-
         <section class="cover-sec">
             <img src="{{ $proyecto->imagen }}" alt="No hay imagen de proyecto">
             <a href="#" title=""><i class="fa fa-camera"></i> Cambiar imagen</a>
@@ -256,50 +246,104 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        @if(count($tareas)>0)
-                                            @foreach($tareas as $tarea)
-                                                <div class="user-profile-ov">
-                                                    <h3><a href="#" title="" class="overview-open">{{$tarea->titulo}}</a> <a href="#" title="" class="overview-open"><i class="fa fa-pencil"></i></a></h3>
-                                                    <small><!--UsuarioAsignado--></small>
-                                                    <p>{{$tarea->descripcion}}</p>
 
-                                                </div><!--user-profile-ov end-->
-                                            @endforeach
+                                    @if(count($tareas)>0)
+
+                                        <table class="table">
+                                            <tbody>
+                                                @foreach($tareas as $tarea)
+                                                    @if($tarea->realizado==0 && $tarea->fecha_vencimiento>= now()->toDateString())
+                                                        <tr>
+                                                            <td>
+                                                                <div class="user-profile-ov ">
+                                                                    <div class=" tarea{{$tarea->id}} alert alert-warning px-4 py-3 ">
+                                                                        <div class="row">
+                                                                            <h3 class=" col-12 col-md-5"><a href="#" title="" class="overview-open">{{$tarea->titulo}}</a> <a href="#" title="" class="overview-open"><i class="fa fa-pencil"></i></a></h3>
+                                                                            <p class="col-12 col-md-7">Fecha de vencimiento: {{$tarea->fecha_vencimiento}}</p>
+                                                                        </div>
+                                                                        @if($tarea->usuario_asignado== $creador->id)
+                                                                            <small>{{$creador->email}}</small>
+
+                                                                        @else
+                                                                            @foreach($colaboradores as $colaborador)
+                                                                                @if($colaborador->id== $tarea->usuario_asignado)
+                                                                                    <small>{{$colaborador->email}}</small>
+                                                                                @endif
+                                                                            @endforeach
+                                                                        @endif
+                                                                        <p>{{$tarea->descripcion}}</p>
+                                                                        <div class="d-flex justify-content-end">
+                                                                            <button onclick="actualizarTarea({{$tarea->id}})" class=" btn{{$tarea->id}} btn btnEnviar float-end">Acabar Tarea</button>
+
+                                                                        </div>
+
+                                                                    </div><!--user-profile-ov end-->
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    @elseif($tarea->realizado==0 && $tarea->fecha_vencimiento <= now()->toDateString())
+                                                        <tr>
+                                                            <td>
+                                                                <div class="user-profile-ov ">
+                                                                    <div class=" alert alert-danger px-4 py-3 ">
+                                                                        <div class="row">
+                                                                            <h3 class=" col-12 col-md-5"><a href="#" title="" class="overview-open">{{$tarea->titulo}}</a> <a href="#" title="" class="overview-open"><i class="fa fa-pencil"></i></a></h3>
+                                                                            <p class="col-12 col-md-7">Fecha de vencimiento: {{$tarea->fecha_vencimiento}}</p>
+                                                                        </div>
+                                                                        @if($tarea->usuario_asignado== $creador->id)
+                                                                            <small>{{$creador->email}}</small>
+
+                                                                        @else
+                                                                            @foreach($colaboradores as $colaborador)
+                                                                                @if($colaborador->id== $tarea->usuario_asignado)
+                                                                                    <small>{{$colaborador->email}}</small>
+                                                                                @endif
+                                                                            @endforeach
+                                                                        @endif
+                                                                        <p>{{$tarea->descripcion}}</p>
+
+
+                                                                    </div><!--user-profile-ov end-->
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    @elseif($tarea->realizado==1)
+                                                        <tr>
+                                                            <td>
+                                                                <div class="user-profile-ov ">
+                                                                    <div class=" alert alert-success px-4 py-3 ">
+                                                                        <div class="row">
+                                                                            <h3 class=" col-12 col-md-5"><a href="#" title="" class="overview-open">{{$tarea->titulo}}</a> <a href="#" title="" class="overview-open"><i class="fa fa-pencil"></i></a></h3>
+                                                                            <p class="col-12 col-md-7">Fecha de vencimiento: {{$tarea->fecha_vencimiento}}</p>
+                                                                        </div>
+                                                                        @if($tarea->usuario_asignado== $creador->id)
+                                                                            <small>{{$creador->email}}</small>
+
+                                                                        @else
+                                                                        @foreach($colaboradores as $colaborador)
+                                                                            @if($colaborador->id== $tarea->usuario_asignado)
+                                                                        <small>{{$colaborador->email}}</small>
+                                                                            @endif
+                                                                        @endforeach
+                                                                        @endif
+                                                                        <p>{{$tarea->descripcion}}</p>
+
+                                                                    </div><!--user-profile-ov end-->
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
+
+                                                @endforeach
+                                            </tbody>
+
+                                        </table>
+
+
+                                        @else
+                                            <div class="user-profile-ov">No hay tareas añadidas. </div>
                                         @endif
 
-                                        <div class="user-profile-ov st2">
-                                            <h3><a href="#" title="" class="exp-bx-open">Experience </a><a href="#" title="" class="exp-bx-open"><i class="fa fa-pencil"></i></a> <a href="#" title="" class="exp-bx-open"><i class="fa fa-plus-square"></i></a></h3>
-                                            <h4>Web designer <a href="#" title=""><i class="fa fa-pencil"></i></a></h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor aliquam felis, nec condimentum ipsum commodo id. Vivamus sit amet augue nec urna efficitur tincidunt. Vivamus consectetur aliquam lectus commodo viverra. </p>
-                                            <h4>UI / UX Designer <a href="#" title=""><i class="fa fa-pencil"></i></a></h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor aliquam felis, nec condimentum ipsum commodo id.</p>
-                                            <h4>PHP developer <a href="#" title=""><i class="fa fa-pencil"></i></a></h4>
-                                            <p class="no-margin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor aliquam felis, nec condimentum ipsum commodo id. Vivamus sit amet augue nec urna efficitur tincidunt. Vivamus consectetur aliquam lectus commodo viverra. </p>
-                                        </div><!--user-profile-ov end-->
-                                        <div class="user-profile-ov">
-                                            <h3><a href="#" title="" class="ed-box-open">Education</a> <a href="#" title="" class="ed-box-open"><i class="fa fa-pencil"></i></a> <a href="#" title=""><i class="fa fa-plus-square"></i></a></h3>
-                                            <h4>Master of Computer Science</h4>
-                                            <span>2015 - 2018</span>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor aliquam felis, nec condimentum ipsum commodo id. Vivamus sit amet augue nec urna efficitur tincidunt. Vivamus consectetur aliquam lectus commodo viverra. </p>
-                                        </div><!--user-profile-ov end-->
-                                        <div class="user-profile-ov">
-                                            <h3><a href="#" title="" class="lct-box-open">Location</a> <a href="#" title="" class="lct-box-open"><i class="fa fa-pencil"></i></a> <a href="#" title=""><i class="fa fa-plus-square"></i></a></h3>
-                                            <h4>India</h4>
-                                            <p>151/4 BT Chownk, Delhi </p>
-                                        </div><!--user-profile-ov end-->
-                                        <div class="user-profile-ov">
-                                            <h3><a href="#" title="" class="skills-open">Skills</a> <a href="#" title="" class="skills-open"><i class="fa fa-pencil"></i></a> <a href="#"><i class="fa fa-plus-square"></i></a></h3>
-                                            <ul>
-                                                <li><a href="#" title="">HTML</a></li>
-                                                <li><a href="#" title="">PHP</a></li>
-                                                <li><a href="#" title="">CSS</a></li>
-                                                <li><a href="#" title="">Javascript</a></li>
-                                                <li><a href="#" title="">Wordpress</a></li>
-                                                <li><a href="#" title="">Photoshop</a></li>
-                                                <li><a href="#" title="">Illustrator</a></li>
-                                                <li><a href="#" title="">Corel Draw</a></li>
-                                            </ul>
-                                        </div><!--user-profile-ov end-->
                                     </div><!--product-feed-tab end-->
                                     <div class="product-feed-tab" id="saved-jobs">
                                         <div class="posts-section">
@@ -1162,10 +1206,6 @@
         </div><!--overview-box end-->
 
     </div><!--theme-layout end-->
-
-
-
-
 
 
 

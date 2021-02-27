@@ -11,11 +11,6 @@ class Tarea extends Model
     protected $table='Tareas';
 
     protected $guarded = [
-        'id_tarea',
-        'id_proyecto',
-        'fecha_vencimiento',
-        'usuario_asignado',
-        'descripcion',
-        'realizado'
+
     ];
 }

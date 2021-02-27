@@ -1,5 +1,6 @@
 "use strict";
 /// <reference path="../js/jquery.min.js"/>
+Object.defineProperty(exports, "__esModule", { value: true });
 $(document).ready(function () {
     validacionInicioSesion();
     validacionesRegistro();

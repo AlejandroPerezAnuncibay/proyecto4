@@ -308,6 +308,18 @@ label[for=remember]{
     padding: 5% 0%;
     text-transform: uppercase;
 }
+.user-profile-ov{
+    background-color:transparent;
+    padding: 0;
+}
+.alert > h3{
+    margin-bottom: 5px !important;
+
+}
+.alert{
+    margin-bottom: 0 !important;
+}
+
 
 /*Paginacion*/
 
