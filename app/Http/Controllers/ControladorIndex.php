@@ -15,6 +15,7 @@ use Illuminate\Pagination\Environment;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use const http\Client\Curl\PROXY_HTTP;
+use Illuminate\Support\Facades\Hash;
 
 class ControladorIndex extends Controller
 {
@@ -119,7 +120,49 @@ class ControladorIndex extends Controller
         return back();
     }
 
+    public function mostrarAjustes(){
+        $usuario = DB::table('Users')->select('*')->where('id', '=', Auth::user()->id)->get();
+        return view("cuenta.ajustes");
+    }
 
+    public function modificarDatosUsuario(){
 
+        \request()->validate([
+            'name' => 'required',
+            'surname' => 'required',
+            'email' => 'required'
+        ]);
 
+        $usuario = User::find(\request('idUsuario'));
+
+        $usuario->name = \request('name');
+        $usuario->surname = \request('surname');
+        $usuario->email = \request('email');
+
+        $usuario->save();
+        return view("cuenta.ajustes")->with('misDatos', $usuario)->with('error', 'El usuario ha sido modificado');
+    }
+
+    public function cambiarContrasena(){
+        \request()->validate([
+            'old-password' => 'required',
+            'new-password' => 'required',
+            'repeat-password' => 'required'
+        ]);
+        $oldPassword = Hash::make(\request('old-password'));
+        $newPassword = Hash::make(\request('new-password'));
+        $repeatPassword = Hash::make(\request('repeat-password'));
+        $usuario = User::find(Auth::user()->id);
+        if ($oldPassword == User::find(Auth::user()->password)){
+            if ($newPassword == $repeatPassword){
+                $usuario->password == \request('password');
+                $usuario->save();
+                return view("cuenta.ajustes")->with('misDatos', $usuario)->with('error', 'La contraseña ha sido modificada');
+            }else{
+                return view("cuenta.ajustes")->with('misDatos', $usuario)->with('error', 'Deben coincidir las contraseñas');
+            }
+        }else{
+            return view("cuenta.ajustes")->with('misDatos', $usuario)->with('error', 'La contraseña introducida no exite');
+        }
+    }
 }

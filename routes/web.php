@@ -46,4 +46,6 @@ Route::post("/anadirTarea", "ControladorProyectos@anadirTareaProyecto")->name("a
 Route::get("/eliminarComentario/{id}","ControladorIndex@eliminarComentario")->name("eliminarComentario");
 Route::get("/eliminarProyecto/{id}","ControladorIndex@eliminarProyecto")->name("eliminarProyecto");
 
-
+//Ajustes
+Route::post("/modificarDatos", "ControladorIndex@modificarDatosUsuario")->name("modificarDatosUsuario");
+Route::post("/cambiarContrasena", "ControladorIndex@cambiarContrasena")->name('cambiarContrasena');
