@@ -118,7 +118,7 @@ background-color: #34373a;
 }
 
 [data-theme="dark"] .card-text{
-   color: #eee;
+   color: #343434;
 
 }
 [data-theme="dark"] .btnEnviar{
@@ -146,6 +146,14 @@ background-color: #34373a;
     box-shadow: 0px 0px 10px 0px rgba(255,255,255,1);
 
 }
+[data-theme="dark"] table.dataTable tbody td{
+    background-color: white;
+    color: #343434;
+}
+[data-theme="dark"] .card-body{
+    color: #343434;
+}
+
 
 /*-------------------------------------------------------------------*/
 /*Login*/
@@ -237,12 +245,19 @@ header nav{
     top: 11.5%;
 }
 /*checkbox de login */
+.form-check-input[type=checkbox]{
+    padding: 0;
+}
+.form-check{
+    padding-left: 1em;
+}
 #remember{
     width: 20px !important;
     height: 20px !important;
 }
 label[for=remember]{
     margin-top: .5rem !important;
+    padding-left: .75em;
 }
 .elogin ,.error{
     margin-bottom: .5rem !important;
@@ -359,6 +374,7 @@ label[for=remember]{
     }
 }
 /*Proyectos*/
+
 @media (min-width: 360px) {
     .tituloProyecto{
         text-transform: uppercase;
@@ -368,7 +384,23 @@ label[for=remember]{
 .card{
     margin: 20px 0;
 }
-
+.table.dataTable.no-footer{
+    border-bottom: 0;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current{
+    border-radius: 27%;
+}
+.th-sm.sorting_asc {
+    background-color: #14213d;
+    color: white;
+}.th-sm.sorting{
+    background-color: #14213d;
+    color: white;
+}
+tr td a .la{
+    font-size: 30px;
+    color: #575757;
+}
 /*Ajustes*/
 .nav-link.active{
     color: #FCA311 !important ;

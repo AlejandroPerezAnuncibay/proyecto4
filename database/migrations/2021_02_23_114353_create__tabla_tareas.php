@@ -20,7 +20,7 @@ class CreateTablaTareas extends Migration
             $table->foreign('id_proyecto')->references('id')->on('Proyectos')->onDelete('cascade');
             $table->date('fecha_vencimiento');
             $table->unsignedBigInteger('usuario_asignado');
-
+            $table->string('titulo');
             $table->foreign('usuario_asignado')->references('id')->on('users')->onDelete('cascade');
             $table->string('descripcion');
             $table->boolean('realizado')->default(false);

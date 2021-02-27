@@ -1,4 +1,4 @@
-@extends("layouts.layout")
+@extends("layouts.app")
 
 @section("content")
 
@@ -20,34 +20,46 @@
                             <div class="tab-pane fade show active" id="nav-acc" role="tabpanel" aria-labelledby="nav-acc-tab">
                                 <div class="acc-setting">
                                     <h3>Ajustes de cuenta</h3>
-                                    <form>
-                                        <div class="notbar">
-                                            <h4>Notification Sound</h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium nulla quis erat dapibus, varius hendrerit neque suscipit. Integer in ex euismod, posuere lectus id</p>
-                                            <div class="toggle-btn">
-                                                <a href="#" title=""><img src="images/up-btn.png" alt=""></a>
+                                    <form action="{{ route('modificarDatosUsuario') }}" method="POST">
+                                        @csrf
+
+                                        <div class="cp-field">
+                                            <h5>Nombre</h5>
+                                            <div class="cpp-fiel">
+                                                <input type="text" name="name" placeholder="Nombre" value="{{ Auth::user()->name }}">
+                                                <i class="la la-user"></i>
                                             </div>
-                                        </div><!--notbar end-->
-                                        <div class="notbar">
-                                            <h4>Notification Email</h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium nulla quis erat dapibus, varius hendrerit neque suscipit. Integer in ex euismod, posuere lectus id</p>
-                                            <div class="toggle-btn">
-                                                <a href="#" title=""><img src="images/up-btn.png" alt=""></a>
+                                        </div>
+                                        <input type="hidden" name="idUsuario" value="{{ Auth::user()->id}}">
+                                        <div class="cp-field">
+                                            <h5>Apellido</h5>
+                                            <div class="cpp-fiel">
+                                                <input type="text" name="surname" placeholder="Apellido" value="{{ Auth::user()->surname  }}">
+                                                <i class="la la-user"></i>
                                             </div>
-                                        </div><!--notbar end-->
-                                        <div class="notbar">
-                                            <h4>Chat Message Sound</h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium nulla quis erat dapibus, varius hendrerit neque suscipit. Integer in ex euismod, posuere lectus id</p>
-                                            <div class="toggle-btn">
-                                                <a href="#" title=""><img src="images/up-btn.png" alt=""></a>
+                                        </div>
+                                        <div class="cp-field">
+                                            <h5>Email</h5>
+                                            <div class="cpp-fiel">
+                                                <input type="text" name="email" placeholder="Email" value="{{ Auth::user()->email }}">
+                                                <i class="la la-at"></i>
                                             </div>
-                                        </div><!--notbar end-->
-                                        <div class="save-stngs">
+                                        </div>
+                                        <div class="save-stngs pd2">
                                             <ul>
                                                 <li><button type="submit">Save Setting</button></li>
-                                                <li><button type="submit">Restore Setting</button></li>
+                                                <li><button type="reset">Restore Setting</button></li>
                                             </ul>
                                         </div><!--save-stngs end-->
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger" style="margin-top: 10px;">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
                                     </form>
                                 </div><!--acc-setting end-->
                             </div>
@@ -55,37 +67,44 @@
                             <div class="tab-pane fade" id="nav-password" role="tabpanel" aria-labelledby="nav-password-tab">
                                 <div class="acc-setting">
                                     <h3>Cambiar contraseña</h3>
-                                    <form>
+                                    <form action="{{route('cambiarContrasena')}}" method="POST">
+                                        @csrf
                                         <div class="cp-field">
-                                            <h5>Old Password</h5>
+                                            <h5>Contraseña antigua</h5>
                                             <div class="cpp-fiel">
-                                                <input type="text" name="old-password" placeholder="Old Password">
+                                                <input type="password" name="old-password" placeholder="Contraseña antigua">
                                                 <i class="fa fa-lock"></i>
                                             </div>
                                         </div>
                                         <div class="cp-field">
-                                            <h5>New Password</h5>
+                                            <h5>Contraseña nueva</h5>
                                             <div class="cpp-fiel">
-                                                <input type="text" name="new-password" placeholder="New Password">
+                                                <input type="password" name="new-password" placeholder="Contraseña nueva">
                                                 <i class="fa fa-lock"></i>
                                             </div>
                                         </div>
                                         <div class="cp-field">
-                                            <h5>Repeat Password</h5>
+                                            <h5>Repite la contraseña</h5>
                                             <div class="cpp-fiel">
-                                                <input type="text" name="repeat-password" placeholder="Repeat Password">
+                                                <input type="password" name="repeat-password" placeholder="Repite la contraseña">
                                                 <i class="fa fa-lock"></i>
                                             </div>
-                                        </div>
-                                        <div class="cp-field">
-                                            <h5><a href="#" title="">Forgot Password?</a></h5>
                                         </div>
                                         <div class="save-stngs pd2">
                                             <ul>
                                                 <li><button type="submit">Save Setting</button></li>
-                                                <li><button type="submit">Restore Setting</button></li>
+                                                <li><button type="reset">Restore Setting</button></li>
                                             </ul>
                                         </div><!--save-stngs end-->
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger" style="margin-top: 10px;">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
                                     </form>
                                 </div><!--acc-setting end-->
                             </div>

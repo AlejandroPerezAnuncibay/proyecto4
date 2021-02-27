@@ -38,6 +38,8 @@ Route::post("/crearproyecto","ControladorIndex@crearProyecto")->name("crearProye
 Route::get("/proyectos","ControladorIndex@mostrarFormulario")->name("mostrarFormularioCrearProyectos");
 Route::get("/cerrarSesion","ControladorIndex@cerrarSesion")->name("cerrarSesion");
 
+//Estadisticas
+Route::post("/estadisticas","ControladorIndex@cogerEstadisticas")->name("cogerEstadisticas");
 
 //Proyectos
 Route::post("/anadirColaborador", "ControladorProyectos@anadirColaboradorProyecto")->name("anadirColaborador");
@@ -46,6 +48,12 @@ Route::post("/anadirTarea", "ControladorProyectos@anadirTareaProyecto")->name("a
 Route::get("/eliminarComentario/{id}","ControladorIndex@eliminarComentario")->name("eliminarComentario");
 Route::get("/eliminarProyecto/{id}","ControladorIndex@eliminarProyecto")->name("eliminarProyecto");
 
+
 Route::get("/actualizarTarea/{id}", "ControladorProyectos@actualizarTarea")->name("actualizarTarea");
 
+
+
+//Ajustes
+Route::post("/modificarDatos", "ControladorIndex@modificarDatosUsuario")->name("modificarDatosUsuario");
+Route::post("/cambiarContrasena", "ControladorIndex@cambiarContrasena")->name('cambiarContrasena');
 

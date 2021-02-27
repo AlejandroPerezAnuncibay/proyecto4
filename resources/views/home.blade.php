@@ -14,7 +14,7 @@
     <main>
         <div class="main-section">
             <div class="row d-flex justify-content-center">
-                <div class="col-sm-5 col-xs-8">
+                <div class="col-xl-5 col-xs-8">
                     <h2 class="tituloProyecto">Mis proyectos</h2>
                         @if(count($miProyectos) > 0)
                         <table id="dtBasicExample" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
@@ -40,8 +40,14 @@
                               <tr>
                                   <td> <h5 class="card-title" >{{$proyecto->nombre}}</h5></td>
                                   <td><p class="card-text">{{$proyecto->descripcion}}</p></td>
-                                  <td><a href="/proyecto/{{ $proyecto->id }}" class="btn btn-primary btnEnviar">Ver proyecto</a></td>
-                                  <td><a  href="/eliminarProyecto/{{$proyecto->id}}"><i class="la la-close"></i></a></td>
+                                  <td>
+                                      <a href="/proyecto/{{ $proyecto->id }}" class="btn btn-primary btnEnviar d-md-block d-none">Ver proyecto</a>
+                                      <a href="/proyecto/{{ $proyecto->id }}" class="d-md-none d-xs-block"><i class="la la-eye"></i></a>
+                                  </td>
+                                  <td>
+                                      <a href="/eliminarProyecto/{{$proyecto->id}}" class="btn btn-primary btnEnviar d-md-block d-none">Eliminar proyecto</a>
+                                      <a href="/eliminarProyecto/{{$proyecto->id}}" class="d-md-none d-xs-block"><i class="la la-close"></i></a>
+                                  </td>
                               </tr>
                             @endforeach
                             </tbody>
@@ -57,7 +63,7 @@
 
                 </div>
 
-                <div class="col-sm-5 col-xs-8">
+                <div class="col-xl-5 col-xs-8">
                     <h2 class="tituloProyecto">Proyectos compartidos</h2>
                         @if(count($proyectosCompartidos) > 0)
                             <table id="tabla2" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
