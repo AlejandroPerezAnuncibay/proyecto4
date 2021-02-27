@@ -11,5 +11,13 @@ function actualizarTarea(id) {
             $(".btn" + response).remove();
         }
     });
-    return false;
+}
+function borrarTarea(id) {
+    $.ajax({
+        url: "/borrarTarea/" + id,
+        method: "get",
+        success: function (response) {
+            $(".borrarTarea" + response).remove();
+        }
+    });
 }

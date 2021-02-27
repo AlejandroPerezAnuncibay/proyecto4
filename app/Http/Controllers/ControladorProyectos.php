@@ -64,6 +64,7 @@ class ControladorProyectos extends Controller
     public function anadirTareaProyecto(){
         Tarea::create([
             "titulo"=> \request("titulo"),
+            "creador"=> \request("creador"),
             "descripcion"=>\request("descripcion"),
             "usuario_asignado"=>\request("usuarioAsignado"),
             "realizado"=>"0",
@@ -78,17 +79,15 @@ class ControladorProyectos extends Controller
 
     public function actualizarTarea($id){
 
-        $tarea=Tarea::find($id); //where("id", $id)->update("realizado","1");
+        $tarea=Tarea::find($id);
         $tarea->realizado="1";
         $tarea->save();
 
-
           return $id;
-
-
-
-
-
     }
+    public function borrarTarea($id){
+        Tarea::destroy($id);
+        return $id;
+}
 
 }

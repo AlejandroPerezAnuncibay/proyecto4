@@ -15,5 +15,16 @@ function actualizarTarea(id){
 
         }
     });
-    return false;
+
 }
+
+function borrarTarea(id){
+    $.ajax({
+        url: "/borrarTarea/"+id,
+        method: "get",
+        success: function (response){
+            $(".borrarTarea"+response).remove();
+        }
+    });
+}
+

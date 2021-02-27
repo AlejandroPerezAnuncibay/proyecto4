@@ -195,6 +195,7 @@
                                                             <i class="la la-envelope-o"></i>
 
                                                             <input type="text" name="idProyecto" hidden value="{{$proyecto->id}}">
+                                                            <input type="text" name="creador" hidden value="{{Auth::user()->id}}">
                                                         </div>
                                                         <label for="descripcionTarea" style="padding: 10px 0; color: grey">Descripción: </label><br>
                                                         <div class="sn-field border-0">
@@ -205,7 +206,7 @@
 
                                                         <div class="sn-field">
 
-                                                            <select name="usuarioAsignado" style="padding: 6px 15px 10px 40px;" class="form-control" id="usuarioAsignado">
+                                                            <select name="usuarioAsignado" style="padding: 6px 15px 10px 40px;" class="form-control" id="userAsignado">
                                                                 <option value="{{$creador->id}}">{{$creador->email}}</option>
                                                                 @foreach($colaboradores as $colaborador)
                                                                     <option value="{{$colaborador->id}}">{{$colaborador->email}}</option>
@@ -221,7 +222,7 @@
                                                         </div>
                                                         <div class="modal-footer border-0">
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                            <button type="submit" class="btn btnEnviar btn-primary">Añadir</button>
+                                                            <button   type="submit" class="btn btnEnviar btn-primary">Añadir</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -253,12 +254,12 @@
                                             <tbody>
                                                 @foreach($tareas as $tarea)
                                                     @if($tarea->realizado==0 && $tarea->fecha_vencimiento>= now()->toDateString())
-                                                        <tr>
+                                                        <tr class="borrarTarea{{$tarea->id}}">
                                                             <td>
                                                                 <div class="user-profile-ov ">
                                                                     <div class=" tarea{{$tarea->id}} alert alert-warning px-4 py-3 ">
                                                                         <div class="row">
-                                                                            <h3 class=" col-12 col-md-5"><a href="#" title="" class="overview-open">{{$tarea->titulo}}</a> <a href="#" title="" class="overview-open"><i class="fa fa-pencil"></i></a></h3>
+                                                                            <h3 class=" col-12 col-md-5"><a href="#" title="" class="overview-open">{{$tarea->titulo}}</a> <a href="#" title="" class="overview-open"></a></h3>
                                                                             <p class="col-12 col-md-7">Fecha de vencimiento: {{$tarea->fecha_vencimiento}}</p>
                                                                         </div>
                                                                         @if($tarea->usuario_asignado== $creador->id)
@@ -272,12 +273,12 @@
                                                                             @endforeach
                                                                         @endif
                                                                         <p>{{$tarea->descripcion}}</p>
-                                                                        <div class="d-flex justify-content-end">
-                                                                            <button onclick="actualizarTarea({{$tarea->id}})" class=" btn{{$tarea->id}} btn btnEnviar float-end">Acabar Tarea</button>
+                                                                        <div class="d-flex justify-content-between">
 
-                                                                        </div>
+                                                                            <button onclick="actualizarTarea({{$tarea->id}})" class=" btn{{$tarea->id}} btn btnEnviar">Acabar Tarea</button>
+                                                                            <button onclick="borrarTarea({{$tarea->id}})" class=" btn{{$tarea->id}} btn btnBorrar ">Eliminar Tarea</button>
 
-                                                                    </div><!--user-profile-ov end-->
+                                                                        </div><!--user-profile-ov end-->
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -341,7 +342,9 @@
 
 
                                         @else
-                                            <div class="user-profile-ov">No hay tareas añadidas. </div>
+
+                                                <span class=" user-profile-ov pt-2 mt-1 pb-4 bg-white text-center">No hay tareas añadidas.</span>
+
                                         @endif
 
                                     </div><!--product-feed-tab end-->
