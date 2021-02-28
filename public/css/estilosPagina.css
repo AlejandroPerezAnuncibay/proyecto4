@@ -231,8 +231,7 @@ header nav{
 }
 
 .user-info{
-    float: right;
-    width: 85%;
+    width: 100%;
 }
 .user-info a{
     font-size: 16px;
@@ -387,7 +386,36 @@ label[for=remember]{
     }
 
 }
+@media (max-width: 1280px) and (min-width: 850px) {
+    .user-account{
+        margin-right: 20%;
+    }
+}
+@media (max-width: 849px){
+    .menuNav{
+        margin: 20px 0;
+    }
+    .logo{
+        display: none;
+    }
+    .nav{
+        justify-content: flex-start !important;
+    }
+    .nav ul li a{
+        font-size: 20px;
+    }
+    .user-info a{
+        font-size: 20px;
+    }
+    .darkmode text{
+        overflow: hidden;
+    }
 
+}
+/*Formulario proyectos*/
+.anadirImagenFormulario{
+    margin: 20px 0;
+}
 /*Proyectos*/
 
 @media (min-width: 360px) {
@@ -396,6 +424,7 @@ label[for=remember]{
         padding: 20px 0px;
     }
 }
+
 .card{
     margin: 20px 0;
 }
@@ -415,6 +444,9 @@ label[for=remember]{
 tr td a .la{
     font-size: 30px;
     color: #575757;
+}
+.suggestions-list{
+    padding: 13px 0 0 0;
 }
 /*Ajustes*/
 .nav-link.active{

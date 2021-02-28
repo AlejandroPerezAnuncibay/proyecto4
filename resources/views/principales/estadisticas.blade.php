@@ -6,7 +6,7 @@
 @section('content')
     <div class="main-section" style="margin-top: 15px;">
         <div class="row d-flex justify-content-center">
-            <div class="col-sm-5 col-xs-8">
+            <div class="col-xs-12">
                 <form method="post" action="{{route("cogerEstadisticas")}}">
                     @csrf
                     <div class="form-group">

@@ -122,7 +122,11 @@
                                                     </div>
                                                 @endforeach
                                             @else
-                                                <h3 style="text-align: center">No hay colaboradores</h3>
+                                                <div class="suggestion-usd">
+                                                    <div class="sgt-text">
+                                                        <p>No hay colaboradores</p>
+                                                    </div>
+                                                </div>
                                             @endif
 
 
@@ -368,7 +372,7 @@
 
                                         @else
 
-                                                <span class=" user-profile-ov pt-2 mt-1 pb-4 bg-white text-center">No hay tareas añadidas.</span>
+                                                <small>No hay tareas añadidas.</small>
 
                                         @endif
 

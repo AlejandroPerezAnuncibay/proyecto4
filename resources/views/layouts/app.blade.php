@@ -34,15 +34,11 @@
 
 <body>
 
-<div class="custom-control custom-switch">
-    <input type="checkbox" class="custom-control-input" id="darkSwitch" />
-    <label class="custom-control-label" for="darkSwitch" style="color: white;padding-top: 5%">Dark Mode</label>
-</div>
 <div class="wrapper">
 
     <header>
-        <div class="container-fluid d-flex justify-content-around">
-            <div class="header-data w-75 ">
+        <div class="container-fluid d-flex justify-content-around menuNav">
+            <div class="header-data w-100 ">
                 <div class="logo">
                     <a href="{{route('dashboard')}}" title=""><img src="{{ URL::asset('img/logo1/logo_white_large.png') }}" alt=""></a>
                 </div><!--logo end-->
@@ -66,9 +62,8 @@
                                 <span class="tituloMenu">Crear proyecto</span>
                             </a>
                         </li>
-
-
                     </ul>
+
                 </nav>
                <!--nav end-->
                 <div class="menu-btn">
@@ -117,6 +112,10 @@
 
                     </div><!--user-account-settingss end-->
                 </div>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="darkSwitch" />
+                    <label class="custom-control-label darkmode" for="darkSwitch" style="color: white;padding-top: 5%">Dark Mode</label>
+                </div>
             </div><!--header-data end-->
         </div>
     </header>
@@ -125,7 +124,7 @@
 
     <footer>
         <div class="footy-sec mn no-margin">
-            <div class="container">
+            <div class="container d-flex justify-content-center">
                 <p><img src="{{ URL::asset('images/copy-icon2.png') }}" alt="">Copyright 2021</p>
             </div>
         </div>

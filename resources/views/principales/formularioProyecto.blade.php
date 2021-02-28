@@ -39,11 +39,10 @@
                                         <input type="text" hidden  name="creador" value="{{ Auth::user()->id }}">
                                         <div class="save-stngs pd2">
                                             <ul>
-                                                <li>
+
                                                     <input type="file" hidden class="custom-file-input" id="customFile" name="imgProyecto">
-                                                </li>
+                                                <li><button type="button" class="anadirImagenFormulario"><label class="w-100" for="customFile">Añadir imagen</label></button></li><br>
                                                 <li><button type="submit">Guardar proyecto</button></li>
-                                                <li><button type="button"><label class="w-100" for="customFile">Añadir imagen</label></button></li>
                                                 <li><button type="button"><label for="volver">Cancelar proyecto</label></button></li>
                                                 <a href="{{route('dashboard')}}" id="volver"></a>
 

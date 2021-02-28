@@ -23,7 +23,7 @@
                                 <th class="th-sm">Nombre
 
                                 </th>
-                                <th class="th-sm">Descripcion
+                                <th class="th-sm d-sm-block d-none">Descripcion
 
                                 </th>
                                 <th class="th-sm">Ver
@@ -39,7 +39,7 @@
                             @foreach($miProyectos as $proyecto)
                               <tr>
                                   <td> <h5 class="card-title" >{{$proyecto->nombre}}</h5></td>
-                                  <td><p class="card-text">{{$proyecto->descripcion}}</p></td>
+                                  <td class="d-sm-flex d-none"><p class="card-text">{{$proyecto->descripcion}}</p></td>
                                   <td>
                                       <a href="/proyecto/{{ $proyecto->id }}" class="btn btn-primary btnEnviar d-md-block d-none">Ver proyecto</a>
                                       <a href="/proyecto/{{ $proyecto->id }}" class="d-md-none d-xs-block"><i class="la la-eye"></i></a>
