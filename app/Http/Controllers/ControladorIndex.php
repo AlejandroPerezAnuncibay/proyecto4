@@ -197,19 +197,21 @@ class ControladorIndex extends Controller
             'new-password' => 'required',
             'repeat-password' => 'required'
         ]);
-        $oldPassword = Hash::make(\request('old-password'));
-        $newPassword = Hash::make(\request('new-password'));
-        $repeatPassword = Hash::make(\request('repeat-password'));
-        $usuario = User::find(Auth::user()->id);
-        if ($oldPassword == User::find(Auth::user()->password)){
-            if ($newPassword == $repeatPassword){
-                $usuario->password == \request('password');
+
+        $usuario = User::find(\request('authId'));
+
+        if (password_verify(\request('old-password'),$usuario->password)){
+
+            if (\request('new-password') == \request('repeat-password')){
+                $usuario->password = password_hash(\request('new-password'), PASSWORD_DEFAULT);
                 $usuario->save();
                 return view("cuenta.ajustes")->with('misDatos', $usuario)->with('error', 'La contraseña ha sido modificada');
             }else{
+
                 return view("cuenta.ajustes")->with('misDatos', $usuario)->with('error', 'Deben coincidir las contraseñas');
             }
         }else{
+            die("no va");
             return view("cuenta.ajustes")->with('misDatos', $usuario)->with('error', 'La contraseña introducida no exite');
         }
     }

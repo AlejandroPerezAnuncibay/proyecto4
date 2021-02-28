@@ -62,3 +62,4 @@ Route::get("/datosEstadisticas/{id}", "ControladorIndex@cogerDatosEstadisticas")
 Route::post("/modificarDatos", "ControladorIndex@modificarDatosUsuario")->name("modificarDatosUsuario");
 Route::post("/cambiarContrasena", "ControladorIndex@cambiarContrasena")->name('cambiarContrasena');
 
+Route::view("/reset-password", "auth.reset-password");

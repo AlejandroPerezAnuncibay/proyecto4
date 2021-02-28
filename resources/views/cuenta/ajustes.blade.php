@@ -76,6 +76,7 @@
                                                 <i class="fa fa-lock"></i>
                                             </div>
                                         </div>
+                                        <input type="hidden" name="authId" value="{{ Auth::user()->id }}">
                                         <div class="cp-field">
                                             <h5>Contraseña nueva</h5>
                                             <div class="cpp-fiel">
