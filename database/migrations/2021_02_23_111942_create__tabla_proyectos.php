@@ -19,7 +19,7 @@ class CreateTablaProyectos extends Migration
             $table->string('descripcion');
             $table->unsignedBigInteger('creador');
             $table->foreign('creador')->references('id')->on('users')->onDelete('cascade');
-            $table->char("imagen")->nullable();
+            $table->char("imagen")->default("img/default.png")->nullable();
             $table->timestamps();
         });
     }

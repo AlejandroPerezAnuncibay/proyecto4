@@ -40,11 +40,12 @@
                                         <div class="save-stngs pd2">
                                             <ul>
                                                 <li>
-                                                    <input type="file" class="custom-file-input" id="customFile" name="imgProyecto">
-                                                    <label class="custom-file-label" for="customFile">Subir imagen</label>
+                                                    <input type="file" hidden class="custom-file-input" id="customFile" name="imgProyecto">
                                                 </li>
                                                 <li><button type="submit">Guardar proyecto</button></li>
-                                                <li><button type="submit">Cancelar proyecto</button></li>
+                                                <li><button type="button"><label class="w-100" for="customFile">Añadir imagen</label></button></li>
+                                                <li><button type="button"><label for="volver">Cancelar proyecto</label></button></li>
+                                                <a href="{{route('dashboard')}}" id="volver"></a>
 
                                             </ul>
                                         </div>
