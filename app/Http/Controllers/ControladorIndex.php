@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ImagenesProyecto;
 use App\Models\Mensaje;
 use App\Models\Proyecto;
 use App\Models\ProyectosUsuarios;
@@ -19,6 +20,7 @@ use const http\Client\Curl\PROXY_HTTP;
 use Illuminate\Support\Carbon;
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 
 class ControladorIndex extends Controller
@@ -41,11 +43,26 @@ class ControladorIndex extends Controller
             "descripcion" => "required"
         ]);
 
-        Proyecto::create([
-            "nombre" => \request("nombre"),
-            "descripcion" => \request("descripcion"),
-            "creador" => \request("creador")
-        ]);
+        $archivo = request()->file("imgProyecto");
+
+        if ($archivo != null){
+            $nombreHash = request()->file("imgProyecto")->hashName();
+            $archivo->move('img/imgProyectos/' , $nombreHash);
+
+            Proyecto::create([
+                "nombre" => \request("nombre"),
+                "descripcion" => \request("descripcion"),
+                "creador" => \request("creador"),
+                "imagen" => "img/imgProyectos/" . $nombreHash
+            ]);
+        }else{
+            Proyecto::create([
+                "nombre" => \request("nombre"),
+                "descripcion" => \request("descripcion"),
+                "creador" => \request("creador"),
+            ]);
+        }
+
 
         return redirect("/dashboard");
     }
@@ -236,5 +253,31 @@ class ControladorIndex extends Controller
         }
         array_push($datos,$mensajes,$proyectos,$tareas);
        return $datos;
+    }
+
+    public function cambiarImagenProyecto(){
+        $archivo = request()->file("imgProyecto");
+        $nombreHash = request()->file("imgProyecto")->hashName();
+        $archivo->move('img/imgProyectos/' , $nombreHash);
+
+        $proyecto = Proyecto::find(\request('idProyecto'));
+        $proyecto->imagen = "img/imgProyectos/" . $nombreHash;
+        $proyecto->save();
+
+        $id = \request('idProyecto');
+
+        return back();
+    }
+
+    public function anadirImagenProyecto(){
+        $archivo = request()->file("imgProyecto");
+        $nombreHash = request()->file("imgProyecto")->hashName();
+        $archivo->move('img/imgProyectos/' , $nombreHash);
+
+        $imagenesProyecto = ImagenesProyecto::create([
+            "id_proyecto" => \request('idProyecto'),
+            "url" => "img/imgProyectos/" . $nombreHash
+        ]);
+        return view("principales.proyecto")->with('imagenesProyecto', $imagenesProyecto);
     }
 }

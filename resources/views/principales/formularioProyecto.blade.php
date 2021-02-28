@@ -20,7 +20,7 @@
                             <div class="tab-pane fade show active" id="nav-acc" role="tabpanel" aria-labelledby="nav-acc-tab">
                                 <div class="acc-setting">
                                     <h3>Crear proyecto</h3>
-                                    <form action="{{route('crearProyecto')}}" method="POST">
+                                    <form action="{{route('crearProyecto')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="cp-field">
                                             <h5>Nombre de proyecto</h5>
@@ -39,7 +39,10 @@
                                         <input type="text" hidden  name="creador" value="{{ Auth::user()->id }}">
                                         <div class="save-stngs pd2">
                                             <ul>
-                                                <li><button type="button">Subir imagen</button></li><br><br>
+                                                <li>
+                                                    <input type="file" class="custom-file-input" id="customFile" name="imgProyecto">
+                                                    <label class="custom-file-label" for="customFile">Subir imagen</label>
+                                                </li>
                                                 <li><button type="submit">Guardar proyecto</button></li>
                                                 <li><button type="submit">Cancelar proyecto</button></li>
 

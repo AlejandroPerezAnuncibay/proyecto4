@@ -4,10 +4,33 @@
 
 
         <section class="cover-sec">
-            <img src="{{ $proyecto->imagen }}" alt="No hay imagen de proyecto">
-            <a href="#" title=""><i class="fa fa-camera"></i> Cambiar imagen</a>
+            <img src="/{{ $proyecto->imagen }}" alt="No hay imagen de proyecto">
+            <button type="button" class="btn btn-primary btnEnviar" data-toggle="modal" data-target="#cambiarImagen">
+                <i class="fa fa-camera"></i> Cambiar imagen
+            </button>
         </section>
+        <div class="modal fade" id="cambiarImagen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form action="{{ route("cambiarImagenProyecto") }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="sn-field">
+                                <i class="la la-camera"></i>
+                                <input type="file" name="imgProyecto">
+                                <input type="hidden" name="idProyecto" value="{{ $proyecto->id }}">
+                            </div>
+                            {!! $errors->first('email','<p style="color:red;">:message</p>') !!}
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btnEnviar btn-primary">Cambiar imagen</button>
+                            </div>
+                        </form>
+                    </div>
 
+                </div>
+            </div>
+        </div>
 
         <main>
             <div class="main-section">
@@ -1055,19 +1078,38 @@
                                             <img src="../../../../public/images/photo-icon.png" alt="">
                                         </div>
                                         <div class="pf-gallery">
+                                            <button type="button" class="btn btn-primary btnEnviar" data-toggle="modal" data-target="#anadirImagen">
+                                                <i class="fa fa-camera"></i> Añadir imagen
+                                            </button>
+                                            <div class="modal fade" id="anadirImagen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-body">
+                                                            <form action="{{ route("anadirImagenProyecto") }}" method="post" enctype="multipart/form-data">
+                                                                @csrf
+                                                                <div class="sn-field">
+                                                                    <i class="la la-camera"></i>
+                                                                    <input type="file" name="imgProyecto">
+                                                                    <input type="hidden" name="idProyecto" value="{{ $proyecto->id }}">
+                                                                </div>
+                                                                {!! $errors->first('email','<p style="color:red;">:message</p>') !!}
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                                    <button type="submit" class="btn btnEnviar btn-primary">Cambiar imagen</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <ul>
-                                                <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
-                                                <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
-                                                <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
-                                                <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
-                                                <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
-                                                <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
-                                                <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
-                                                <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
-                                                <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
-                                                <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
-                                                <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
-                                                <li><a href="#" title=""><img src="http://via.placeholder.com/70x70" alt=""></a></li>
+                                                @foreach($imagenesProyecto as $img)
+                                                <li>
+                                                    <img src="/{{$img->url}}">
+                                                </li>
+                                                @endforeach
                                             </ul>
                                         </div><!--pf-gallery end-->
                                     </div><!--widget-portfolio end-->

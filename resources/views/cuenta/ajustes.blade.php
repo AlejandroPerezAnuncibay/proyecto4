@@ -15,6 +15,15 @@
                             </div>
                         </div><!--acc-leftbar end-->
                     </div>
+                    @if ($errors->any())
+                        <div class="alert alert-danger" style="margin-top: 10px;">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="col-lg-9">
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-acc" role="tabpanel" aria-labelledby="nav-acc-tab">
@@ -51,15 +60,7 @@
                                                 <li><button type="reset">Restore Setting</button></li>
                                             </ul>
                                         </div><!--save-stngs end-->
-                                        @if ($errors->any())
-                                            <div class="alert alert-danger" style="margin-top: 10px;">
-                                                <ul>
-                                                    @foreach ($errors->all() as $error)
-                                                        <li>{{ $error }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        @endif
+
                                     </form>
                                 </div><!--acc-setting end-->
                             </div>
@@ -97,16 +98,9 @@
                                                 <li><button type="reset">Restore Setting</button></li>
                                             </ul>
                                         </div><!--save-stngs end-->
-                                        @if ($errors->any())
-                                            <div class="alert alert-danger" style="margin-top: 10px;">
-                                                <ul>
-                                                    @foreach ($errors->all() as $error)
-                                                        <li>{{ $error }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        @endif
+
                                     </form>
+
                                 </div><!--acc-setting end-->
                             </div>
 

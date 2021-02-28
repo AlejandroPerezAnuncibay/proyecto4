@@ -561,6 +561,7 @@ class ComposerStaticInitf4739c4941d56e4a7ddd0fd61368c8d3
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
         'App\\Models\\Archivo' => __DIR__ . '/../..' . '/app/Models/Archivo.php',
+        'App\\Models\\ImagenesProyecto' => __DIR__ . '/../..' . '/app/Models/ImagenesProyecto.php',
         'App\\Models\\Mensaje' => __DIR__ . '/../..' . '/app/Models/Mensaje.php',
         'App\\Models\\Proyecto' => __DIR__ . '/../..' . '/app/Models/Proyecto.php',
         'App\\Models\\ProyectosUsuarios' => __DIR__ . '/../..' . '/app/Models/ProyectosUsuarios.php',

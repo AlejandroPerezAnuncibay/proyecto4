@@ -38,6 +38,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\Auth\\LoginRequest' => $baseDir . '/app/Http/Requests/Auth/LoginRequest.php',
     'App\\Models\\Archivo' => $baseDir . '/app/Models/Archivo.php',
+    'App\\Models\\ImagenesProyecto' => $baseDir . '/app/Models/ImagenesProyecto.php',
     'App\\Models\\Mensaje' => $baseDir . '/app/Models/Mensaje.php',
     'App\\Models\\Proyecto' => $baseDir . '/app/Models/Proyecto.php',
     'App\\Models\\ProyectosUsuarios' => $baseDir . '/app/Models/ProyectosUsuarios.php',
