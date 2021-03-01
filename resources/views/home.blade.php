@@ -12,6 +12,7 @@
 @section('content')
 
     <main>
+
         <div class="main-section">
             <div class="row d-flex justify-content-center">
                 <div class="col-xl-5 col-xs-8">

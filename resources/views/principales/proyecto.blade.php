@@ -40,17 +40,28 @@
                 <div class="container">
                     <div class="main-section-data">
                         <div class="row">
+
+                                @if(\Session::has('error'))
+                                <div class="errors col-12 mb-3">
+                                    <small style="color: red">{{\Session::get('error')}}</small>
+                                </div>
+                                @endif
+
                             <div class="col-lg-3 mt-1 order-3 order-lg-1">
+
+
                             <div class="mt-5">
+
+
+
                                 <div class="main-left-sidebar">
                                     <div class="user_profile">
+
 
                                         <div class="user_pro_status">
 
 
-                                                    @if(isset($error))
-                                                        <small style="color: red">{{ $error }}</small>
-                                                @endif
+
                                                 <!-- Modal -->
                                                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
@@ -134,6 +145,7 @@
                             </div>
                             </div>
                             <div class="col-lg-6 order-2">
+
                                 <div class="main-ws-sec">
                                     <div class="user-tab-sec">
                                         <h3>{{$proyecto->nombre}}</h3>
@@ -167,6 +179,12 @@
                                         </div><!-- tab-feed end-->
                                     </div><!--user-tab-sec end-->
                                     <div class="product-feed-tab current" id="feed-dd">
+
+                                        @if($errors->has("fechaVencimiento"))
+                                            <div class="error">
+                                                <small class="text-danger">{{$errors->first("fechaVencimiento")}}</small>
+                                            </div>
+                                        @endif
                                         <div class="posts-section">
 
                                             @if(count($comentarios)==0)
@@ -244,13 +262,14 @@
                                                         </div>
                                                         <label for="fechaVencimiento" style="margin: 10px 0; color: grey">Fecha de vencimiento:</label><br>
 
-                                                        <div class="sn-field">
-                                                            <input type="date" name="fechaVencimiento" class="form-control" id="fechaVencimiento">
+                                                        <div class="sn-field" id="fecha">
+                                                            <input type="date" name="fechaVencimiento" class="form-control" id="fechaVencimiento" >
 
                                                         </div>
+
                                                         <div class="modal-footer border-0">
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                            <button   type="submit" class="btn btnEnviar btn-primary">Añadir</button>
+                                                            <button  type="submit" onclick="validarFecha()" class="btn btnEnviar btn-primary" id="anadirTarea">Añadir</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -267,8 +286,8 @@
                                                     <button type="button" class="btn btnEnviar btn-primary" data-toggle="modal" data-target="#tareaModal">
                                                         <i class="la la-file-text"></i> Añadir tarea
                                                     </button>
-                                                    @if(isset($error))
-                                                        <small style="color: red">{{ $error }}</small>
+                                                    @if(isset($errorTarea))
+                                                        <small style="color: red">{{ $errorTarea }}</small>
                                                 @endif
                                                 <!-- Modal -->
 
@@ -415,8 +434,8 @@
                                         <ul class="flw-hr">
                                             <li><!-- Button trigger modal -->
 
-                                                @if(isset($error))
-                                                    <small style="color: red">{{ $error }}</small>
+                                                @if(isset($errorComentario))
+                                                    <small style="color: red">{{ $errorComentario }}</small>
                                             @endif
                                             <!-- Modal -->
                                                 <div class="modal fade" id="comentarioModal" tabindex="-1" role="dialog" aria-labelledby="comentarioModalLabel" aria-hidden="true">
@@ -520,4 +539,7 @@
 
 
 
+@endsection
+@section("scripts")
+    <script src="typescript/validaciones.js"></script>
 @endsection
