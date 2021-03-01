@@ -39,7 +39,7 @@
                             @foreach($miProyectos as $proyecto)
                               <tr>
                                   <td> <h5 class="card-title" >{{$proyecto->nombre}}</h5></td>
-                                  <td class="d-sm-flex d-none"><p class="card-text border-0">{{$proyecto->descripcion}}</p></td>
+                                  <td class="d-sm-flex d-none" style="border-left: 0; border-right: 0"><p class="card-text border-0">{{$proyecto->descripcion}}</p></td>
                                   <td>
                                       <a href="/proyecto/{{ $proyecto->id }}" class="btn btn-primary btnEnviar d-md-block d-none">Ver proyecto</a>
                                       <a href="/proyecto/{{ $proyecto->id }}" class="d-md-none d-xs-block"><i class="la la-eye"></i></a>

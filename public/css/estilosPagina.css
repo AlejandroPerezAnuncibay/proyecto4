@@ -441,6 +441,11 @@ label[for=remember]{
 .anadirImagenFormulario{
     margin: 20px 0;
 }
+/*Home*/
+table.dataTable tbody td{
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+}
 /*Proyectos*/
 
 @media (min-width: 360px) {

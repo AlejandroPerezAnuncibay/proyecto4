@@ -1,7 +1,7 @@
 $(window).on("load", function() {
     "use strict";
 
-    
+
 
     //  ============= POST PROJECT POPUP FUNCTION =========
 
@@ -147,18 +147,7 @@ $(window).on("load", function() {
         return false;
     });
 
-    //  ============= CREATE PORTFOLIO FUNCTION =========
 
-    $(".gallery_pt > a").on("click", function(){
-        $("#create-portfolio").addClass("open");
-        $(".wrapper").addClass("overlay");
-        return false;
-    });
-    $(".close-box").on("click", function(){
-        $("#create-portfolio").removeClass("open");
-        $(".wrapper").removeClass("overlay");
-        return false;
-    });
 
     //  ============= EMPLOYEE EDIT FUNCTION =========
 
@@ -187,7 +176,7 @@ $(window).on("load", function() {
     });
 
 
-    //  ============== ChatBox ============== 
+    //  ============== ChatBox ==============
 
 
     $(".chat-mg").on("click", function(){

@@ -2989,6 +2989,7 @@ footer {
 	margin: 0;
 }
 .gallery_pt > a {
+    height: 100%;
 	position: absolute;
 	top: 100%;
 	left: 0;

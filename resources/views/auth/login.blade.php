@@ -34,8 +34,9 @@
                     <div class="col-lg-6">
                         <div class="cmp-info">
                             <div class="cm-logo d-lg-none d-xs-flex justify-content-center">
-                                <img src="img/logo2/logo_1.svg">
-                                @if(isset($mensaje))
+                                <img src="{{ url('img/logo2/logo_1.svg') }}">
+
+                            @if(isset($mensaje))
                                     <p>{{ $mensaje }}</p>
                                 @endif
                             </div><!--cm-logo end-->

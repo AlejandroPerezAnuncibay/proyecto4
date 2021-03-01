@@ -18,6 +18,7 @@ class CreateTableImagenesProyecto extends Migration
             $table->unsignedBigInteger('id_proyecto');
             $table->foreign('id_proyecto')->references('id')->on('Proyectos')->onDelete('cascade');
             $table->char("urlImagen")->nullable();
+            $table->string("extension");
             $table->timestamps();
 
         });

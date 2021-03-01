@@ -1,7 +1,9 @@
 @extends("layouts.app")
 
 @section("content")
-
+@section('title')
+    Proyecto {{$proyecto->nombre}}
+@endsection
 
         <section class="cover-sec">
 
@@ -383,69 +385,26 @@
 
                                     <div class="product-feed-tab" id="portfolio-dd">
                                         <div class="portfolio-gallery-sec">
-                                            <h3>Portfolio</h3>
+                                            <h3>Archivos</h3>
                                             <div class="gallery_pf">
                                                 <div class="row">
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/271x174" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/170x170" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/170x170" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/170x170" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/170x170" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/170x170" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/170x170" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/170x170" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/170x170" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/170x170" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
+                                                    @if(count($archivos) > 0)
+                                                        @foreach($archivos as $archivo)
+                                                            <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                                                                <div class="gallery_pt">
+                                                                    @if($archivo->extension == "jpg"||$archivo->extension == "jpeg"||$archivo->extension == "png"||$archivo->extension == "jfif")
+                                                                    <img src="/{{ $archivo->urlImagen }}" alt="">
+                                                                    <a href="/{{$archivo->urlImagen}}"  download title=""><img src="/{{ $archivo->urlImagen }}" alt=""></a>
+                                                                    @else
+                                                                        <img src="{{ url('img/pdf.png') }}">
+                                                                        <a href="/{{$archivo->urlImagen}}"  download title=""><img src="/{{ $archivo->urlImagen }}" alt=""></a>
+                                                                    @endif
+                                                                </div><!--gallery_pt end-->
+                                                            </div>
+                                                        @endforeach
+                                                    @else
+                                                        <small>No hay archivos añadidos</small>
+                                                   @endif
                                                 </div>
                                             </div><!--gallery_pf end-->
                                         </div><!--portfolio-gallery-sec end-->
@@ -516,7 +475,7 @@
                                                 <i class="fa fa-camera"></i> Cambiar portada
                                             </button>
                                             <button type="button" class="btn btn-primary btnEnviar my-2" data-toggle="modal" data-target="#anadirImagen">
-                                                <i class="fa fa-camera"></i> Añadir imagen
+                                                <i class="fa fa-camera"></i> Añadir archivo
                                             </button>
 
 
@@ -532,14 +491,14 @@
                                                             <form action="{{ route("anadirImagenProyecto") }}" method="post" enctype="multipart/form-data">
                                                                 @csrf
                                                                 <div class="sn-field">
-                                                                    <input type="file" name="imgProyecto" hidden id="anadir">
-                                                                    <button type="button" class="btn btnEnviar btn-primary"><label for="anadir">Añadir imagen</label></button>
+                                                                    <input type="file" required name="imgProyecto" hidden id="anadir">
+                                                                    <button type="button" class="btn btnEnviar btn-primary"><label for="anadir">Añadir archivo</label></button>
                                                                     <input type="hidden" name="idProyecto" value="{{ $proyecto->id }}">
                                                                 </div>
                                                                 {!! $errors->first('email','<p style="color:red;">:message</p>') !!}
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                                    <button type="submit" class="btn btnEnviar btn-primary">Cambiar imagen</button>
+                                                                    <button type="submit" class="btn btnEnviar btn-primary">Subir archivo</button>
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -547,14 +506,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <ul>
-                                                @foreach($imagenes as $img)
-                                                <li>
-                                                    <img src="/{{$img->urlImagen}}">
-                                                </li>
-                                                @endforeach
-                                            </ul>
                                         </div><!--pf-gallery end-->
                                     </div><!--widget-portfolio end-->
                                 </div><!--right-sidebar end-->
