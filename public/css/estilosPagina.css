@@ -173,6 +173,7 @@ background-color: #34373a;
     background-color: #f7b548 !important;
     border-color: #FCA311;
     color: white;
+    text-align: left;
 }
 footer{
     background-color: whitesmoke !important;
@@ -515,4 +516,7 @@ tr td a .la{
     .logo{
         display: none;
     }
+
+
+
 }

@@ -40,17 +40,14 @@
                 <div class="container">
                     <div class="main-section-data">
                         <div class="row">
-                            <div class="col-lg-3 mt-5">
+                            <div class="col-lg-3 mt-1 order-3 order-lg-1">
                             <div class="mt-5">
                                 <div class="main-left-sidebar">
                                     <div class="user_profile">
 
                                         <div class="user_pro_status">
-                                            <ul class="flw-hr">
-                                                <li><!-- Button trigger modal -->
-                                                    <button type="button" class="btn btnEnviar btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                                        +  Añadir colaboradores
-                                                    </button>
+
+
                                                     @if(isset($error))
                                                         <small style="color: red">{{ $error }}</small>
                                                 @endif
@@ -84,8 +81,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </li>
-                                            </ul>
+
 
 
                                         </div><!--user_pro_status end-->
@@ -137,7 +133,7 @@
                                 </div><!--main-left-sidebar end-->
                             </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 order-2">
                                 <div class="main-ws-sec">
                                     <div class="user-tab-sec">
                                         <h3>{{$proyecto->nombre}}</h3>
@@ -412,8 +408,8 @@
 
                                 </div><!--main-ws-sec end-->
                             </div>
-                            <div class="col-lg-3">
-                                <div class="right-sidebar">
+                            <div class="col-lg-3 p-0 order-1 order-lg-3">
+                                <div class="right-sidebar w-100">
                                     <div class="message-btn">
 
                                         <ul class="flw-hr">
@@ -467,15 +463,17 @@
                                             <h3>Opciones</h3>
                                         </div>
                                         <div class="pf-gallery d-flex flex-column">
-
+                                            <button type="button" class="btn btnEnviar btn-primary mb-2" data-toggle="modal" data-target="#exampleModal">
+                                                <i class="fa fa-user"></i> Añadir colaboradores
+                                            </button>
                                             <button type="button" class="btn btnEnviar btn-primary my-2" data-toggle="modal" data-target="#comentarioModal">
-                                                <i class="la la-file-text"></i> Añadir comentario
+                                                <i class="fa fa-file-text"></i> Añadir comentario
                                             </button>
                                             <button type="button" class="btn btn-primary btnEnviar my-2" data-toggle="modal" data-target="#cambiarImagen">
                                                 <i class="fa fa-camera"></i> Cambiar portada
                                             </button>
                                             <button type="button" class="btn btn-primary btnEnviar my-2" data-toggle="modal" data-target="#anadirImagen">
-                                                <i class="fa fa-camera"></i> Añadir archivo
+                                                <i class="fa fa-file-archive-o"></i> Añadir archivo
                                             </button>
 
 
