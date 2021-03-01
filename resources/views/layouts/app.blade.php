@@ -34,7 +34,7 @@
 
 <body>
 
-<div class="wrapper">
+<div class="wrapper overflow-hidden">
 
     <header>
         <div class="container-fluid d-flex justify-content-around menuNav">

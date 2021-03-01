@@ -39,7 +39,7 @@
                     <div class="main-section-data">
                         <div class="row">
                             <div class="col-lg-3 mt-5">
-                            <div class="col-lg-3 mt-5">
+                            <div class="mt-5">
                                 <div class="main-left-sidebar">
                                     <div class="user_profile">
 
@@ -133,6 +133,7 @@
                                         </div><!--suggestions-list end-->
                                     </div><!--suggestions end-->
                                 </div><!--main-left-sidebar end-->
+                            </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="main-ws-sec">
@@ -308,6 +309,7 @@
                                                                             <button onclick="borrarTarea({{$tarea->id}})" class=" btn{{$tarea->id}} btn btnBorrar ">Eliminar Tarea</button>
 
                                                                         </div><!--user-profile-ov end-->
+                                                                    </div>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -549,7 +551,7 @@
                                             <ul>
                                                 @foreach($imagenes as $img)
                                                 <li>
-                                                    <img src="/{{$img->url}}">
+                                                    <img src="/{{$img->urlImagen}}">
                                                 </li>
                                                 @endforeach
                                             </ul>
