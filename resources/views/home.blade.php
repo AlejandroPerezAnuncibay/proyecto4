@@ -17,7 +17,7 @@
                 <div class="col-xl-5 col-xs-8">
                     <h2 class="tituloProyecto">Mis proyectos</h2>
                         @if(count($miProyectos) > 0)
-                        <table id="dtBasicExample" class="table table-hover table-bordered table-sm" cellspacing="0" width="100%">
+                        <table id="dtBasicExample" class="table table-hover  table-sm" cellspacing="0" width="100%">
                             <thead>
                             <tr>
                                 <th class="th-sm">Nombre
@@ -39,7 +39,7 @@
                             @foreach($miProyectos as $proyecto)
                               <tr>
                                   <td> <h5 class="card-title" >{{$proyecto->nombre}}</h5></td>
-                                  <td class="d-sm-flex d-none"><p class="card-text">{{$proyecto->descripcion}}</p></td>
+                                  <td class="d-sm-flex d-none"><p class="card-text border-0">{{$proyecto->descripcion}}</p></td>
                                   <td>
                                       <a href="/proyecto/{{ $proyecto->id }}" class="btn btn-primary btnEnviar d-md-block d-none">Ver proyecto</a>
                                       <a href="/proyecto/{{ $proyecto->id }}" class="d-md-none d-xs-block"><i class="la la-eye"></i></a>

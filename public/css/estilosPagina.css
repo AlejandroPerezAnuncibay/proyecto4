@@ -398,7 +398,6 @@ label[for=remember]{
     }
     .menu{
         display: flex;
-        justify-content: center;
         padding: 3%;
     }
     .nav ul li span i{
@@ -487,21 +486,27 @@ tr td a .la{
         width: 100%;
         height: 100%;
     }
+    header nav ul li {
+        margin: 40px 0px !important;
+    }
     .header-data nav ul{
         flex-direction: column;
         margin-left: 5% !important;
     }
     .header-data nav ul li a{
         flex-direction: row !important;
+        font-size: 25px !important;
     }
     .tituloMenu {
         display: block !important;
         padding: 0 !important;
-        margin-left: 40px !important;
+        margin-left: 70px !important;
         padding-bottom: 20px !important;
     }
-
-
+    .user-account-settingss.active {
+        top: 69px;
+        left: -115px;
+    }
     .logo{
         display: none;
     }
