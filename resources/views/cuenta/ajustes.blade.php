@@ -1,5 +1,7 @@
 @extends("layouts.app")
-
+@section('title')
+    Ajustes
+    @endsection
 @section("content")
 
     <section class="profile-account-setting">
@@ -11,19 +13,15 @@
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                 <a class="nav-item nav-link active" id="nav-acc-tab" data-toggle="tab" href="#nav-acc" role="tab" aria-controls="nav-acc" aria-selected="true"><i class="la la-cogs"></i>Ajustes de cuenta</a>
                                 <a class="nav-item nav-link" id="nav-password-tab" data-toggle="tab" href="#nav-password" role="tab" aria-controls="nav-password" aria-selected="false"><i class="fa fa-lock"></i>Cambiar contraseña</a>
-                                <!--<a class="nav-item nav-link" id="nav-deactivate-tab" data-toggle="tab" href="#nav-deactivate" role="tab" aria-controls="nav-deactivate" aria-selected="false"><i class="fa fa-random"></i>Borrar Cuenta</a>-->
+                                <a class="nav-item nav-link" id="nav-deactivate-tab" data-toggle="tab" href="#nav-deactivate" role="tab" aria-controls="nav-deactivate" aria-selected="false"><i class="fa fa-random"></i>Borrar Cuenta</a>
+                                @if(isset($error))
+                                    <div class="alert alert-danger" role="alert">
+                                        {{$error}}                        </div>
+                                @endif
                             </div>
                         </div><!--acc-leftbar end-->
                     </div>
-                    @if ($errors->any())
-                        <div class="alert alert-danger" style="margin-top: 10px;">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+
                     <div class="col-lg-9">
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-acc" role="tabpanel" aria-labelledby="nav-acc-tab">
@@ -56,14 +54,15 @@
                                         </div>
                                         <div class="save-stngs pd2">
                                             <ul>
-                                                <li><button type="submit">Save Setting</button></li>
-                                                <li><button type="reset">Restore Setting</button></li>
+                                                <li><button type="submit">Guardar cambios</button></li>
+                                                <li><button type="reset">Resetear formulario</button></li>
                                             </ul>
                                         </div><!--save-stngs end-->
 
                                     </form>
                                 </div><!--acc-setting end-->
                             </div>
+
 
                             <div class="tab-pane fade" id="nav-password" role="tabpanel" aria-labelledby="nav-password-tab">
                                 <div class="acc-setting">
@@ -94,8 +93,8 @@
                                         </div>
                                         <div class="save-stngs pd2">
                                             <ul>
-                                                <li><button type="submit">Save Setting</button></li>
-                                                <li><button type="reset">Restore Setting</button></li>
+                                                <li><button type="submit">Guardar contraseña</button></li>
+                                                <li><button type="reset">Resetear formulario</button></li>
                                             </ul>
                                         </div><!--save-stngs end-->
 
@@ -107,39 +106,23 @@
                             <div class="tab-pane fade" id="nav-deactivate" role="tabpanel" aria-labelledby="nav-deactivate-tab">
                                 <div class="acc-setting">
                                     <h3>Borrar cuenta</h3>
-                                    <form>
+                                    <form method= "POST" action="{{route("eliminarCuenta")}}">
+                                        @csrf
                                         <div class="cp-field">
-                                            <h5>Email</h5>
+
+                                            <h5>¿Estas seguro de que quieres eliminar tu cuenta?</h5><br><br>
+                                            <small>Introduce tu correo electronico para confirmar</small><br><br>
                                             <div class="cpp-fiel">
-                                                <input type="text" name="email" placeholder="Email">
+                                                <input type="email" name="email" placeholder="Email">
+                                                <input type="text" name="emailAuth" hidden value="{{ Auth::user()->email}}">
+                                                <input type="text" name="id" hidden value="{{Auth::user()->id}}">
                                                 <i class="fa fa-envelope"></i>
                                             </div>
                                         </div>
-                                        <div class="cp-field">
-                                            <h5>Password</h5>
-                                            <div class="cpp-fiel">
-                                                <input type="password" name="password" placeholder="Password">
-                                                <i class="fa fa-lock"></i>
-                                            </div>
-                                        </div>
-                                        <div class="cp-field">
-                                            <h5>Please Explain Further</h5>
-                                            <textarea></textarea>
-                                        </div>
-                                        <div class="cp-field">
-                                            <div class="fgt-sec">
-                                                <input type="checkbox" name="cc" id="c4">
-                                                <label for="c4">
-                                                    <span></span>
-                                                </label>
-                                                <small>Email option out</small>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pretium nulla quis erat dapibus, varius hendrerit neque suscipit. Integer in ex euismod, posuere lectus id,</p>
-                                        </div>
+
                                         <div class="save-stngs pd3">
                                             <ul>
-                                                <li><button type="submit">Save Setting</button></li>
-                                                <li><button type="submit">Restore Setting</button></li>
+                                                <li><button type="submit">Borrar Cuenta</button></li>
                                             </ul>
                                         </div><!--save-stngs end-->
                                     </form>

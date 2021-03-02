@@ -173,7 +173,6 @@ class ControladorIndex extends Controller
                 return view("cuenta.ajustes")->with('misDatos', $usuario)->with('error', 'Deben coincidir las contraseñas');
             }
         }else{
-            die("no va");
             return view("cuenta.ajustes")->with('misDatos', $usuario)->with('error', 'La contraseña introducida no exite');
         }
     }
@@ -225,5 +224,14 @@ class ControladorIndex extends Controller
             "extension" => $extension[1]
         ]);
         return back();
+    }
+    public function eliminarCuenta (){
+        if (\request('email')==\request('emailAuth')){
+            User::destroy(\request('id'));
+            return view('');
+        }else{
+            $usuario = User::find(\request('id'));
+                return view("cuenta.ajustes")->with('misDatos', $usuario)->with('error', 'El correo electronico introducido es incorrecto');
+        }
     }
 }

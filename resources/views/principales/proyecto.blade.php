@@ -112,7 +112,7 @@
                                         <div class="suggestions-list">
                                             <div class="suggestion-usd">
                                                 <div class="sgt-text">
-                                                    <h4>{{$creador->name}} {{$creador->surname}}</h4><small>(Creador)</small>
+                                                    <h4>{{$creador->name}} {{$creador->surname}}</h4>
                                                     <span>{{$creador->email}}</span>
                                                 </div>
                                             </div>
@@ -336,7 +336,7 @@
                                                                 <div class="user-profile-ov ">
                                                                     <div class=" alert alert-danger px-4 py-3 ">
                                                                         <div class="row">
-                                                                            <h3 class=" col-12 col-md-5"><a href="#" title="" class="overview-open">{{$tarea->titulo}}</a> <a href="#" title="" class="overview-open"><i class="fa fa-pencil"></i></a></h3>
+                                                                            <h3 class=" col-12 col-md-5"><a href="#" title="" class="overview-open">{{$tarea->titulo}}</a> <a href="#" title="" class="overview-open"></a></h3>
                                                                             <p class="col-12 col-md-7">Fecha de vencimiento: {{$tarea->fecha_vencimiento}}</p>
                                                                         </div>
                                                                         @if($tarea->usuario_asignado== $creador->id)
@@ -362,7 +362,7 @@
                                                                 <div class="user-profile-ov ">
                                                                     <div class=" alert alert-success px-4 py-3 ">
                                                                         <div class="row">
-                                                                            <h3 class=" col-12 col-md-5"><a href="#" title="" class="overview-open">{{$tarea->titulo}}</a> <a href="#" title="" class="overview-open"><i class="fa fa-pencil"></i></a></h3>
+                                                                            <h3 class=" col-12 col-md-5"><a href="#" title="" class="overview-open">{{$tarea->titulo}}</a> <a href="#" title="" class="overview-open"></a></h3>
                                                                             <p class="col-12 col-md-7">Fecha de vencimiento: {{$tarea->fecha_vencimiento}}</p>
                                                                         </div>
                                                                         @if($tarea->usuario_asignado== $creador->id)
@@ -482,9 +482,11 @@
                                             <h3>Opciones</h3>
                                         </div>
                                         <div class="pf-gallery d-flex flex-column">
-                                            <button type="button" class="btn btnEnviar btn-primary mb-2" data-toggle="modal" data-target="#exampleModal">
-                                                <i class="fa fa-user"></i> Añadir colaboradores
-                                            </button>
+                                            @if($creador->id == Auth::user()->id)
+                                                <button type="button" class="btn btnEnviar btn-primary mb-2" data-toggle="modal" data-target="#exampleModal">
+                                                    <i class="fa fa-user"></i> Añadir colaboradores
+                                                </button>
+                                            @endif
                                             <button type="button" class="btn btnEnviar btn-primary my-2" data-toggle="modal" data-target="#comentarioModal">
                                                 <i class="fa fa-file-text"></i> Añadir comentario
                                             </button>
@@ -508,8 +510,8 @@
                                                             <form action="{{ route("anadirImagenProyecto") }}" method="post" enctype="multipart/form-data">
                                                                 @csrf
                                                                 <div class="sn-field">
-                                                                    <input type="file" required name="imgProyecto" hidden id="anadir">
-                                                                    <button type="button" class="btn btnEnviar btn-primary"><label for="anadir">Añadir archivo</label></button>
+                                                                    <input type="file" required name="imgProyecto" hidden id="customFile">
+                                                                    <button type="button" class="btn btnEnviar btn-primary"><label for="customFile">Añadir archivo</label></button>
                                                                     <input type="hidden" name="idProyecto" value="{{ $proyecto->id }}">
                                                                 </div>
                                                                 {!! $errors->first('email','<p style="color:red;">:message</p>') !!}
@@ -541,5 +543,6 @@
 
 @endsection
 @section("scripts")
-    <script src="typescript/validaciones.js"></script>
+    <script src="{{asset("typescript/validaciones.js")}}"></script>
+    <script src="{{asset("js/imagenes.js")}}"></script>
 @endsection

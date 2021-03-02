@@ -92,15 +92,11 @@
                                         <div class="col-lg-12 no-pdd">
                                             <div class="checky-sec">
 
-                                                @if (Route::has('password.request'))
-                                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                        {{ __('¿Has olvidado la contraseña?') }}
-                                                    </a>
-                                                @endif
+
                                             </div>
                                         </div>
                                         <div class="col-lg-12 no-pdd">
-                                            <button type="submit" class="btn btn-primary">
+                                            <button type="submit" class="btn  btn-primary btnEnviar">
                                                 {{ __('Iniciar sesión') }}
                                             </button>
                                         </div>

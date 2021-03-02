@@ -59,3 +59,6 @@
     </section>
 
 @endsection
+@section("scripts")
+    <script src="{{asset("js/imagenes.js")}}"></script>
+@endsection

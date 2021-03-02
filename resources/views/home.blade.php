@@ -9,6 +9,9 @@
     </style>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 @endpush
+@section('title')
+    Home de {{Auth::user()->name}}
+@endsection
 @section('content')
 
     <main>
