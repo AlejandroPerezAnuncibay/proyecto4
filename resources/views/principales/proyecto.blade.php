@@ -171,7 +171,7 @@
                                                 <li data-tab="portfolio-dd">
                                                     <a href="#" title="">
                                                         <img src="{{ URL::asset('images/ic3.png') }}" alt="">
-                                                        <span>Portfolio</span>
+                                                        <span>Archivos</span>
                                                     </a>
                                                 </li>
 

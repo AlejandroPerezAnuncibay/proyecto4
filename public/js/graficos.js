@@ -59,7 +59,9 @@ function meterDatos(response) {
 
     var options = {
         chart: {
-            type: 'line'
+            type: 'line',
+            height: 280
+
         },
         series: [{
             name: 'Proyectos creados',

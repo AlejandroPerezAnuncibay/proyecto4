@@ -98,7 +98,7 @@
                             @endif
                         @else
                             <h3 class="tc">
-                                <a class="dropdown-item btn btn-primary btnEnviar" href="{{ route('logout') }}"
+                                <a style="text-align: center" class="dropdown-item btn btn-primary btnEnviar" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Cerrar sesión') }}
