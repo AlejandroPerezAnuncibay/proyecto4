@@ -168,12 +168,12 @@
 	.conversation-box {left: -20px;width: 280px;}
 }
 
-@media (max-width: 410px) {
+@media (max-width: 591px) {
 	header nav {position: fixed;top: 0;left: 0;width: 200px;height: 100%;background-color: #e44d3a;padding: 25px 20px;opacity: 0;visibility: hidden;z-index: 0}
 	header nav.active {opacity: 1;visibility: visible;z-index: 9999;}
+    .menu-btn {display: block;}
 	header nav ul li {float: left;width: 100%;text-align: left;padding: 0 0 0 0;margin-bottom: 20px;}
-	.menu-btn {display: block;}
-	header nav ul li span {display: inline-block;margin-right: 10px;}
+	header nav ul li span {display: block;margin-right: 10px;}
 	.post-st ul li a {font-size: 12px;padding: 0 6px;}
 	.like-com li a {font-size: 12px;}
 	.job_descp h3 {font-size: 16px;}

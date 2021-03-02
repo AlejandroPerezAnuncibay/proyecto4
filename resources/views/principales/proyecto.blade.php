@@ -1,7 +1,9 @@
 @extends("layouts.app")
 
 @section("content")
-
+@section('title')
+    Proyecto {{$proyecto->nombre}}
+@endsection
 
         <section class="cover-sec">
 
@@ -38,20 +40,28 @@
                 <div class="container">
                     <div class="main-section-data">
                         <div class="row">
-                            <div class="col-lg-3 mt-5">
-                            <div class="col-lg-3 mt-5">
+
+                                @if(\Session::has('error'))
+                                <div class="errors col-12 mb-3">
+                                    <small style="color: red">{{\Session::get('error')}}</small>
+                                </div>
+                                @endif
+
+                            <div class="col-lg-3 mt-1 order-3 order-lg-1">
+
+
+                            <div class="mt-5">
+
+
+
                                 <div class="main-left-sidebar">
                                     <div class="user_profile">
 
+
                                         <div class="user_pro_status">
-                                            <ul class="flw-hr">
-                                                <li><!-- Button trigger modal -->
-                                                    <button type="button" class="btn btnEnviar btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                                        +  Añadir colaboradores
-                                                    </button>
-                                                    @if(isset($error))
-                                                        <small style="color: red">{{ $error }}</small>
-                                                @endif
+
+
+
                                                 <!-- Modal -->
                                                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
@@ -82,8 +92,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </li>
-                                            </ul>
+
 
 
                                         </div><!--user_pro_status end-->
@@ -134,7 +143,9 @@
                                     </div><!--suggestions end-->
                                 </div><!--main-left-sidebar end-->
                             </div>
-                            <div class="col-lg-6">
+                            </div>
+                            <div class="col-lg-6 order-2">
+
                                 <div class="main-ws-sec">
                                     <div class="user-tab-sec">
                                         <h3>{{$proyecto->nombre}}</h3>
@@ -168,6 +179,12 @@
                                         </div><!-- tab-feed end-->
                                     </div><!--user-tab-sec end-->
                                     <div class="product-feed-tab current" id="feed-dd">
+
+                                        @if($errors->has("fechaVencimiento"))
+                                            <div class="error">
+                                                <small class="text-danger">{{$errors->first("fechaVencimiento")}}</small>
+                                            </div>
+                                        @endif
                                         <div class="posts-section">
 
                                             @if(count($comentarios)==0)
@@ -245,13 +262,14 @@
                                                         </div>
                                                         <label for="fechaVencimiento" style="margin: 10px 0; color: grey">Fecha de vencimiento:</label><br>
 
-                                                        <div class="sn-field">
-                                                            <input type="date" name="fechaVencimiento" class="form-control" id="fechaVencimiento">
+                                                        <div class="sn-field" id="fecha">
+                                                            <input type="date" name="fechaVencimiento" class="form-control" id="fechaVencimiento" >
 
                                                         </div>
+
                                                         <div class="modal-footer border-0">
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                            <button   type="submit" class="btn btnEnviar btn-primary">Añadir</button>
+                                                            <button  type="submit" onclick="validarFecha()" class="btn btnEnviar btn-primary" id="anadirTarea">Añadir</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -268,8 +286,8 @@
                                                     <button type="button" class="btn btnEnviar btn-primary" data-toggle="modal" data-target="#tareaModal">
                                                         <i class="la la-file-text"></i> Añadir tarea
                                                     </button>
-                                                    @if(isset($error))
-                                                        <small style="color: red">{{ $error }}</small>
+                                                    @if(isset($errorTarea))
+                                                        <small style="color: red">{{ $errorTarea }}</small>
                                                 @endif
                                                 <!-- Modal -->
 
@@ -308,6 +326,7 @@
                                                                             <button onclick="borrarTarea({{$tarea->id}})" class=" btn{{$tarea->id}} btn btnBorrar ">Eliminar Tarea</button>
 
                                                                         </div><!--user-profile-ov end-->
+                                                                    </div>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -381,69 +400,26 @@
 
                                     <div class="product-feed-tab" id="portfolio-dd">
                                         <div class="portfolio-gallery-sec">
-                                            <h3>Portfolio</h3>
+                                            <h3>Archivos</h3>
                                             <div class="gallery_pf">
                                                 <div class="row">
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/271x174" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/170x170" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/170x170" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/170x170" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/170x170" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/170x170" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/170x170" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/170x170" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/170x170" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
-                                                        <div class="gallery_pt">
-                                                            <img src="http://via.placeholder.com/170x170" alt="">
-                                                            <a href="#" title=""><img src="../../../../public/images/all-out.png" alt=""></a>
-                                                        </div><!--gallery_pt end-->
-                                                    </div>
+                                                    @if(count($archivos) > 0)
+                                                        @foreach($archivos as $archivo)
+                                                            <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                                                                <div class="gallery_pt">
+                                                                    @if($archivo->extension == "jpg"||$archivo->extension == "jpeg"||$archivo->extension == "png"||$archivo->extension == "jfif")
+                                                                    <img src="/{{ $archivo->urlImagen }}" alt="">
+                                                                    <a href="/{{$archivo->urlImagen}}"  download title=""><img src="/{{ $archivo->urlImagen }}" alt=""></a>
+                                                                    @else
+                                                                        <img src="{{ url('img/pdf.png') }}">
+                                                                        <a href="/{{$archivo->urlImagen}}"  download title=""><img src="/{{ $archivo->urlImagen }}" alt=""></a>
+                                                                    @endif
+                                                                </div><!--gallery_pt end-->
+                                                            </div>
+                                                        @endforeach
+                                                    @else
+                                                        <small>No hay archivos añadidos</small>
+                                                   @endif
                                                 </div>
                                             </div><!--gallery_pf end-->
                                         </div><!--portfolio-gallery-sec end-->
@@ -451,15 +427,15 @@
 
                                 </div><!--main-ws-sec end-->
                             </div>
-                            <div class="col-lg-3">
-                                <div class="right-sidebar">
+                            <div class="col-lg-3 p-0 order-1 order-lg-3">
+                                <div class="right-sidebar w-100">
                                     <div class="message-btn">
 
                                         <ul class="flw-hr">
                                             <li><!-- Button trigger modal -->
 
-                                                @if(isset($error))
-                                                    <small style="color: red">{{ $error }}</small>
+                                                @if(isset($errorComentario))
+                                                    <small style="color: red">{{ $errorComentario }}</small>
                                             @endif
                                             <!-- Modal -->
                                                 <div class="modal fade" id="comentarioModal" tabindex="-1" role="dialog" aria-labelledby="comentarioModalLabel" aria-hidden="true">
@@ -506,15 +482,17 @@
                                             <h3>Opciones</h3>
                                         </div>
                                         <div class="pf-gallery d-flex flex-column">
-
+                                            <button type="button" class="btn btnEnviar btn-primary mb-2" data-toggle="modal" data-target="#exampleModal">
+                                                <i class="fa fa-user"></i> Añadir colaboradores
+                                            </button>
                                             <button type="button" class="btn btnEnviar btn-primary my-2" data-toggle="modal" data-target="#comentarioModal">
-                                                <i class="la la-file-text"></i> Añadir comentario
+                                                <i class="fa fa-file-text"></i> Añadir comentario
                                             </button>
                                             <button type="button" class="btn btn-primary btnEnviar my-2" data-toggle="modal" data-target="#cambiarImagen">
                                                 <i class="fa fa-camera"></i> Cambiar portada
                                             </button>
                                             <button type="button" class="btn btn-primary btnEnviar my-2" data-toggle="modal" data-target="#anadirImagen">
-                                                <i class="fa fa-camera"></i> Añadir imagen
+                                                <i class="fa fa-file-archive-o"></i> Añadir archivo
                                             </button>
 
 
@@ -530,14 +508,14 @@
                                                             <form action="{{ route("anadirImagenProyecto") }}" method="post" enctype="multipart/form-data">
                                                                 @csrf
                                                                 <div class="sn-field">
-                                                                    <input type="file" name="imgProyecto" hidden id="anadir">
-                                                                    <button type="button" class="btn btnEnviar btn-primary"><label for="anadir">Añadir imagen</label></button>
+                                                                    <input type="file" required name="imgProyecto" hidden id="anadir">
+                                                                    <button type="button" class="btn btnEnviar btn-primary"><label for="anadir">Añadir archivo</label></button>
                                                                     <input type="hidden" name="idProyecto" value="{{ $proyecto->id }}">
                                                                 </div>
                                                                 {!! $errors->first('email','<p style="color:red;">:message</p>') !!}
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                                    <button type="submit" class="btn btnEnviar btn-primary">Cambiar imagen</button>
+                                                                    <button type="submit" class="btn btnEnviar btn-primary">Subir archivo</button>
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -545,14 +523,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <ul>
-                                                @foreach($imagenes as $img)
-                                                <li>
-                                                    <img src="/{{$img->url}}">
-                                                </li>
-                                                @endforeach
-                                            </ul>
                                         </div><!--pf-gallery end-->
                                     </div><!--widget-portfolio end-->
                                 </div><!--right-sidebar end-->
@@ -569,4 +539,7 @@
 
 
 
+@endsection
+@section("scripts")
+    <script src="typescript/validaciones.js"></script>
 @endsection

@@ -68,102 +68,12 @@ class ControladorIndex extends Controller
     }
 
     public function mostrarProyecto($id){
-       /* $arrayIds = DB::table('proyectosusuarios')->select('*')->where('id_proyecto','=',$id)->get();
-        $comentarios=DB::table("mensajes")->select("*")->where("id_proyecto","=", $id)->orderBy('created_at','desc')->get();
-        $tareas=DB::table("tareas")->select("*")->where("id_proyecto","=", $id)->orderBy('created_at','desc')->get();
-        $imagenes=DB::table("imagenesproyecto")->select("*")->where("id_proyecto","=", $id)->orderBy('created_at','desc')->get();
-        $proyecto = Proyecto::find($id);
-        $creador = User::find($proyecto->creador);
-
-        if (count($arrayIds)>0 && count($comentarios)>0 && count($tareas)>0 && count($imagenes)>0) {
-            $arrayUsuarios = [];
-            for ($x = 0; $x < count($arrayIds); $x++) {
-                $usuario = DB::table('users')->select('*')->where('id', '=', $arrayIds[$x]->id_usuario)->get();
-
-                array_push($arrayUsuarios, $usuario[0]);
-            }
-
-            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios)->with('creador',$creador)->with("tareas",$tareas)->with("imagenes",$imagenes);
-
-        }elseif (count($arrayIds)==0 && count($comentarios)>0 && count($tareas)>0 && count($imagenes)>0) {
-            $arrayUsuarios=[];
-            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios)->with('creador',$creador)->with("tareas",$tareas)->with("imagenes",$imagenes);
-
-        }elseif(count($arrayIds)>0 && count($comentarios)==0 && count($tareas)>0 && count($imagenes)>0){
-            $arrayUsuarios = [];
-            for ($x = 0; $x < count($arrayIds); $x++) {
-                $usuario = DB::table('users')->select('*')->where('id', '=', $arrayIds[$x]->id_usuario)->get();
-
-                array_push($arrayUsuarios, $usuario[0]);
-            }
-
-            $comentarios=[];
-            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios)->with('creador',$creador)->with("tareas", $tareas)->with("imagenes",$imagenes);
-
-        }elseif(count($arrayIds)>0 && count($comentarios)>0 && count($tareas)==0 && count($imagenes)>0){
-            $arrayUsuarios = [];
-            for ($x = 0; $x < count($arrayIds); $x++) {
-                $usuario = DB::table('users')->select('*')->where('id', '=', $arrayIds[$x]->id_usuario)->get();
-
-                array_push($arrayUsuarios, $usuario[0]);
-            }
-
-            $tareas=[];
-            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios)->with('creador',$creador)->with("tareas", $tareas)->with("imagenes",$imagenes);
-
-
-        }
-        elseif(count($arrayIds)>0 && count($comentarios)>0 && count($tareas)>0 && count($imagenes)==0){
-            $arrayUsuarios = [];
-            for ($x = 0; $x < count($arrayIds); $x++) {
-                $usuario = DB::table('users')->select('*')->where('id', '=', $arrayIds[$x]->id_usuario)->get();
-
-                array_push($arrayUsuarios, $usuario[0]);
-            }
-            die($imagenes);
-            $imagenes=[];
-            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios)->with('creador',$creador)->with("tareas", $tareas)->with("imagenes",$imagenes);
-
-
-        }
-        elseif(count($arrayIds)==0 && count($comentarios)==0 && count($tareas)>0 && count($imagenes)==0){
-            $arrayUsuarios = [];
-            $comentarios=[];
-            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios)->with('creador',$creador)->with("tareas", $tareas)->with("imagenes",$imagenes);
-
-        }elseif(count($arrayIds)==0 && count($comentarios)>0 && count($tareas)==0){
-            $arrayUsuarios = [];
-            $tareas=[];
-            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios)->with('creador',$creador)->with("tareas", $tareas)->with("imagenes",$imagenes);
-
-        }elseif(count($arrayIds)>0 && count($comentarios)==0 && count($tareas)==0){
-            $arrayUsuarios = [];
-            for ($x = 0; $x < count($arrayIds); $x++) {
-                $usuario = DB::table('users')->select('*')->where('id', '=', $arrayIds[$x]->id_usuario)->get();
-
-                array_push($arrayUsuarios, $usuario[0]);
-            }
-
-            $tareas=[];
-            $comentarios=[];
-            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios)->with('creador',$creador)->with("tareas", $tareas)->with("imagenes",$imagenes);
-
-
-        }
-        else{
-            $arrayUsuarios = [];
-            $comentarios=[];
-            $tareas=[];
-            $ $imagenes=[];
-            return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios)->with('creador',$creador)->with("tareas",$tareas)->with("imagenes",$imagenes);
-        }*/
         $arrayIds = DB::table('proyectosusuarios')->select('*')->where('id_proyecto','=',$id)->get();
         $comentarios=DB::table("mensajes")->select("*")->where("id_proyecto","=", $id)->orderBy('created_at','desc')->get();
         $tareas=DB::table("tareas")->select("*")->where("id_proyecto","=", $id)->orderBy('created_at','desc')->get();
-        $imagenes=DB::table("imagenesproyecto")->select("*")->where("id_proyecto","=", $id)->orderBy('created_at','desc')->get();
+        $archivos=DB::table("imagenesproyecto")->select("*")->where("id_proyecto","=", $id)->orderBy('created_at','desc')->get();
         $proyecto = Proyecto::find($id);
         $creador = User::find($proyecto->creador);
-
         $arrayUsuarios = [];
         for ($x = 0; $x < count($arrayIds); $x++) {
             $usuario = DB::table('users')->select('*')->where('id', '=', $arrayIds[$x]->id_usuario)->get();
@@ -173,7 +83,7 @@ class ControladorIndex extends Controller
 
 
 
-        return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios)->with('creador',$creador)->with("tareas",$tareas)->with("imagenes",$imagenes);
+        return view('principales.proyecto')->with('proyecto', Proyecto::find($id))->with('colaboradores', $arrayUsuarios)->with('comentarios',$comentarios)->with('creador',$creador)->with("tareas",$tareas)->with("archivos",$archivos);
 
 
 
@@ -308,11 +218,12 @@ class ControladorIndex extends Controller
         $archivo = request()->file("imgProyecto");
         $nombreHash = request()->file("imgProyecto")->hashName();
         $archivo->move('img/imgProyectos/' , $nombreHash);
-
+        $extension = explode(".", $nombreHash);
         $imagenesProyecto = ImagenesProyecto::create([
             "id_proyecto" => \request('idProyecto'),
-            "url" => "img/imgProyectos/" . $nombreHash
+            "urlImagen" => "img/imgProyectos/" . $nombreHash,
+            "extension" => $extension[1]
         ]);
-        return view("principales.proyecto")->with('imagenesProyecto', $imagenesProyecto);
+        return back();
     }
 }

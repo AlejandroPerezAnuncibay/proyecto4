@@ -6,7 +6,7 @@
 @section('content')
     <div class="main-section" style="margin-top: 15px;">
         <div class="row d-flex justify-content-center">
-            <div class="col-xs-12">
+            <div class="col-md-8 col-xs-12">
                 <form method="post" action="{{route("cogerEstadisticas")}}">
                     @csrf
                     <div class="form-group">
@@ -51,5 +51,8 @@
                 </div>
          </div>
      </div>
+
+      @section("scripts")
     <script type="text/javascript" src="{{ asset('js/graficos.js') }}"
+    @endsection
 @endsection

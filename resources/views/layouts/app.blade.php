@@ -34,7 +34,7 @@
 
 <body>
 
-<div class="wrapper">
+<div class="wrapper overflow-hidden">
 
     <header>
         <div class="container-fluid d-flex justify-content-around menuNav">
@@ -143,6 +143,7 @@
 <script type="text/javascript" src="{{ asset ('lib/slick/slick.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset ('js/script.js')}}"></script>
 <script type="text/javascript" src="{{ asset ('js/graficos.js')}}"></script>
+@yield("scripts")
 
 <script type="text/javascript" src="{{ asset ('typescript/tareas.js')}}"></script>
 <!--<script type="text/javascript" src="js/layouts.js')}}"></script>-->

@@ -40,7 +40,10 @@ class ControladorProyectos extends Controller
             }
 
         }else{
-            return redirect('/proyecto/'.\request('idProyecto'))->with("error","No existe el correo en la base de datos");
+
+            $error= "No existe el correo en la base de datos";
+
+            return back()->with("error",$error);
         }
 
 
@@ -62,6 +65,12 @@ class ControladorProyectos extends Controller
     }
 
     public function anadirTareaProyecto(){
+        \request()->validate([
+            "fechaVencimiento"=>"required"
+        ],[
+            "fechaVencimiento.required" => "Debes introducir una fecha de vencimiento"
+        ]);
+
         Tarea::create([
             "titulo"=> \request("titulo"),
             "creador"=> \request("creador"),
