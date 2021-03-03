@@ -13,51 +13,26 @@ function mostrarDatos() {
         success: function (response){
             $("#tab-content").css('display',"block");
             datos = response;
+            var idActive = $("a.active")[0].id;
+            if(idActive === "home-tab"){
+                datosProyectos(datos);
+            }else if(idActive === "profile-tab"){
+                datosMensajes(datos);
+            }else{
+                datosTareas(datos);
+            }
         }
     });
 
 }
-$("#home-tab").on("click",function (){
+$("#home-tab").on("click",datosProyectos(datos));
 
-    $("#tab-content").css('display','block');
-    var options = {
-        chart: {
-            height: 280,
-            type: "area"
-        },
-        dataLabels: {
-            enabled: false
-        },
-        series: [
-            {
-                name: "Proyectos",
-                data:[datos[1][0],datos[1][1],datos[1][2],datos[1][3],datos[1][4],
-                    datos[1][5],datos[1][6],datos[1][7],datos[1][8],datos[1][9],datos[1][10],datos[1][11]],
-            }
-        ],
-        fill: {
-            type: "gradient",
-            gradient: {
-                shadeIntensity: 1,
-                opacityFrom: 0.7,
-                opacityTo: 0.9,
-                stops: [0, 90, 100],
+$("#profile-tab").on("click",datosMensajes(datos));
 
-            }
-        },
-        xaxis: {
-            categories: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviemrbe','Diciembre']
+$("#messages-tab").on("click",datosTareas(datos));
 
-        }
-    };
-    $("#home").append("<div id='chart' style='min-height: 295px'></div>");
 
-    var chart = new ApexCharts(document.querySelector("#chart"), options);
-
-    chart.render();
-});
-
-$("#profile-tab").on("click",function(){
+function datosMensajes(datos){
 
     $("#tab-content").css('display','block');
 
@@ -97,11 +72,11 @@ $("#profile-tab").on("click",function(){
 
     chart2.render();
 
+}
 
 
-});
-
-$("#messages-tab").on("click",function (){
+function datosTareas(datos){
+    $("#tab-content").css('display','block');
 
     var options3 = {
         series: [
@@ -183,8 +158,46 @@ $("#messages-tab").on("click",function (){
 
     var chart3 = new ApexCharts(document.querySelector('#chart3'), options3)
     chart3.render()
+}
 
-});
+function datosProyectos(datos){
 
+    $("#tab-content").css('display','block');
+    var options = {
+        chart: {
+            height: 280,
+            type: "area"
+        },
+        dataLabels: {
+            enabled: false
+        },
+        series: [
+            {
+                name: "Proyectos",
+                data:[datos[1][0],datos[1][1],datos[1][2],datos[1][3],datos[1][4],
+                    datos[1][5],datos[1][6],datos[1][7],datos[1][8],datos[1][9],datos[1][10],datos[1][11]],
+            }
+        ],
+        fill: {
+            type: "gradient",
+            gradient: {
+                shadeIntensity: 1,
+                opacityFrom: 0.7,
+                opacityTo: 0.9,
+                stops: [0, 90, 100],
+
+            }
+        },
+        xaxis: {
+            categories: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviemrbe','Diciembre']
+
+        }
+    };
+    $("#home").append("<div id='chart' style='min-height: 295px'></div>");
+
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+    chart.render();
+}
 
 
