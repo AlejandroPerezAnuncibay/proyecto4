@@ -56,26 +56,41 @@ function meterDatos(response) {
     chart2.render();
 
 
-
     var options = {
         chart: {
-            type: 'line',
-            height: 280
-
+            height: 280,
+            type: "area"
         },
-        series: [{
-            name: 'Proyectos creados',
-            data: [response[1][0],response[1][1],response[1][2],response[1][3],response[1][4],
-                response[1][5],response[1][6],response[1][7],response[1][8],response[1][9],response[1][10],response[1][11]]
-        }],
+        dataLabels: {
+            enabled: false
+        },
+        series: [
+            {
+                name: "Mensajes",
+                data:[response[1][0],response[1][1],response[1][2],response[1][3],response[1][4],
+                    response[1][5],response[1][6],response[1][7],response[1][8],response[1][9],response[1][10],response[1][11]],
+            }
+        ],
+        fill: {
+            type: "gradient",
+            gradient: {
+                shadeIntensity: 1,
+                opacityFrom: 0.7,
+                opacityTo: 0.9,
+                stops: [0, 90, 100],
+
+            }
+        },
         xaxis: {
             categories: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviemrbe','Diciembre']
+
         }
-    }
+    };
 
     var chart = new ApexCharts(document.querySelector("#chart"), options);
 
     chart.render();
+
 
     var options3 = {
         series: [
