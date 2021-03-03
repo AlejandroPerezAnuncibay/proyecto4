@@ -18,7 +18,7 @@ function mostrarDatos() {
                 datosProyectos();
             }else if(idActive === "profile-tab"){
                 datosMensajes();
-            }else{
+            }else if(idActive==="messages-tab"){
                 datosTareas();
             }
             $("#chart").empty()
