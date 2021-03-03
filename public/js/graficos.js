@@ -4,6 +4,9 @@ $(function () {
 })
 
 function mostrarDatos() {
+    $("#chart").remove();
+    $("#chart2").remove();
+    $("#chart3").remove();
 
 
     var nombre =$( "#selectUsu" ).val();
@@ -52,6 +55,7 @@ function meterDatos(response) {
 
         }
     };
+    $("#profile").append("<div id='chart2' style='min-height: 295px'></div>");
 
     var chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
 
@@ -88,6 +92,7 @@ function meterDatos(response) {
 
         }
     };
+    $("#home").append("<div id='chart' style='min-height: 295px'></div>");
 
     var chart = new ApexCharts(document.querySelector("#chart"), options);
 
@@ -170,6 +175,7 @@ function meterDatos(response) {
             }
         ]
     }
+    $("#messages").append("<div id='chart3' style='min-height: 295px'></div>");
 
     var chart3 = new ApexCharts(document.querySelector('#chart3'), options3)
     chart3.render()
