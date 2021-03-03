@@ -10,9 +10,9 @@ function mostrarDatos() {
     $.ajax({
         url: "/datosEstadisticas/"+nombre,
         method: "get",
-        success: function (datos){
+        success: function (response){
             $("#tab-content").css('display',"block");
-            datos = datos;
+            datos = response;
         }
     });
 
