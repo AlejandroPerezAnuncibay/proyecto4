@@ -1,4 +1,4 @@
-
+var datos = [];
 $(function () {
     $('#myTab li:last-child a').tab('show')
 })
@@ -14,16 +14,54 @@ function mostrarDatos() {
         url: "/datosEstadisticas/"+nombre,
         method: "get",
         success: function (response){
-            $("#graficos").css('display',"block");
-            meterDatos(response);
+            $("#tab-content").css('display',"block");
+            datos = response;
         }
     });
 
 }
+$("#home-tab").onclick(function (){
+    $("#tab-content").css('display','block');
+    var options = {
+        chart: {
+            height: 280,
+            type: "area"
+        },
+        dataLabels: {
+            enabled: false
+        },
+        series: [
+            {
+                name: "Proyectos",
+                data:[response[1][0],response[1][1],response[1][2],response[1][3],response[1][4],
+                    response[1][5],response[1][6],response[1][7],response[1][8],response[1][9],response[1][10],response[1][11]],
+            }
+        ],
+        fill: {
+            type: "gradient",
+            gradient: {
+                shadeIntensity: 1,
+                opacityFrom: 0.7,
+                opacityTo: 0.9,
+                stops: [0, 90, 100],
 
-function meterDatos(response) {
+            }
+        },
+        xaxis: {
+            categories: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviemrbe','Diciembre']
 
+        }
+    };
+    $("#home").append("<div id='chart' style='min-height: 295px'></div>");
 
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+    chart.render();
+});
+
+$("#profile-tab").onclick(function(){
+
+    $("#tab-content").css('display','block');
 
     var options2 = {
         chart: {
@@ -62,42 +100,10 @@ function meterDatos(response) {
     chart2.render();
 
 
-    var options = {
-        chart: {
-            height: 280,
-            type: "area"
-        },
-        dataLabels: {
-            enabled: false
-        },
-        series: [
-            {
-                name: "Proyectos",
-                data:[response[1][0],response[1][1],response[1][2],response[1][3],response[1][4],
-                    response[1][5],response[1][6],response[1][7],response[1][8],response[1][9],response[1][10],response[1][11]],
-            }
-        ],
-        fill: {
-            type: "gradient",
-            gradient: {
-                shadeIntensity: 1,
-                opacityFrom: 0.7,
-                opacityTo: 0.9,
-                stops: [0, 90, 100],
 
-            }
-        },
-        xaxis: {
-            categories: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviemrbe','Diciembre']
+});
 
-        }
-    };
-    $("#home").append("<div id='chart' style='min-height: 295px'></div>");
-
-    var chart = new ApexCharts(document.querySelector("#chart"), options);
-
-    chart.render();
-
+$("#messages-tab").onclick(function (){
 
     var options3 = {
         series: [
@@ -180,4 +186,7 @@ function meterDatos(response) {
     var chart3 = new ApexCharts(document.querySelector('#chart3'), options3)
     chart3.render()
 
-}
+});
+
+
+
