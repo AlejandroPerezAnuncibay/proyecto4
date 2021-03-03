@@ -21,6 +21,9 @@ function mostrarDatos() {
             }else{
                 datosTareas();
             }
+            $("#chart").empty()
+            $("#char2").empty()
+            $("#chart3").empty()
             $("#home-tab").on("click",datosProyectos());
 
             $("#profile-tab").on("click",datosMensajes());
@@ -67,7 +70,6 @@ function datosMensajes(){
 
         }
     };
-    $("#profile").append("<div id='chart2' style='min-height: 295px'></div>");
 
     var chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
 
@@ -155,7 +157,6 @@ function datosTareas(){
             }
         ]
     }
-    $("#messages").append("<div id='chart3' style='min-height: 295px'></div>");
 
     var chart3 = new ApexCharts(document.querySelector('#chart3'), options3)
     chart3.render()
@@ -194,7 +195,6 @@ function datosProyectos(){
 
         }
     };
-    $("#home").append("<div id='chart' style='min-height: 295px'></div>");
 
     var chart = new ApexCharts(document.querySelector("#chart"), options);
 
