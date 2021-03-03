@@ -17,8 +17,8 @@ function mostrarDatos() {
     });
 
 }
-$("#home-tab").onclick(function (){
-    
+$("#home-tab").on("click",function (){
+
     $("#tab-content").css('display','block');
     var options = {
         chart: {
@@ -57,7 +57,7 @@ $("#home-tab").onclick(function (){
     chart.render();
 });
 
-$("#profile-tab").onclick(function(){
+$("#profile-tab").on("click",function(){
 
     $("#tab-content").css('display','block');
 
@@ -101,7 +101,7 @@ $("#profile-tab").onclick(function(){
 
 });
 
-$("#messages-tab").onclick(function (){
+$("#messages-tab").on("click",function (){
 
     var options3 = {
         series: [
