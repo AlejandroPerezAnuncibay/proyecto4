@@ -15,24 +15,24 @@ function mostrarDatos() {
             datos = response;
             var idActive = $("a.active")[0].id;
             if(idActive === "home-tab"){
-                datosProyectos(datos);
+                datosProyectos();
             }else if(idActive === "profile-tab"){
-                datosMensajes(datos);
+                datosMensajes();
             }else{
-                datosTareas(datos);
+                datosTareas();
             }
         }
     });
 
 }
-$("#home-tab").on("click",datosProyectos(datos));
+$("#home-tab").on("click",datosProyectos());
 
-$("#profile-tab").on("click",datosMensajes(datos));
+$("#profile-tab").on("click",datosMensajes());
 
-$("#messages-tab").on("click",datosTareas(datos));
+$("#messages-tab").on("click",datosTareas());
 
 
-function datosMensajes(datos){
+function datosMensajes(){
 
     $("#tab-content").css('display','block');
 
@@ -75,7 +75,7 @@ function datosMensajes(datos){
 }
 
 
-function datosTareas(datos){
+function datosTareas(){
     $("#tab-content").css('display','block');
 
     var options3 = {
@@ -160,7 +160,7 @@ function datosTareas(datos){
     chart3.render()
 }
 
-function datosProyectos(datos){
+function datosProyectos(){
 
     $("#tab-content").css('display','block');
     var options = {
