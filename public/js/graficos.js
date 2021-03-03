@@ -4,9 +4,6 @@ $(function () {
 })
 
 function mostrarDatos() {
-    $("#chart").remove();
-    $("#chart2").remove();
-    $("#chart3").remove();
 
 
     var nombre =$( "#selectUsu" ).val();
@@ -21,6 +18,7 @@ function mostrarDatos() {
 
 }
 $("#home-tab").onclick(function (){
+    
     $("#tab-content").css('display','block');
     var options = {
         chart: {
