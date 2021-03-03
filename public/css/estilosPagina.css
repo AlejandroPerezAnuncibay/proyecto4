@@ -23,6 +23,7 @@ body{
 [data-theme="dark"] header nav{
     background-color: #536ca2;
 }
+
 [data-theme="dark"] input[type="search"]{
     color: #eee;
 }
@@ -49,8 +50,44 @@ body{
     background: none!important;
 }
 [data-theme="dark"] .current{
-    color: #eee!important;
-
+    color: white;
+    background-color: #5f5f5f;
+}
+[data-theme="dark"] .post-bar{
+    background-color: #5f5f5f;
+    box-shadow: 0px -2px 14px 0px whitesmoke;
+}
+[data-theme="dark"] .widget.widget-portfolio{
+    background-color: #5f5f5f;
+    box-shadow: 0px -2px 14px 0px whitesmoke;
+}
+[data-theme="dark"] .usy-name h3{
+    color: white;
+}
+[data-theme="dark"] .usy-name span{
+    color: white;
+}
+[data-theme="dark"] .job_descp h3{
+    color: white;
+}
+[data-theme="dark"] .wd-heady h3{
+    color: white;
+}
+[data-theme="dark"] .job_descp p{
+    color: white;
+}
+[data-theme="dark"] .sd-title h3{
+    color: white;
+}
+[data-theme="dark"] .sgt-text h4{
+    color: white;
+}
+[data-theme="dark"] .sgt-text span{
+    color: white;
+}
+[data-theme="dark"] .suggestions.full-width{
+    background-color: #5f5f5f;
+    box-shadow: 0px -2px 14px 0px whitesmoke;
 }
 [data-theme="dark"] .user-account-settingss.active {
     background-color:  #34373a ;
@@ -128,7 +165,10 @@ background-color: #34373a;
 }
 [data-theme="dark"] .odd:hover{
     background-color: rgba(103, 98, 98, 0.25);
-    color: #eee;
+    color: white;
+}
+[data-theme="dark"] .flw-hr{
+    background-color: #5f5f5f;
 }
 
 [data-theme="dark"] .card-text{
@@ -138,7 +178,7 @@ background-color: #34373a;
 [data-theme="dark"] .btnEnviar{
     background-color: #FCA311 !important;
     border-color: #FCA311;
-    color: #eee;
+    color: white;
 }
 [data-theme="dark"] .btnEnviar:hover{
     background-color: #FCA311 !important;
@@ -215,6 +255,29 @@ background-color: #34373a;
     color: white;
 }
 [data-theme="dark"] .user_profile{
+    color: white;
+    box-shadow: 0px -2px 14px 0px whitesmoke;
+    background-color: #5f5f5f;
+}
+[data-theme="dark"] .user-tab-sec h3{
+    color: white;
+}
+[data-theme="dark"] .star-descp span{
+    color: white;
+}
+[data-theme="dark"] .tab-feed ul li span{
+    color: white;
+}
+[data-theme="dark"] .tab-feed ul li.active img {
+    filter: hue-rotate(45deg);
+}
+[data-theme="dark"] .flw-status li span {
+    color: white;
+}
+[data-theme="dark"] .flw-status li b {
+    color: white;
+}
+[data-theme="dark"] .portfolio-gallery-sec{
     color: white;
     box-shadow: 0px -2px 14px 0px whitesmoke;
     background-color: #5f5f5f;
@@ -343,7 +406,8 @@ label[for=remember]{
 .flw-hr{
     background-color: whitesmoke;
     padding-bottom: 30px;
-    padding-top: 10px;
+    padding-top: 30px;
+    padding-left: 20px;
     margin-bottom: 0;
 }
 .flw-status{
@@ -358,18 +422,15 @@ label[for=remember]{
     color: #FCA311 !important;
     border-color: #FCA311 !important ;
 }
+.message-btn{
+    display: none;
+}
 .message-btn a{
     background-color: #FCA311 !important ;
 }
 
 .user_pro_status{
     padding-bottom: 0;
-}
-.flw-hr{
-    background-color: whitesmoke;
-    padding-bottom: 30px;
-    padding-top: 10px;
-    margin-bottom: 0;
 }
 .flw-status{
     padding: 20px 0;
