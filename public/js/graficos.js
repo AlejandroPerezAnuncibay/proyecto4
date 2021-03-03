@@ -10,9 +10,9 @@ function mostrarDatos() {
     $.ajax({
         url: "/datosEstadisticas/"+nombre,
         method: "get",
-        success: function (response){
+        success: function (datos){
             $("#tab-content").css('display',"block");
-            datos = response;
+            datos = datos;
         }
     });
 
@@ -31,8 +31,8 @@ $("#home-tab").on("click",function (){
         series: [
             {
                 name: "Proyectos",
-                data:[response[1][0],response[1][1],response[1][2],response[1][3],response[1][4],
-                    response[1][5],response[1][6],response[1][7],response[1][8],response[1][9],response[1][10],response[1][11]],
+                data:[datos[1][0],datos[1][1],datos[1][2],datos[1][3],datos[1][4],
+                    datos[1][5],datos[1][6],datos[1][7],datos[1][8],datos[1][9],datos[1][10],datos[1][11]],
             }
         ],
         fill: {
@@ -72,8 +72,8 @@ $("#profile-tab").on("click",function(){
         series: [
             {
                 name: "Mensajes",
-                data:[response[0][0],response[0][1],response[0][2],response[0][3],response[0][4],
-                    response[0][5],response[0][6],response[0][7],response[0][8],response[0][9],response[0][10],response[0][11]]
+                data:[datos[0][0],datos[0][1],datos[0][2],datos[0][3],datos[0][4],
+                    datos[0][5],datos[0][6],datos[0][7],datos[0][8],datos[0][9],datos[0][10],datos[0][11]]
             }
         ],
         fill: {
@@ -110,51 +110,51 @@ $("#messages-tab").on("click",function (){
                 data: [
                     {
                         x: 'Enero',
-                        y: response[2][0]
+                        y: datos[2][0]
                     },
                     {
                         x: 'Febrero',
-                        y: response[2][1]
+                        y: datos[2][1]
                     },
                     {
                         x: 'Marzo',
-                        y: response[2][2]
+                        y: datos[2][2]
                     },
                     {
                         x: 'Abril',
-                        y: response[2][3]
+                        y: datos[2][3]
                     },
                     {
                         x: 'Mayo',
-                        y: response[2][4]
+                        y: datos[2][4]
                     },
                     {
                         x: 'Junio',
-                        y: response[2][5]
+                        y: datos[2][5]
                     },
                     {
                         x: 'Julio',
-                        y: response[2][6]
+                        y: datos[2][6]
                     },
                     {
                         x: 'Agosto',
-                        y: response[2][7]
+                        y: datos[2][7]
                     },
                     {
                         x: 'Septiembre',
-                        y: response[2][8]
+                        y: datos[2][8]
                     },
                     {
                         x: 'Octubre',
-                        y: response[2][9]
+                        y: datos[2][9]
                     },
                     {
                         x: 'Noviembre',
-                        y: response[2][10]
+                        y: datos[2][10]
                     },
                     {
                         x: 'Diciembre',
-                        y: response[2][11]
+                        y: datos[2][11]
                     }
                 ]
             }
