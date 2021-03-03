@@ -21,15 +21,16 @@ function mostrarDatos() {
             }else{
                 datosTareas();
             }
+            $("#home-tab").on("click",datosProyectos());
+
+            $("#profile-tab").on("click",datosMensajes());
+
+            $("#messages-tab").on("click",datosTareas());
         }
     });
 
 }
-$("#home-tab").on("click",datosProyectos());
 
-$("#profile-tab").on("click",datosMensajes());
-
-$("#messages-tab").on("click",datosTareas());
 
 
 function datosMensajes(){
