@@ -4,9 +4,7 @@ $(function () {
 })
 
 function mostrarDatos() {
-    $("#chart").empty();
-    $("#chart2").empty();
-    $("#chart3").empty();
+
 
     var nombre =$( "#selectUsu" ).val();
     $.ajax({
