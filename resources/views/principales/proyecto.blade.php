@@ -9,6 +9,11 @@
 
                 <img src="/{{ $proyecto->imagen }}" alt="No hay imagen de proyecto" width="100%" height="250px">
         </section>
+@if($errors->any)
+    <div class="error">
+        <small class="text-danger">{{$errors}}</small>
+    </div>
+@endif
         <div class="modal fade" id="cambiarImagen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
