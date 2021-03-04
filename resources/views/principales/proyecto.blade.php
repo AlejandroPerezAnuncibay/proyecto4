@@ -186,9 +186,9 @@
                                             <small class="text-danger">{{$errors->first("descripcion")}}</small>
                                         </div>
                                     @endif
-                                    @if(isset($errorPortada))
+                                    @if($errors->has("errorPortada"))
                                         <div class="error">
-                                            <small class="text-danger">{{$errorPortada}}</small>
+                                            <small class="text-danger">{{$errors->first("errorPorada")}}</small>
                                         </div>
                                     @endif
                                     <div class="product-feed-tab current" id="feed-dd">

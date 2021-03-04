@@ -201,7 +201,7 @@ class ControladorIndex extends Controller
 
     public function cambiarImagenProyecto(){
         if (\request()->file("imgProyecto")==null){
-            return back()->with('errorPortada','No se puede dejar el campo vacio');
+            return Redirect::back()->withErrors(['errorPortada', 'No se puede dejar vacio']);
         }else{
         $archivo = request()->file("imgProyecto");
         $nombreHash = request()->file("imgProyecto")->hashName();
