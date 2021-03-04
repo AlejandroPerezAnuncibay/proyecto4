@@ -243,12 +243,12 @@
                                                             <input type="text" name="idProyecto" hidden value="{{$proyecto->id}}">
                                                             <input type="text" name="creador" hidden value="{{Auth::user()->id}}">
                                                         </div>
-                                                        <label for="descripcionTarea" style="padding: 10px 0; color: grey">Descripción: </label><br>
+                                                        <label for="descripcionTarea" class="letrasGrises" style="padding: 10px 0;">Descripción: </label><br>
                                                         <div class="sn-field border-0">
                                                             <textarea id="descripcionTarea" style="padding: 10px 15px  40px; min-height: 100px;max-height: 100px;" type="text"  class="form-control" required name="descripcion" ></textarea>
 
                                                         </div>
-                                                        <label for="usuarioAsignado" style="margin: 10px 0; color: grey">Usuario Asignado:</label><br>
+                                                        <label for="usuarioAsignado" class="letrasGrises" style="margin: 10px 0;">Usuario Asignado:</label><br>
 
                                                         <div class="sn-field">
 
@@ -391,7 +391,7 @@
 
                                         @else
 
-                                                <small>No hay tareas añadidas.</small>
+                                                <small style="padding-left: 20px">No hay tareas añadidas.</small>
 
                                         @endif
 
