@@ -9,11 +9,7 @@
 
                 <img src="/{{ $proyecto->imagen }}" alt="No hay imagen de proyecto" width="100%" height="250px">
         </section>
-@if($errors->any)
-    <div class="error">
-        <small class="text-danger">{{$errors}}</small>
-    </div>
-@endif
+
         <div class="modal fade" id="cambiarImagen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -152,10 +148,16 @@
                             <div class="col-lg-6 order-2">
 
                                 <div class="main-ws-sec">
+
                                     <div class="user-tab-sec">
                                         <h3>{{$proyecto->nombre}}</h3>
                                         <div class="star-descp">
                                             <span>{{$proyecto->descripcion}}</span>
+                                            @if($errors->has("descripcion"))
+                                                <div class="error">
+                                                    <small class="text-danger">{{$errors->first("descripcion")}}</small>
+                                                </div>
+                                            @endif
 
                                         </div><!--star-descp end-->
                                         <div class="tab-feed st2">
