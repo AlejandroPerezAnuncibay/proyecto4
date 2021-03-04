@@ -54,11 +54,10 @@ class ControladorProyectos extends Controller
         $queryCreador = DB::table('users')->select('name')->where('id','=',\request('authUserId'))->get();
       $nombreCreador = $queryCreador[0]->name;
         \request()->validate([
-            "titulo"=> 'required',
-            "descripcion"=> 'required|max:255',
-            "id_proyecto"=> 'required',
-            "creador"=> 'required',
-            "nombreCreador"=>'required']);
+            "descripcion"=> 'required|max:255'
+          ],[
+              "descripcion.max" => "Maximo solo 255 caracteres."
+        ]);
        Mensaje::create([
            "titulo"=> \request("titulo"),
            "descripcion"=> \request("descripcion"),
