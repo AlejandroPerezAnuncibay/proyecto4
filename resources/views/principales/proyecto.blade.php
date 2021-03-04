@@ -153,11 +153,7 @@
                                         <h3>{{$proyecto->nombre}}</h3>
                                         <div class="star-descp">
                                             <span>{{$proyecto->descripcion}}</span>
-                                            @if($errors->has("descripcion"))
-                                                <div class="error">
-                                                    <small class="text-danger">{{$errors->first("descripcion")}}</small>
-                                                </div>
-                                            @endif
+
 
                                         </div><!--star-descp end-->
                                         <div class="tab-feed st2">
@@ -185,6 +181,16 @@
                                             </ul>
                                         </div><!-- tab-feed end-->
                                     </div><!--user-tab-sec end-->
+                                    @if($errors->has("descripcion"))
+                                        <div class="error">
+                                            <small class="text-danger">{{$errors->first("descripcion")}}</small>
+                                        </div>
+                                    @endif
+                                    @if(isset($errorPortada))
+                                        <div class="error">
+                                            <small class="text-danger">{{$errorPortada}}</small>
+                                        </div>
+                                    @endif
                                     <div class="product-feed-tab current" id="feed-dd">
 
                                         @if($errors->has("fechaVencimiento"))
