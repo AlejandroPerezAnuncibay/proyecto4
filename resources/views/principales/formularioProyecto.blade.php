@@ -25,14 +25,14 @@
                                         <div class="cp-field">
                                             <h5>Nombre de proyecto</h5>
                                             <div class="cpp-fiel">
-                                                <input type="text" name="nombre" placeholder="Nombre proyecto">
+                                                <input type="text" name="nombre" required placeholder="Nombre proyecto">
                                                 <i class="la la-folder-open"></i>
                                             </div>
                                         </div>
                                         <div class="cp-field">
                                             <h5>Descripción</h5>
                                             <div class="cpp-fiel">
-                                                <input type="text" name="descripcion" placeholder="Descripción">
+                                                <input type="text" name="descripcion" required placeholder="Descripción">
                                                 <i class="la la-font"></i>
                                             </div>
                                         </div>
