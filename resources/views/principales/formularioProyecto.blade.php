@@ -43,8 +43,7 @@
                                                     <input type="file" hidden class="custom-file-input" id="customFile" name="imgProyecto" accept=".png, .jpg, .jpeg, .jzif">
                                                 <li><button type="button" class="anadirImagenFormulario"><label class="w-100" for="customFile">Añadir imagen</label></button></li><br>
                                                 <li><button type="submit">Guardar proyecto</button></li>
-                                                <li><button type="button"><label for="volver">Cancelar proyecto</label></button></li>
-                                                <a href="{{route('dashboard')}}" id="volver"></a>
+                                                <li> <a class="btnEnviar" href="{{route('dashboard')}}" id="volver"></a></li>
 
                                             </ul>
                                         </div>
